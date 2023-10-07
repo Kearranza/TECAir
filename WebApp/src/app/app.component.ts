@@ -14,8 +14,11 @@ export class AppComponent {
 
   constructor (private getAPI: GetAPIService){ }
 
-  ngOnInit(): void{
-    this.GetTest
+  GetTestc(){
+    this.getAPI.getDataTestc("chesto").subscribe(data => {
+      this.test = data;
+      console.log(this.test)
+    })
   }
 
   GetTest(){
