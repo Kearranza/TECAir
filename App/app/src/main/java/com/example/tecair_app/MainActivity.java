@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.tecair_app.flights.flight_admin;
+import com.example.tecair_app.flights.flightAdmin;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickFlights(View view) {
-        Intent intent = new Intent(this, flight_admin.class);
+        Intent intent = new Intent(this, flightAdmin.class);
         startActivity(intent);
     }
 }

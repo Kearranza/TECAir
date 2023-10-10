@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".flights.flight_admin">
+    tools:context=".flights.flightAdmin">
     <View
         android:id="@+id/top_view"
         android:layout_width="match_parent"
@@ -25,11 +25,19 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registro"
+        android:text="Vuelos"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:textSize="28sp"
         android:layout_marginTop="100dp"/>
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/baseline_arrow_back_ios_24"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="20dp"
+        android:onClick="onClickBack"
+        />
 
 </RelativeLayout>
