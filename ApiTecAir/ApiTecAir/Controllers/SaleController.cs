@@ -44,7 +44,7 @@ public class SaleController : ControllerBase
             return sale;
     }
 
-    [HttpPut("/tecAirs/id")]
+    [HttpPut("/sale/id")]
     public IActionResult Put(int id, [FromBody] SaleDto model)
     {
         _tecAirDbContext.sale.Attach(model);

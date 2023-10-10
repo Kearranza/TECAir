@@ -1,0 +1,85 @@
+[
+Estructura avion
+  {
+    "plateno": "string",
+    "size": 0,
+    "row": 0,
+    "pcolumn": 0
+  },
+  Estructura factura
+  {
+    "billid": 0
+  },
+Estructura Cliente
+  {
+    "ssn": "string",
+    "email": "string",
+    "phone": "string",
+    "firstlname": "string",
+    "secondlname": "string",
+    "name": "string"
+  },
+Estructura vuelo
+  {
+    "flightid": 0,
+    "origin": "string",
+    "destination": "string",
+    "departuretime": "2023-10-10T04:51:47.265Z"
+  },
+Estructura calendario de vuelos
+  {
+    "calendarid": 0,
+    "date": "2023-10-10T04:51:55.957Z"
+  },
+Estructura precios
+  {
+    "priceid": 0,
+    "type": "string",
+    "value": 0
+  },
+Estructura promociones
+  {
+    "saleid": 0,
+    "origin": "string",
+    "destination": "string",
+    "salestart": "2023-10-10T04:52:20.665Z",
+    "saleend": "2023-10-10T04:52:20.665Z",
+    "discount": 0
+  },
+Estructura escalas
+  {
+    "scaleid": 0,
+    "origin": "string",
+    "destination": "string",
+    "placeorder": "string"
+  },
+Estructura asientos
+  {
+    "seatid": 0,
+    "availability": true,
+    "seatno": "string"
+  },
+Estructura estudiante
+  {
+    "studentid": "string",
+    "university": "string",
+    "miles": 0
+  },
+Estructura maleta
+  {
+    "suitcaseid": 0,
+    "weight": 0,
+    "color": "string"
+  },
+estructura pase de abordaje
+  {
+    "ticketid": 0,
+    "gate": "string",
+    "departuretime": "2023-10-10T04:53:22.635Z"
+  },
+Estructura usuario
+  {
+    "userid": 0,
+    "password": "string"
+  }
+]
