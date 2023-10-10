@@ -74,13 +74,13 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/baseline_airplane_ticket_24"
+                    android:src="@drawable/baseline_app_registration_24"
                     android:layout_gravity="center_horizontal"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Buscar vuelo"
+                    android:text="Registrarse"
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
@@ -105,13 +105,13 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/baseline_airplane_ticket_24"
+                    android:src="@drawable/baseline_shopping_cart_checkout_24"
                     android:layout_gravity="center_horizontal"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Buscar vuelo"
+                    android:text="Check-In"
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
@@ -136,13 +136,13 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/baseline_airplane_ticket_24"
+                    android:src="@drawable/baseline_login_24"
                     android:layout_gravity="center_horizontal"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Buscar vuelo"
+                    android:text="Iniciar sesion"
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
@@ -173,7 +173,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Buscar vuelo"
+                    android:text="Vuelos registrados"
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
@@ -197,13 +197,13 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/baseline_airplane_ticket_24"
+                    android:src="@drawable/baseline_more_vert_24"
                     android:layout_gravity="center_horizontal"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Buscar vuelo"
+                    android:text="Otros"
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
