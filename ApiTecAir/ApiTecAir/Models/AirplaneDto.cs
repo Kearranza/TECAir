@@ -1,12 +1,15 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ApiTecAir.Models;
 
 public class AirplaneDto
 {
-    public required string PlateNo { set; get; }
+    [Key]
+    public required string plateno { set; get; }
     
-    public int Size { set; get; }
+    public int size { set; get; }
     
-    public int Rows { set; get; }
+    public int row { set; get; }
     
-    public int Columns { set; get; }
+    public int pcolumn { set; get; }
 }

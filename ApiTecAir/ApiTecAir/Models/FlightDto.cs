@@ -1,14 +1,15 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ApiTecAir.Models;
 
 public class FlightDto
 {
-    public required string FlightId { set; get; }
+    [Key]
+    public required int flightid { set; get; }
     
-    public required string Origin { set; get; }
+    public required string origin { set; get; }
     
-    public required string Destination { set; get; }
+    public required string destination { set; get; }
     
-    public required AirplaneDto Airplane { set; get; }
-    
-    public DateTime DepartureTime { set; get; }
+    public DateTime departuretime { set; get; }
 }

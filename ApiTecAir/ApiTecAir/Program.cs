@@ -18,8 +18,7 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddControllers();
 
-builder.Services.AddDbContext<StudentdbContext>(option=> option.UseNpgsql(builder.Configuration.GetConnectionString("connection")));
-builder.Services.AddDbContext<SaledbContext>(option=> option.UseNpgsql(builder.Configuration.GetConnectionString("connection")));
+builder.Services.AddDbContext<TECAirDbContext>(option=> option.UseNpgsql(builder.Configuration.GetConnectionString("connection")));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -29,6 +28,12 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+if (app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();

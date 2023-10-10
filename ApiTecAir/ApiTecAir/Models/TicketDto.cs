@@ -1,12 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ApiTecAir.Models;
 
 public class TicketDto
 {
-    public required string TicketId { set; get; }
+    [Key]
+    public int ticketid { set; get; }
     
-    public int SeatNo { set; get; }
+    public string gate { set; get; }
     
-    public int GateNo { set; get; }
-    
-    public required FlightDto Flight { set; get; }
+    public DateTime departuretime { set; get; }
 }

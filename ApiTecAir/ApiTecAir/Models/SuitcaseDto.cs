@@ -1,12 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ApiTecAir.Models;
 
 public class SuitcaseDto
 {
-    public required string SuitcaseId { set; get; }
+    [Key]
+    public int suitcaseid { set; get; }
     
-    public int Weight { set; get; }
+    public long weight { set; get; }
     
-    public required string Color { set; get; }
-    
-    public required ClientDto Owner { set; get; }
+    public required string color { set; get; }
 }

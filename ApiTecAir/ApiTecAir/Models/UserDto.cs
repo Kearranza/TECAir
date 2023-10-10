@@ -1,8 +1,11 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ApiTecAir.Models;
 
 public class UserDto
 {
-    public int UserId { set; get; }
+    [Key]
+    public int userid { set; get; }
     
-    public required string Password { set; get; }
+    public required string password { set; get; }
 }

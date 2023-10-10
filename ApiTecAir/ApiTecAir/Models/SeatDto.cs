@@ -1,10 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ApiTecAir.Models;
 
 public class SeatDto
 {
-    public required string SeatId { set; get; }
+    [Key]
+    public int seatid { set; get; }
     
-    public int SeatNo { set; get; }
+    public bool availability { set; get; }
     
-    public bool Availability { set; get; }
+    public required string seatno { set; get; }
+    
 }

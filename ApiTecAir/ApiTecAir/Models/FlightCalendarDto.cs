@@ -1,8 +1,11 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ApiTecAir.Models;
 
 public class FlightCalendarDto
 {
-    public required string CalendarId { set; get; }
+    [Key]
+    public required int calendarid { set; get; }
     
-    public DateTime Date { set; get; }
+    public DateTime date { set; get; }
 }

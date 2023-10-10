@@ -1,8 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ApiTecAir.Models;
 
 public class CreditCardDto
 {
-    public required string CreditCardNo { set; get; }
+    [Key]
+    public required string creditcardno { set; get; }
     
-    public required ClientDto Owner { set; get; }
 }

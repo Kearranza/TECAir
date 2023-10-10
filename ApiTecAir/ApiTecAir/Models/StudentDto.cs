@@ -1,10 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ApiTecAir.Models;
 
 public class StudentDto
 {
-    public required string StudentId { set; get; }
+    [Key]
+    public required string studentid { set; get; }
     
-    public required string College { set; get; }
+    public required string university { set; get; }
     
-    public int Miles { set; get; }
+    public int miles { set; get; }
 }

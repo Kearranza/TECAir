@@ -1,10 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ApiTecAir.Models;
 
 public class PriceDto
 {
-    public int PriceId { set; get; } 
+    [Key]
+    public int priceid { set; get; } 
         
-    public int Value { set; get; }
+    public required string type { set; get; }
     
-    public required string Type { set; get; }
+    public int value { set; get; }
 }
