@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:columnCount="2"
-        android:rowCount="3"
+        android:rowCount="2"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginTop="-80dp"
@@ -31,14 +31,15 @@
             android:layout_row="0"
             android:layout_column="0"
             android:layout_margin="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:onClick="onClickFlights">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:onClick="onClickRegister">
+                >
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
@@ -48,7 +49,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Buscar vuelo"
+                    android:text="Vuelos"
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
@@ -74,13 +75,13 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/baseline_airplane_ticket_24"
+                    android:src="@drawable/baseline_percent_24"
                     android:layout_gravity="center_horizontal"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Buscar vuelo"
+                    android:text="Promociones"
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
@@ -105,13 +106,13 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/baseline_airplane_ticket_24"
+                    android:src="@drawable/baseline_app_registration_24"
                     android:layout_gravity="center_horizontal"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Buscar vuelo"
+                    android:text="Registrar"
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
@@ -136,74 +137,13 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/baseline_airplane_ticket_24"
+                    android:src="@drawable/baseline_login_24"
                     android:layout_gravity="center_horizontal"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Buscar vuelo"
-                    android:layout_gravity="center_horizontal"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="15dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_row="2"
-            android:layout_margin="12dp"
-            android:layout_column="0"
-            app:cardElevation="12dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/baseline_airplane_ticket_24"
-                    android:layout_gravity="center_horizontal"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Buscar vuelo"
-                    android:layout_gravity="center_horizontal"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="15dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"            android:layout_margin="12dp"
-            android:layout_row="2"
-            android:layout_column="1"
-            app:cardElevation="12dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/baseline_airplane_ticket_24"
-                    android:layout_gravity="center_horizontal"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Buscar vuelo"
+                    android:text="Iniciar Sesion"
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
@@ -220,7 +160,7 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:textSize="36sp"
+        android:textSize="40sp"
         android:layout_marginTop="30dp"/>
 
 
