@@ -65,14 +65,15 @@
             android:layout_row="0"
             android:layout_column="1"
             android:layout_margin="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:onClick="onClickPromo">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:onClick="onClickPromo">
+                >
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
@@ -97,7 +98,8 @@
             android:layout_row="1"
             android:layout_column="0"
             android:layout_margin="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:onClick="onClickRegister">
 
             <LinearLayout
                 android:layout_width="match_parent"

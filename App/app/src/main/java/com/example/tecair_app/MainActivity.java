@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.tecair_app.flights.flightAdmin;
+import com.example.tecair_app.promos.promosAdmin;
+import com.example.tecair_app.register.registerAdmin;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +20,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickFlights(View view) {
         Intent intent = new Intent(this, flightAdmin.class);
+        startActivity(intent);
+    }
+
+    public void onClickPromo(View view) {
+        Intent intent = new Intent(this, promosAdmin.class);
+        startActivity(intent);
+    }
+
+    public void onClickRegister(View view) {
+        Intent intent = new Intent(this, registerAdmin.class);
         startActivity(intent);
     }
 }
