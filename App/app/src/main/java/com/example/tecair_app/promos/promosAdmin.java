@@ -21,4 +21,18 @@ public class promosAdmin extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void onClickPromo1(View view) {
+        Intent intent = new Intent(this, Promo1.class);
+        startActivity(intent);
+    }
+
+    public void onClickPromo2(View view) {
+        Intent intent = new Intent(this, Promo2.class);
+        startActivity(intent);
+    }
+    public void onClickPromo3(View view){
+        Intent intent = new Intent(this, Promo3.class);
+        startActivity(intent);
+    }
 }

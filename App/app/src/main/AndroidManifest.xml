@@ -13,6 +13,21 @@
         android:theme="@style/Theme.TecAir_app"
         tools:targetApi="31">
         <activity
+            android:name=".promos.Promo3"
+            android:exported="false" />
+        <activity
+            android:name=".promos.Promo2"
+            android:exported="false" />
+        <activity
+            android:name=".promos.Promo1"
+            android:exported="false" />
+        <activity
+            android:name=".login.loginAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".register.basicRegister"
+            android:exported="false" />
+        <activity
             android:name=".register.userRegister"
             android:exported="false" />
         <activity
