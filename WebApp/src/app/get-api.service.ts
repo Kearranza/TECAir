@@ -27,4 +27,7 @@ export class GetAPIService {
     return this.http.get<any>(urlTestcUrl)
   }
 
+  getDataLocation(): Observable<any> {
+    return this.http.get<any>(this.urlTestUrl)
+  }
 }
