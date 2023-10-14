@@ -8,7 +8,7 @@
 }
 
 .header{
-    background-color: #125368;
+    background-image: url('../../assets/Sky.png');
     display: flex;
     justify-content: space-between;
     align-items: center;

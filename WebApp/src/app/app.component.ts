@@ -15,7 +15,7 @@ export class AppComponent {
   constructor (private getAPI: GetAPIService){ }
 
   GetTestc(){
-    this.getAPI.getDataTestc("chesto").subscribe(data => {
+    this.getAPI.getDataeTest("chesto").subscribe(data => {
       this.test = data;
       console.log(this.test)
     })

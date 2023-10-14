@@ -1,3 +1,7 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
 .img_container {
     display: flex;
     justify-content: center;
@@ -8,7 +12,7 @@
 img {
     width: 98%;
     border-radius: 50px;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 1);
 }
 
 .main-container {
