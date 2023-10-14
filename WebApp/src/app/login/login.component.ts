@@ -37,7 +37,7 @@ export class LoginComponent {
         passwordInput.style.borderColor = '';
 
         // Redirigir al usuario a la página de inicio.
-        this.router.navigate(['/app']);
+        this.router.navigate(['/admin-selector']);
       }
     }
   }

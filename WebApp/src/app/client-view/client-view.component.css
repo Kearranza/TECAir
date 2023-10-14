@@ -1,0 +1,60 @@
+.img_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+img {
+    width: 98%;
+    border-radius: 50px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.child-container {
+    width: 48%;
+    margin: 30px;
+    margin-top: 80px;
+    padding: 20px;
+    border-radius: 10px;
+    background-image: url('../../assets/Sky.png');
+    background-size: cover;
+    background-position: center;
+    border: 2px solid white;
+    box-shadow: 0 0 10px white;
+    text-align: center;
+}
+
+.child-container h2,
+.child-container p {
+    color: white;
+}
+
+.child-container h2{
+    text-shadow: #FFF 0px 0px 10px;
+}
+
+.child-container:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.child-container:hover button {
+    opacity: 1; 
+    pointer-events: auto; 
+}
+
+@media (max-width : 768px) {
+    .main-container {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+}
