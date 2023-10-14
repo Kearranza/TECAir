@@ -66,5 +66,29 @@ CREATE TABLE MAPA_ASIENTOS(
         foreign key (ID_Avión) references AVIÓN (Placa)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
-)
+);
 
+CREATE TABLE CALENDARIO_VUELO(
+    ID_Calendario serial
+        constraint CALENDARIO_VUELO_pk
+            primary key,
+    Fecha date,
+    Precio int,
+    ID_Avion varchar(10),
+    constraint CALENDARIO_VUELO_fk
+        foreign key (ID_Avion) references AVIÓN (Placa)
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION
+);
+
+CREATE TABLE AEREOPUERTO(
+    ID_aereo varchar(3)
+        constraint AEREOPUERTO_pk
+            primary key,
+    Ciudad varchar(30),
+    Pais varchar(40)
+);
+
+CREATE TABLE VUELOS(
+    
+)
