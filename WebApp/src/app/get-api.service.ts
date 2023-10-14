@@ -22,12 +22,22 @@ export class GetAPIService {
     return this.http.get<any>(this.urlTestUrl)
   }
 
-  getDataTestc(i:string): Observable<any> {
+  getDataeTest(i:string): Observable<any> {
     const urlTestcUrl  = `https://pokeapi.co/api/v2/berry/${i}`;
     return this.http.get<any>(urlTestcUrl)
   }
 
-  getDataLocation(): Observable<any> {
-    return this.http.get<any>(this.urlTestUrl)
+  postDataTest(data: any): Observable<any> {
+    return this.http.post<any>(this.urlTestUrl, data);
+  }
+
+  updateDataTest(id: number, data: any): Observable<any> {
+    const url = `https://pokeapi.co/api/v2/berry/${id}`
+    return this.http.put(url, data);
+  }
+
+  eliminarRecurso(id: number): Observable<any> {
+    const url = `${this.urlTestUrl}/${id}`;
+    return this.http.delete(url);
   }
 }
