@@ -36,7 +36,7 @@ export class GetAPIService {
     return this.http.put(url, data);
   }
 
-  eliminarRecurso(id: number): Observable<any> {
+  DeleteDataTest(id: number): Observable<any> {
     const url = `${this.urlTestUrl}/${id}`;
     return this.http.delete(url);
   }
