@@ -1,5 +1,7 @@
 using ApiTecAir.DbContexts;
-using ApiTecAir.Models;
+using ApiTecAir.Dtos;
+using ApiTecAir.Entities;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,15 +10,18 @@ namespace ApiTecAir.Controllers;
 public class ScaleController : ControllerBase
 {
     private TECAirDbContext _tecAirDbContext;
+    private IMapper _mapper;
 
-    public ScaleController(TECAirDbContext tecAirs)
+    public ScaleController(TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
+        _mapper = mapper;
     }
 
     [HttpPost("/escala")]
-    public IActionResult CreateScale([FromBody] EscalaDto model)
+    public IActionResult CreateScale([FromBody] EscalaDto payload)
     {
+        var model = _mapper.Map<Escala>(payload);
         var scaleExist = _tecAirDbContext.escala.Any(e => e.id_escala == model.id_escala);
         if (scaleExist == true)
         {
@@ -37,15 +42,16 @@ public class ScaleController : ControllerBase
     }
 
     [HttpGet("/{id}/escala")]
-    public EscalaDto GetById(int id)
+    public Escala GetById(int id)
     {
         var scale = _tecAirDbContext.escala.Find(id);
         return scale;
     }
 
     [HttpPut("/escala/id")]
-    public IActionResult Put(int id, [FromBody] EscalaDto model)
+    public IActionResult Put(int id, [FromBody] EscalaDto payload)
     {
+        var model = _mapper.Map<Escala>(payload);
         _tecAirDbContext.escala.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 

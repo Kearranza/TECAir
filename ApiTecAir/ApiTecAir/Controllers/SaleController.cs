@@ -1,5 +1,7 @@
 using ApiTecAir.DbContexts;
-using ApiTecAir.Models;
+using ApiTecAir.Dtos;
+using ApiTecAir.Entities;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,15 +11,18 @@ namespace ApiTecAir.Controllers;
 public class SaleController : ControllerBase
 {
     private TECAirDbContext _tecAirDbContext;
+    private IMapper _mapper;
 
-    public SaleController(TECAirDbContext tecAirs)
+    public SaleController(TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
+        _mapper = mapper;
     }
 
     [HttpPost("/promociones")]
-    public IActionResult CreateSale([FromBody] PromocionesDto model)
+    public IActionResult CreateSale([FromBody] PromocionesDto payload)
     {
+        var model = _mapper.Map<Promociones>(payload);
         var saleExist = _tecAirDbContext.promociones.Any(e => e.id_promo == model.id_promo);
         if (saleExist == true)
         {
@@ -38,15 +43,16 @@ public class SaleController : ControllerBase
     }
 
     [HttpGet("/{id}/promociones")]
-    public PromocionesDto GetById(int id)
+    public Promociones GetById(int id)
     {
             var sale = _tecAirDbContext.promociones.Find(id);
             return sale;
     }
 
     [HttpPut("/promociones/id")]
-    public IActionResult Put(int id, [FromBody] PromocionesDto model)
+    public IActionResult Put(int id, [FromBody] PromocionesDto payload)
     {
+        var model = _mapper.Map<Promociones>(payload);
         _tecAirDbContext.promociones.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 

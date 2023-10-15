@@ -23,8 +23,11 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod();
         });
 });
-
-builder.Services.AddControllers();
+builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+});
 
 builder.Services.AddDbContext<TECAirDbContext>(option=> option.UseNpgsql(builder.Configuration.GetConnectionString("connection")));
 

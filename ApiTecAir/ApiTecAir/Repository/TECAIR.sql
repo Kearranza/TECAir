@@ -15,6 +15,31 @@ CREATE TABLE COLOR(
             primary key
 );
 
+CREATE TABLE AEREOPUERTO(
+    ID_Aereo varchar(3)
+    constraint AEREOPUERTO_pk
+        primary key,
+    Ciudad varchar(30) not null ,
+    Pais varchar(40) not null
+);
+
+CREATE TABLE VUELOS(
+    ID_Vuelo int
+    constraint VUELOS_pk
+        primary key,
+    Hora_salida time not null ,
+    Aereo_origen varchar(3) not null ,
+    Aereo_final varchar(3) not null ,
+    constraint VUELOS_fk
+        foreign key (Aereo_origen) references AEREOPUERTO (ID_aereo)
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION,
+        constraint VUELOS__fk
+        foreign key (Aereo_final) references AEREOPUERTO (ID_aereo)
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION
+);
+
 CREATE TABLE USUARIO(
     ID_Usuario serial,
     Contrasena varchar(15) not null ,
@@ -88,31 +113,6 @@ CREATE TABLE CALENDARIO_VUELO(
             ON DELETE NO ACTION,
     constraint CALENDARIO_VUELO__fk
         foreign key (ID_Vuelo) references VUELOS (ID_Vuelo)
-            ON UPDATE NO ACTION
-            ON DELETE NO ACTION
-);
-
-CREATE TABLE AEREOPUERTO(
-    ID_Aereo varchar(3)
-        constraint AEREOPUERTO_pk
-            primary key,
-    Ciudad varchar(30) not null ,
-    Pais varchar(40) not null
-);
-
-CREATE TABLE VUELOS(
-    ID_Vuelo int
-        constraint VUELOS_pk
-            primary key,
-    Hora_salida time not null ,
-    Aereo_origen varchar(3) not null ,
-    Aereo_final varchar(3) not null ,
-    constraint VUELOS_fk
-        foreign key (Aereo_origen) references AEREOPUERTO (ID_aereo)
-            ON UPDATE NO ACTION
-            ON DELETE NO ACTION,
-    constraint VUELOS__fk
-        foreign key (Aereo_final) references AEREOPUERTO (ID_aereo)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
 );

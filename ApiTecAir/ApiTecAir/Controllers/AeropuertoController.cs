@@ -1,5 +1,7 @@
 using ApiTecAir.DbContexts;
-using ApiTecAir.Models;
+using ApiTecAir.Dtos;
+using ApiTecAir.Entities;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,15 +10,18 @@ namespace ApiTecAir.Controllers;
 public class AeropuertoController : ControllerBase
 {
     private TECAirDbContext _tecAirDbContext;
+    private IMapper _mapper;
 
-    public AeropuertoController (TECAirDbContext tecAirs)
+    public AeropuertoController (TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
+        _mapper = mapper;
     }
     
     [HttpPost ("/aeropuerto")]
-    public IActionResult CreateAeropuerto([FromBody] AeropuertoDto model)
+    public IActionResult CreateAeropuerto([FromBody] AeropuertoDto payload)
     {
+        var model =_mapper.Map<Aeropuerto>(payload);
         var aeropuertoExist = _tecAirDbContext.aereopuerto.Any(e => e.id_aereo == model.id_aereo);
         if (aeropuertoExist == true)
         {
@@ -37,15 +42,16 @@ public class AeropuertoController : ControllerBase
     }
 
     [HttpGet("/{id}/aeropuerto")]
-    public AeropuertoDto GetById(string id)
+    public Aeropuerto GetById(string id)
     {
         var aeropuerto = _tecAirDbContext.aereopuerto.Find(id);
         return aeropuerto;
     }
 
     [HttpPut("/aeropuerto/id")]
-    public IActionResult Put(string id, [FromBody] AeropuertoDto model)
+    public IActionResult Put(string id, [FromBody] AeropuertoDto payload)
     {
+        var model = _mapper.Map<Aeropuerto>(payload);
         _tecAirDbContext.aereopuerto.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 
