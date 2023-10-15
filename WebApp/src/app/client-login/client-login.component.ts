@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChargeThingsService } from '../charge-things.service';
+import { Client } from '../Interfaces/client.interface';
 
 @Component({
   selector: 'app-client-login',
@@ -21,24 +22,30 @@ export class ClientLoginComponent {
     const usernameInput = document.getElementById('username') as HTMLInputElement;
     const passwordInput = document.getElementById('password') as HTMLInputElement;
 
-    if (usernameInput && passwordInput) {
+    this.charge.getClient();
 
-      if (this.username !== usernameInput.value || this.password !== passwordInput.value) {
+    for (let clients of this.charge.client){
+      if (usernameInput && passwordInput) {
 
-        this.errorMessage = 'El nombre de usuario o la contraseña son incorrectos.';
-        usernameInput.style.borderColor = 'red';
-        passwordInput.style.borderColor = 'red';
+        if (clients.correo !== usernameInput.value || clients.apellido_1 !== passwordInput.value) {
 
-      } else {
+          this.errorMessage = 'El nombre de usuario o la contraseña son incorrectos.';
+          usernameInput.style.borderColor = 'red';
+          passwordInput.style.borderColor = 'red';
 
-        this.errorMessage = '';
-        usernameInput.style.borderColor = '';
-        passwordInput.style.borderColor = '';
+        } else {
 
-        // Redirigir al usuario a la página de inicio.
-        this.router.navigate(['/admin-selector']);
+          this.errorMessage = '';
+          usernameInput.style.borderColor = '';
+          passwordInput.style.borderColor = '';
+
+          // Redirigir al usuario a la página de inicio.
+          this.router.navigate(['/admin-selector']);
+        }
       }
     }   
   }
+
+
 
 }

@@ -21,20 +21,20 @@ import { User } from './Interfaces/user.interface';
 
 export class ChargeThingsService {
 
-  airport?:Airport[];
-  baggage?:Baggage[];
-  Bill?:Bill[];
-  boarding_pass?:Boarding_pass[];
-  calendar?:Calendar[];
-  client?:Client[];
-  credit_card?:Credit_card[];
-  flight?:Flight[];
-  plane?:Plane[];
-  scales?:Scales[];
-  sales?:Sales[];
-  seat?:Seat[];
-  student?:Student[];
-  user?:User[];
+  airport:Airport[] = [];
+  baggage:Baggage[] = [];
+  Bill:Bill[] = []
+  boarding_pass:Boarding_pass[] = [];
+  calendar:Calendar[] = [];
+  client:Client[] = [];
+  credit_card:Credit_card[] = [];
+  flight:Flight[] = [];
+  plane:Plane[] = [];
+  scales:Scales[] = [];
+  sales:Sales[] = [];
+  seat:Seat[] = [];
+  student:Student[] = [];
+  user:User[] = [];
 
   constructor(private apiService:APIService) { }
 
