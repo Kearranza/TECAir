@@ -14,10 +14,10 @@ public class BillController : ControllerBase
         _tecAirDbContext = tecAirs;
     }
 
-    [HttpPost("/bill")]
-    public IActionResult CreateBill([FromBody] BillDto model)
+    [HttpPost("/factura")]
+    public IActionResult CreateBill([FromBody] FacturaDto model)
     {
-        var billExist = _tecAirDbContext.bill.Any(e => e.billid == model.billid);
+        var billExist = _tecAirDbContext.factura.Any(e => e.id_factura == model.id_factura);
         if (billExist == true)
         {
             return Ok(new { Message = "Bill Already Created" });
@@ -29,24 +29,24 @@ public class BillController : ControllerBase
         return Ok(model);
     }
 
-    [HttpGet("/bill")]
+    [HttpGet("/factura")]
     public IActionResult GetAllBills()
     {
-        var bills = _tecAirDbContext.bill;
+        var bills = _tecAirDbContext.factura;
         return Ok(bills);
     }
 
-    [HttpGet("/{id}/bill")]
-    public BillDto GetById(int id)
+    [HttpGet("/{id}/factura")]
+    public FacturaDto GetById(int id)
     {
-        var bill = _tecAirDbContext.bill.Find(id);
+        var bill = _tecAirDbContext.factura.Find(id);
         return bill;
     }
 
-    [HttpPut("/bill/id")]
-    public IActionResult Put(int id, [FromBody] BillDto model)
+    [HttpPut("/factura/id")]
+    public IActionResult Put(int id, [FromBody] FacturaDto model)
     {
-        _tecAirDbContext.bill.Attach(model);
+        _tecAirDbContext.factura.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 
         _tecAirDbContext.SaveChanges();
@@ -54,12 +54,12 @@ public class BillController : ControllerBase
         return Ok(new { MESSAGE = "Bill updated" });
     }
     
-    [HttpDelete("/bill/id")]
+    [HttpDelete("/factura/id")]
     public IActionResult Delete(int id)
     {
         var bill = GetById(id);
 
-        _tecAirDbContext.bill.Remove(bill);
+        _tecAirDbContext.factura.Remove(bill);
         _tecAirDbContext.SaveChanges();
 
         return Ok(new { MESSAGE = "Bill Deleted" });

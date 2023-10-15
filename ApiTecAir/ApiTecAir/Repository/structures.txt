@@ -1,85 +1,291 @@
 [
+Estructura aeropuerto
+  {
+    "id_aereo": "string",
+    "ciudad": "string",
+    "pais": "string"
+  },
 Estructura avion
   {
-    "plateno": "string",
-    "size": 0,
-    "row": 0,
-    "pcolumn": 0
+    "placa": "string",
+    "fila": 0,
+    "columna": 0
   },
   Estructura factura
   {
-    "billid": 0
+    "id_factura": 0,
+    "precio": 0,
+    "cantidad": 0,
+    "total": 0,
+    "cedulacliente": 0,
+    "calendario_vuelo": {
+      "id_calendario": 0,
+      "date": "2023-10-14T23:52:46.498Z",
+      "id_avion": {
+        "placa": "string",
+        "row": 0,
+        "pcolumn": 0
+      },
+      "id_vuelo": {
+        "id_vuelo": 0,
+        "aereo_origen": {
+          "id_aereo": "string",
+          "ciudad": "string",
+          "pais": "string"
+        },
+        "aereo_destino": {
+          "id_aereo": "string",
+          "ciudad": "string",
+          "pais": "string"
+        },
+        "hora_salida": "2023-10-14T23:52:46.498Z"
+      }
+    },
+    "tarjeta_credito": 0
   },
 Estructura Cliente
   {
-    "ssn": "string",
-    "email": "string",
-    "phone": "string",
-    "firstlname": "string",
-    "secondlname": "string",
-    "name": "string"
+    "cedula": "string",
+    "nombre": "string",
+    "apellido_1": "string",
+    "apellido_2": "string",
+    "telefono": "string",
+    "correo": "string"
   },
 Estructura vuelo
   {
-    "flightid": 0,
-    "origin": "string",
-    "destination": "string",
-    "departuretime": "2023-10-10T04:51:47.265Z"
+    "id_vuelo": 0,
+    "avion": "string",
+    "aereo_origen": {
+      "id_aereo": "string",
+      "ciudad": "string",
+      "pais": "string"
+    },
+    "aereo_destino": {
+      "id_aereo": "string",
+      "ciudad": "string",
+      "pais": "string"
+    },
+    "hora_salida": "2023-10-14T23:55:53.409Z"
   },
 Estructura calendario de vuelos
   {
-    "calendarid": 0,
-    "date": "2023-10-10T04:51:55.957Z"
-  },
-Estructura precios
-  {
-    "priceid": 0,
-    "type": "string",
-    "value": 0
+    "id_calendario": 0,
+    "date": "2023-10-14T23:56:31.530Z",
+    "id_avion": {
+      "placa": "string",
+      "fila": 0,
+      "columna": 0
+    },
+    "id_vuelo": {
+      "id_vuelo": 0,
+      "avion": "string",
+      "aereo_origen": {
+        "id_aereo": "string",
+        "ciudad": "string",
+        "pais": "string"
+      },
+      "aereo_destino": {
+        "id_aereo": "string",
+        "ciudad": "string",
+        "pais": "string"
+      },
+      "hora_salida": "2023-10-14T23:56:31.530Z"
+    }
   },
 Estructura promociones
   {
-    "saleid": 0,
-    "origin": "string",
-    "destination": "string",
-    "salestart": "2023-10-10T04:52:20.665Z",
-    "saleend": "2023-10-10T04:52:20.665Z",
-    "discount": 0
+    "id_promo": 0,
+    "descuento": 0,
+    "fecha_inicio": "2023-10-14T23:58:07.556Z",
+    "fecha_fin": "2023-10-14T23:58:07.556Z",
+    "origen": "string",
+    "destino": "string",
+    "aplicado_calendario": {
+      "id_calendario": 0,
+      "date": "2023-10-14T23:58:07.556Z",
+      "id_avion": {
+        "placa": "string",
+        "fila": 0,
+        "columna": 0
+      },
+      "id_vuelo": {
+        "id_vuelo": 0,
+        "avion": "string",
+        "aereo_origen": {
+          "id_aereo": "string",
+          "ciudad": "string",
+          "pais": "string"
+        },
+        "aereo_destino": {
+          "id_aereo": "string",
+          "ciudad": "string",
+          "pais": "string"
+        },
+        "hora_salida": "2023-10-14T23:58:07.556Z"
+      }
+    }
   },
 Estructura escalas
   {
-    "scaleid": 0,
-    "origin": "string",
-    "destination": "string",
-    "placeorder": "string"
+    "id_escala": 0,
+    "orden_lugares": "string",
+    "origen": "string",
+    "destino": "string",
+    "id_vuelo": {
+      "id_vuelo": 0,
+      "avion": "string",
+      "aereo_origen": {
+        "id_aereo": "string",
+        "ciudad": "string",
+        "pais": "string"
+      },
+      "aereo_destino": {
+        "id_aereo": "string",
+        "ciudad": "string",
+        "pais": "string"
+      },
+      "hora_salida": "2023-10-14T23:58:07.560Z"
+    }
   },
 Estructura asientos
   {
-    "seatid": 0,
-    "availability": true,
-    "seatno": "string"
+    "id_asiento": 0,
+    "num_asiento": "string",
+    "disponibilidad": true,
+    "id_avion": {
+      "placa": "string",
+      "fila": 0,
+      "columna": 0
+    }
   },
 Estructura estudiante
   {
-    "studentid": "string",
-    "university": "string",
-    "miles": 0
+    "carnet": "string",
+    "cedula": {
+      "cedula": "string",
+      "nombre": "string",
+      "apellido_1": "string",
+      "apellido_2": "string",
+      "telefono": "string",
+      "correo": "string"
+    },
+    "universidad": "string",
+    "millas": 0
   },
 Estructura maleta
   {
-    "suitcaseid": 0,
-    "weight": 0,
-    "color": "string"
+    "id_maleta": 0,
+    "cedula_cliente": {
+      "cedula": "string",
+      "nombre": "string",
+      "apellido_1": "string",
+      "apellido_2": "string",
+      "telefono": "string",
+      "correo": "string"
+    },
+    "peso": 0,
+    "color": "string",
+    "id_pasaje": {
+      "id_pasaje": 0,
+      "puerta": "string",
+      "asiento": "string",
+      "hora_salida": "2023-10-15T00:00:25.241Z",
+      "cedula_cliente": {
+        "cedula": "string",
+        "nombre": "string",
+        "apellido_1": "string",
+        "apellido_2": "string",
+        "telefono": "string",
+        "correo": "string"
+      },
+      "id_calendario": {
+        "id_calendario": 0,
+        "date": "2023-10-15T00:00:25.241Z",
+        "id_avion": {
+          "placa": "string",
+          "fila": 0,
+          "columna": 0
+        },
+        "id_vuelo": {
+          "id_vuelo": 0,
+          "aereo_origen": {
+            "id_aereo": "string",
+            "ciudad": "string",
+            "pais": "string"
+          },
+          "aereo_destino": {
+            "id_aereo": "string",
+            "ciudad": "string",
+            "pais": "string"
+          },
+          "hora_salida": "2023-10-15T00:00:25.241Z"
+        }
+      }
+    }
+  },
+Estructura TarjetaCredito
+  {
+    "num_tarjeta": "string",
+    "cvv": 0,
+    "cedula_cliente": {
+      "cedula": "string",
+      "nombre": "string",
+      "apellido_1": "string",
+      "apellido_2": "string",
+      "telefono": "string",
+      "correo": "string"
+    }
   },
 estructura pase de abordaje
   {
-    "ticketid": 0,
-    "gate": "string",
-    "departuretime": "2023-10-10T04:53:22.635Z"
+    "id_pasaje": 0,
+    "puerta": "string",
+    "asiento": "string",
+    "hora_salida": "2023-10-15T00:09:13.625Z",
+    "cedula_cliente": {
+      "cedula": "string",
+      "nombre": "string",
+      "apellido_1": "string",
+      "apellido_2": "string",
+      "telefono": "string",
+      "correo": "string"
+    },
+    "id_calendario": {
+      "id_calendario": 0,
+      "date": "2023-10-15T00:09:13.625Z",
+      "id_avion": {
+        "placa": "string",
+        "fila": 0,
+        "columna": 0
+      },
+      "id_vuelo": {
+        "id_vuelo": 0,
+        "aereo_origen": {
+          "id_aereo": "string",
+          "ciudad": "string",
+          "pais": "string"
+        },
+        "aereo_destino": {
+          "id_aereo": "string",
+          "ciudad": "string",
+          "pais": "string"
+        },
+        "hora_salida": "2023-10-15T00:09:13.625Z"
+      }
+    }
   },
 Estructura usuario
   {
-    "userid": 0,
-    "password": "string"
-  }
+    "id_usuario": 0,
+    "contraseña": "string",
+    "cedula": {
+      "cedula": "string",
+      "nombre": "string",
+      "apellido_1": "string",
+      "apellido_2": "string",
+      "telefono": "string",
+      "correo": "string"
+    }
+  },
 ]

@@ -15,10 +15,10 @@ public class SaleController : ControllerBase
         _tecAirDbContext = tecAirs;
     }
 
-    [HttpPost("/sale")]
-    public IActionResult CreateSale([FromBody] SaleDto model)
+    [HttpPost("/promociones")]
+    public IActionResult CreateSale([FromBody] PromocionesDto model)
     {
-        var saleExist = _tecAirDbContext.sale.Any(e => e.saleid == model.saleid);
+        var saleExist = _tecAirDbContext.promociones.Any(e => e.id_promo == model.id_promo);
         if (saleExist == true)
         {
             return Ok(new { Message = "Sale Already Created" });
@@ -30,24 +30,24 @@ public class SaleController : ControllerBase
         return Ok(model);
     }
 
-    [HttpGet("/sale")]
+    [HttpGet("/promociones")]
     public IActionResult GetAllSales()
     {
-        var sales = _tecAirDbContext.sale;
+        var sales = _tecAirDbContext.promociones;
         return Ok(sales);
     }
 
-    [HttpGet("/{id}/sale")]
-    public SaleDto GetById(int id)
+    [HttpGet("/{id}/promociones")]
+    public PromocionesDto GetById(int id)
     {
-            var sale = _tecAirDbContext.sale.Find(id);
+            var sale = _tecAirDbContext.promociones.Find(id);
             return sale;
     }
 
-    [HttpPut("/sale/id")]
-    public IActionResult Put(int id, [FromBody] SaleDto model)
+    [HttpPut("/promociones/id")]
+    public IActionResult Put(int id, [FromBody] PromocionesDto model)
     {
-        _tecAirDbContext.sale.Attach(model);
+        _tecAirDbContext.promociones.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 
         _tecAirDbContext.SaveChanges();
@@ -55,12 +55,12 @@ public class SaleController : ControllerBase
         return Ok(new { MESSAGE = "Sale updated" });
     }
     
-    [HttpDelete("/sale/id")]
+    [HttpDelete("/promociones/id")]
     public IActionResult Delete(int id)
     {
         var sale = GetById(id);
 
-        _tecAirDbContext.sale.Remove(sale);
+        _tecAirDbContext.promociones.Remove(sale);
         _tecAirDbContext.SaveChanges();
 
         return Ok(new { MESSAGE = "Sale Deleted" });

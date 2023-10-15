@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.ComTypes;
 using ApiTecAir.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,29 +12,33 @@ public class TECAirDbContext : DbContext
         
     }
     //Asignacion de los DBContext para cada una de las tablas
-    public virtual DbSet<SaleDto> sale { set; get; }
+    public virtual DbSet<PromocionesDto> promociones { set; get; }
     
-    public virtual DbSet<StudentDto> student { set; get; }
+    public virtual DbSet<EstudianteDto> estudiante { set; get; }
     
-    public virtual DbSet<BillDto> bill { set; get; }
+    public virtual DbSet<FacturaDto> factura { set; get; }
     
-    public virtual DbSet<ClientDto> client { set; get; }
+    public virtual DbSet<ClienteDto> cliente { set; get; }
     
-    public virtual DbSet<FlightDto> flight { set; get; }
+    public virtual DbSet<VuelosDto> vuelos { set; get; }
+
+    public virtual DbSet<CalendarioVueloDto> calendario_vuelos { set; get; }
+
+    public virtual DbSet<AvionDto> avion { set; get; }
     
-    public virtual DbSet<FlightCalendarDto> flightcalendar { set; get; }
+    public virtual DbSet<EscalaDto> escala { set; get; }
     
-    public virtual DbSet<PriceDto> price { set; get; }
+    public virtual DbSet<MapaAsientoDto> mapa_asiento { set; get; }
     
-    public virtual DbSet<AirplaneDto> aeroplane { set; get; }
+    public virtual DbSet<MaletaDto> maleta { set; get; }
     
-    public virtual DbSet<ScaleDto> scale { set; get; }
+    public virtual DbSet<PaseAbordarDto> pase_abordar { set; get; }
     
-    public virtual DbSet<SeatDto> seat { set; get; }
+    public virtual DbSet<UsuarioDto> usuario { set; get; }
     
-    public virtual DbSet<SuitcaseDto> suitcase { set; get; }
+    public virtual DbSet<TarjetaCreditoDto> tarjeta_credito { set; get; }
     
-    public virtual DbSet<TicketDto> ticket { set; get; }
+    public virtual DbSet<AeropuertoDto> aereopuerto { set; get; }
     
-    public virtual DbSet<UserDto> usert { set; get; }
+    public virtual DbSet<ColorDto> color { set; get; }
 }

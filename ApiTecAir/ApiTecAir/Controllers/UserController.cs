@@ -15,9 +15,9 @@ public class UserController : ControllerBase
     }
 
     [HttpPost("/user")]
-    public IActionResult CreateUser([FromBody] UserDto model)
+    public IActionResult CreateUser([FromBody] UsuarioDto model)
     {
-        var userExist = _tecAirDbContext.usert.Any(e => e.userid == model.userid);
+        var userExist = _tecAirDbContext.usuario.Any(e => e.id_usuario == model.id_usuario);
         if (userExist == true)
         {
             return Ok(new { Message = "User Already Created" });
@@ -32,21 +32,21 @@ public class UserController : ControllerBase
     [HttpGet("/user")]
     public IActionResult GetAllUsers()
     {
-        var users = _tecAirDbContext.usert;
+        var users = _tecAirDbContext.usuario;
         return Ok(users);
     }
 
     [HttpGet("/{id}/user")]
-    public UserDto GetById(int id)
+    public UsuarioDto GetById(int id)
     {
-        var user = _tecAirDbContext.usert.Find(id);
+        var user = _tecAirDbContext.usuario.Find(id);
         return user;
     }
 
     [HttpPut("/user/id")]
-    public IActionResult Put(int id, [FromBody] UserDto model)
+    public IActionResult Put(int id, [FromBody] UsuarioDto model)
     {
-        _tecAirDbContext.usert.Attach(model);
+        _tecAirDbContext.usuario.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 
         _tecAirDbContext.SaveChanges();
@@ -59,7 +59,7 @@ public class UserController : ControllerBase
     {
         var user = GetById(id);
 
-        _tecAirDbContext.usert.Remove(user);
+        _tecAirDbContext.usuario.Remove(user);
         _tecAirDbContext.SaveChanges();
 
         return Ok(new { MESSAGE = "User Deleted" });

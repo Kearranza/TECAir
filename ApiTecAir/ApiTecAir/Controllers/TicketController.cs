@@ -14,10 +14,10 @@ public class TicketController : ControllerBase
         _tecAirDbContext = tecAirs;
     }
 
-    [HttpPost("/ticket")]
-    public IActionResult CreateTicket([FromBody] TicketDto model)
+    [HttpPost("/pase_abordar")]
+    public IActionResult CreateTicket([FromBody] PaseAbordarDto model)
     {
-        var ticketExist = _tecAirDbContext.ticket.Any(e => e.ticketid == model.ticketid);
+        var ticketExist = _tecAirDbContext.pase_abordar.Any(e => e.id_pasaje == model.id_pasaje);
         if (ticketExist == true)
         {
             return Ok(new { Message = "Ticket Already Created" });
@@ -29,24 +29,24 @@ public class TicketController : ControllerBase
         return Ok(model);
     }
 
-    [HttpGet("/ticket")]
+    [HttpGet("/pase_abordar")]
     public IActionResult GetAllTickets()
     {
-        var tickets = _tecAirDbContext.ticket;
+        var tickets = _tecAirDbContext.pase_abordar;
         return Ok(tickets);
     }
 
-    [HttpGet("/{id}/ticket")]
-    public TicketDto GetById(int id)
+    [HttpGet("/{id}/pase_abordar")]
+    public PaseAbordarDto GetById(int id)
     {
-        var ticket = _tecAirDbContext.ticket.Find(id);
+        var ticket = _tecAirDbContext.pase_abordar.Find(id);
         return ticket;
     }
 
-    [HttpPut("/ticket/id")]
-    public IActionResult Put(int id, [FromBody] TicketDto model)
+    [HttpPut("/pase_abordar/id")]
+    public IActionResult Put(int id, [FromBody] PaseAbordarDto model)
     {
-        _tecAirDbContext.ticket.Attach(model);
+        _tecAirDbContext.pase_abordar.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 
         _tecAirDbContext.SaveChanges();
@@ -54,12 +54,12 @@ public class TicketController : ControllerBase
         return Ok(new { MESSAGE = "Ticket updated" });
     }
     
-    [HttpDelete("/ticket/id")]
+    [HttpDelete("/pase_abordar/id")]
     public IActionResult Delete(int id)
     {
         var ticket = GetById(id);
 
-        _tecAirDbContext.ticket.Remove(ticket);
+        _tecAirDbContext.pase_abordar.Remove(ticket);
         _tecAirDbContext.SaveChanges();
 
         return Ok(new { MESSAGE = "Ticket Deleted" });

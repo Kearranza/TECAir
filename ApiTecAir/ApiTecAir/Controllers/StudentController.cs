@@ -14,10 +14,10 @@ public class StudentController : ControllerBase
         _tecAirDbContext = tecAirs;
     }
 
-    [HttpPost("/student")]
-    public IActionResult CreateScale([FromBody] StudentDto model)
+    [HttpPost("/estudiante")]
+    public IActionResult CreateScale([FromBody] EstudianteDto model)
     {
-        var studentExist = _tecAirDbContext.student.Any(e => e.studentid == model.studentid);
+        var studentExist = _tecAirDbContext.estudiante.Any(e => e.carnet == model.carnet);
         if (studentExist == true)
         {
             return Ok(new { Message = "Student Already Created" });
@@ -29,24 +29,24 @@ public class StudentController : ControllerBase
         return Ok(model);
     }
 
-    [HttpGet("/student")]
+    [HttpGet("/estudiante")]
     public IActionResult GetAllStudents()
     {
-        var students = _tecAirDbContext.student;
+        var students = _tecAirDbContext.estudiante;
         return Ok(students);
     }
 
-    [HttpGet("/{id}/student")]
-    public StudentDto GetById(int id)
+    [HttpGet("/{id}/estudiante")]
+    public EstudianteDto GetById(int id)
     {
-        var student = _tecAirDbContext.student.Find(id);
+        var student = _tecAirDbContext.estudiante.Find(id);
         return student;
     }
 
-    [HttpPut("/student/id")]
-    public IActionResult Put(int id, [FromBody] StudentDto model)
+    [HttpPut("/estudiante/id")]
+    public IActionResult Put(int id, [FromBody] EstudianteDto model)
     {
-        _tecAirDbContext.student.Attach(model);
+        _tecAirDbContext.estudiante.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 
         _tecAirDbContext.SaveChanges();
@@ -54,12 +54,12 @@ public class StudentController : ControllerBase
         return Ok(new { MESSAGE = "Student updated" });
     }
     
-    [HttpDelete("/student/id")]
+    [HttpDelete("/estudiante/id")]
     public IActionResult Delete(int id)
     {
         var student = GetById(id);
 
-        _tecAirDbContext.student.Remove(student);
+        _tecAirDbContext.estudiante.Remove(student);
         _tecAirDbContext.SaveChanges();
 
         return Ok(new { MESSAGE = "Student Deleted" });

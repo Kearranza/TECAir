@@ -14,13 +14,13 @@ public class AirplaneController : ControllerBase
         _tecAirDbContext = tecAirs;
     }
 
-    [HttpPost("/airplane")]
-    public IActionResult CreateAirplane([FromBody] AirplaneDto model)
+    [HttpPost("/avion")]
+    public IActionResult CreateAirplane([FromBody] AvionDto model)
     {
-        var airplaneExist = _tecAirDbContext.aeroplane.Any(e => e.plateno == model.plateno);
+        var airplaneExist = _tecAirDbContext.avion.Any(e => e.placa == model.placa);
         if (airplaneExist == true)
         {
-            return Ok(new { Message = "Airplane Already Created" });
+            return Ok(new { Message = "Avion Already Created" });
         }
 
         _tecAirDbContext.Add(model);
@@ -29,39 +29,39 @@ public class AirplaneController : ControllerBase
         return Ok(model);
     }
 
-    [HttpGet("/airplane")]
-    public IActionResult GetAllAirplaness()
+    [HttpGet("/avion")]
+    public IActionResult GetAllAvion()
     {
-        var airplanes = _tecAirDbContext.aeroplane;
-        return Ok(airplanes);
+        var avion = _tecAirDbContext.avion;
+        return Ok(avion);
     }
 
-    [HttpGet("/{id}/airplane")]
-    public AirplaneDto GetById(int id)
+    [HttpGet("/{id}/avion")]
+    public AvionDto GetById(int id)
     {
-        var airplane = _tecAirDbContext.aeroplane.Find(id);
+        var airplane = _tecAirDbContext.avion.Find(id);
         return airplane;
     }
 
-    [HttpPut("/airplane/id")]
-    public IActionResult Put(int id, [FromBody] AirplaneDto model)
+    [HttpPut("/avion/id")]
+    public IActionResult Put(int id, [FromBody] AvionDto model)
     {
-        _tecAirDbContext.aeroplane.Attach(model);
+        _tecAirDbContext.avion.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 
         _tecAirDbContext.SaveChanges();
 
-        return Ok(new { MESSAGE = "Airplane updated" });
+        return Ok(new { MESSAGE = "Avion updated" });
     }
     
-    [HttpDelete("/airplane/id")]
+    [HttpDelete("/avion/id")]
     public IActionResult Delete(int id)
     {
         var airplane = GetById(id);
 
-        _tecAirDbContext.aeroplane.Remove(airplane);
+        _tecAirDbContext.avion.Remove(airplane);
         _tecAirDbContext.SaveChanges();
 
-        return Ok(new { MESSAGE = "Airplane Deleted" });
+        return Ok(new { MESSAGE = "Avion Deleted" });
     }
 }

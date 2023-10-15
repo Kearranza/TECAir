@@ -14,10 +14,10 @@ public class SeatController : ControllerBase
         _tecAirDbContext = tecAirs;
     }
 
-    [HttpPost("/seat")]
-    public IActionResult CreateSeat([FromBody] SeatDto model)
+    [HttpPost("/asiento")]
+    public IActionResult CreateSeat([FromBody] MapaAsientoDto model)
     {
-        var seatExist = _tecAirDbContext.seat.Any(e => e.seatid == model.seatid);
+        var seatExist = _tecAirDbContext.mapa_asiento.Any(e => e.id_mapa_asiento == model.id_mapa_asiento);
         if (seatExist == true)
         {
             return Ok(new { Message = "Seat Already Created" });
@@ -29,24 +29,24 @@ public class SeatController : ControllerBase
         return Ok(model);
     }
 
-    [HttpGet("/seat")]
+    [HttpGet("/asiento")]
     public IActionResult GetAllSeats()
     {
-        var seats = _tecAirDbContext.seat;
+        var seats = _tecAirDbContext.mapa_asiento;
         return Ok(seats);
     }
 
-    [HttpGet("/{id}/seat")]
-    public SeatDto GetById(int id)
+    [HttpGet("/{id}/asiento")]
+    public MapaAsientoDto GetById(int id)
     {
-        var seat = _tecAirDbContext.seat.Find(id);
+        var seat = _tecAirDbContext.mapa_asiento.Find(id);
         return seat;
     }
 
-    [HttpPut("/seat/id")]
-    public IActionResult Put(int id, [FromBody] SeatDto model)
+    [HttpPut("/asiento/id")]
+    public IActionResult Put(int id, [FromBody] MapaAsientoDto model)
     {
-        _tecAirDbContext.seat.Attach(model);
+        _tecAirDbContext.mapa_asiento.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 
         _tecAirDbContext.SaveChanges();
@@ -54,12 +54,12 @@ public class SeatController : ControllerBase
         return Ok(new { MESSAGE = "Seat updated" });
     }
     
-    [HttpDelete("/seat/id")]
+    [HttpDelete("/asiento/id")]
     public IActionResult Delete(int id)
     {
         var seat = GetById(id);
 
-        _tecAirDbContext.seat.Remove(seat);
+        _tecAirDbContext.mapa_asiento.Remove(seat);
         _tecAirDbContext.SaveChanges();
 
         return Ok(new { MESSAGE = "Seat Deleted" });

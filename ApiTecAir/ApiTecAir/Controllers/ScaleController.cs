@@ -14,10 +14,10 @@ public class ScaleController : ControllerBase
         _tecAirDbContext = tecAirs;
     }
 
-    [HttpPost("/scale")]
-    public IActionResult CreateScale([FromBody] ScaleDto model)
+    [HttpPost("/escala")]
+    public IActionResult CreateScale([FromBody] EscalaDto model)
     {
-        var scaleExist = _tecAirDbContext.scale.Any(e => e.scaleid == model.scaleid);
+        var scaleExist = _tecAirDbContext.escala.Any(e => e.id_escala == model.id_escala);
         if (scaleExist == true)
         {
             return Ok(new { Message = "Scale Already Created" });
@@ -29,24 +29,24 @@ public class ScaleController : ControllerBase
         return Ok(model);
     }
 
-    [HttpGet("/scale")]
+    [HttpGet("/escala")]
     public IActionResult GetAllScales()
     {
-        var scales = _tecAirDbContext.scale;
+        var scales = _tecAirDbContext.escala;
         return Ok(scales);
     }
 
-    [HttpGet("/{id}/scale")]
-    public ScaleDto GetById(int id)
+    [HttpGet("/{id}/escala")]
+    public EscalaDto GetById(int id)
     {
-        var scale = _tecAirDbContext.scale.Find(id);
+        var scale = _tecAirDbContext.escala.Find(id);
         return scale;
     }
 
-    [HttpPut("/scale/id")]
-    public IActionResult Put(int id, [FromBody] ScaleDto model)
+    [HttpPut("/escala/id")]
+    public IActionResult Put(int id, [FromBody] EscalaDto model)
     {
-        _tecAirDbContext.scale.Attach(model);
+        _tecAirDbContext.escala.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 
         _tecAirDbContext.SaveChanges();
@@ -54,12 +54,12 @@ public class ScaleController : ControllerBase
         return Ok(new { MESSAGE = "Scale updated" });
     }
     
-    [HttpDelete("/scale/id")]
+    [HttpDelete("/escala/id")]
     public IActionResult Delete(int id)
     {
         var scale = GetById(id);
 
-        _tecAirDbContext.scale.Remove(scale);
+        _tecAirDbContext.escala.Remove(scale);
         _tecAirDbContext.SaveChanges();
 
         return Ok(new { MESSAGE = "Scale Deleted" });

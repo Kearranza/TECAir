@@ -14,10 +14,10 @@ public class SuitcaseController : ControllerBase
         _tecAirDbContext = tecAirs;
     }
 
-    [HttpPost("/suitcase")]
-    public IActionResult CreateSuitcase([FromBody] SuitcaseDto model)
+    [HttpPost("/maleta")]
+    public IActionResult CreateSuitcase([FromBody] MaletaDto model)
     {
-        var suitcaseExist = _tecAirDbContext.suitcase.Any(e => e.suitcaseid == model.suitcaseid);
+        var suitcaseExist = _tecAirDbContext.maleta.Any(e => e.id_maleta == model.id_maleta);
         if (suitcaseExist == true)
         {
             return Ok(new { Message = "Suitcase Already Created" });
@@ -29,24 +29,24 @@ public class SuitcaseController : ControllerBase
         return Ok(model);
     }
 
-    [HttpGet("/suitcase")]
+    [HttpGet("/maleta")]
     public IActionResult GetAllSales()
     {
-        var suitcase = _tecAirDbContext.sale;
+        var suitcase = _tecAirDbContext.promociones;
         return Ok(suitcase);
     }
 
-    [HttpGet("/{id}/suitcase")]
-    public SuitcaseDto GetById(int id)
+    [HttpGet("/{id}/maleta")]
+    public MaletaDto GetById(int id)
     {
-        var suitcase = _tecAirDbContext.suitcase.Find(id);
+        var suitcase = _tecAirDbContext.maleta.Find(id);
         return suitcase;
     }
 
-    [HttpPut("/suitcase/id")]
-    public IActionResult Put(int id, [FromBody] SuitcaseDto model)
+    [HttpPut("/maleta/id")]
+    public IActionResult Put(int id, [FromBody] MaletaDto model)
     {
-        _tecAirDbContext.suitcase.Attach(model);
+        _tecAirDbContext.maleta.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 
         _tecAirDbContext.SaveChanges();
@@ -54,12 +54,12 @@ public class SuitcaseController : ControllerBase
         return Ok(new { MESSAGE = "Suitcase updated" });
     }
     
-    [HttpDelete("/suitcase/id")]
+    [HttpDelete("/maleta/id")]
     public IActionResult Delete(int id)
     {
         var suitcase = GetById(id);
 
-        _tecAirDbContext.suitcase.Remove(suitcase);
+        _tecAirDbContext.maleta.Remove(suitcase);
         _tecAirDbContext.SaveChanges();
 
         return Ok(new { MESSAGE = "Suitcase Deleted" });

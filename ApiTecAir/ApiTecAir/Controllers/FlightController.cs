@@ -14,10 +14,10 @@ public class FlightController : ControllerBase
         _tecAirDbContext = tecAirs;
     }
 
-    [HttpPost("/flight")]
-    public IActionResult CreateFlight([FromBody] FlightDto model)
+    [HttpPost("/vuelos")]
+    public IActionResult CreateFlight([FromBody] VuelosDto model)
     {
-        var flightExist = _tecAirDbContext.flight.Any(e => e.flightid == model.flightid);
+        var flightExist = _tecAirDbContext.vuelos.Any(e => e.id_vuelo == model.id_vuelo);
         if (flightExist == true)
         {
             return Ok(new { Message = "Flight Already Created" });
@@ -29,24 +29,24 @@ public class FlightController : ControllerBase
         return Ok(model);
     }
 
-    [HttpGet("/flight")]
+    [HttpGet("/vuelos")]
     public IActionResult GetAllFlights()
     {
-        var flights = _tecAirDbContext.flight;
+        var flights = _tecAirDbContext.vuelos;
         return Ok(flights);
     }
 
-    [HttpGet("/{id}/flight")]
-    public FlightDto GetById(int id)
+    [HttpGet("/{id}/vuelos")]
+    public VuelosDto GetById(int id)
     {
-        var flight = _tecAirDbContext.flight.Find(id);
+        var flight = _tecAirDbContext.vuelos.Find(id);
         return flight;
     }
 
-    [HttpPut("/flight/id")]
-    public IActionResult Put(int id, [FromBody] FlightDto model)
+    [HttpPut("/vuelos/id")]
+    public IActionResult Put(int id, [FromBody] VuelosDto model)
     {
-        _tecAirDbContext.flight.Attach(model);
+        _tecAirDbContext.vuelos.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 
         _tecAirDbContext.SaveChanges();
@@ -54,12 +54,12 @@ public class FlightController : ControllerBase
         return Ok(new { MESSAGE = "Flight updated" });
     }
     
-    [HttpDelete("/flight/id")]
+    [HttpDelete("/vuelos/id")]
     public IActionResult Delete(int id)
     {
         var flight = GetById(id);
 
-        _tecAirDbContext.flight.Remove(flight);
+        _tecAirDbContext.vuelos.Remove(flight);
         _tecAirDbContext.SaveChanges();
 
         return Ok(new { MESSAGE = "Flight Deleted" });

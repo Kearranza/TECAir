@@ -14,10 +14,10 @@ public class ClientController : ControllerBase
         _tecAirDbContext = tecAirs;
     }
 
-    [HttpPost("/client")]
-    public IActionResult CreateClient([FromBody] ClientDto model)
+    [HttpPost("/cliente")]
+    public IActionResult CreateClient([FromBody] ClienteDto model)
     {
-        var clientExist = _tecAirDbContext.client.Any(e => e.ssn == model.ssn);
+        var clientExist = _tecAirDbContext.cliente.Any(e => e.cedula == model.cedula);
         if (clientExist == true)
         {
             return Ok(new { Message = "Client Already Created" });
@@ -29,24 +29,24 @@ public class ClientController : ControllerBase
         return Ok(model);
     }
 
-    [HttpGet("/client")]
+    [HttpGet("/cliente")]
     public IActionResult GetAllClients()
     {
-        var clients = _tecAirDbContext.client;
+        var clients = _tecAirDbContext.cliente;
         return Ok(clients);
     }
 
-    [HttpGet("/{id}/client")]
-    public ClientDto GetById(int id)
+    [HttpGet("/{id}/cliente")]
+    public ClienteDto GetById(int id)
     {
-        var client = _tecAirDbContext.client.Find(id);
+        var client = _tecAirDbContext.cliente.Find(id);
         return client;
     }
 
-    [HttpPut("/client/id")]
-    public IActionResult Put(int id, [FromBody] ClientDto model)
+    [HttpPut("/cliente/id")]
+    public IActionResult Put(int id, [FromBody] ClienteDto model)
     {
-        _tecAirDbContext.client.Attach(model);
+        _tecAirDbContext.cliente.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 
         _tecAirDbContext.SaveChanges();
@@ -54,14 +54,14 @@ public class ClientController : ControllerBase
         return Ok(new { MESSAGE = "Client updated" });
     }
     
-    [HttpDelete("/client/id")]
+    [HttpDelete("/cliente/id")]
     public IActionResult Delete(int id)
     {
         var client = GetById(id);
 
-        _tecAirDbContext.client.Remove(client);
+        _tecAirDbContext.cliente.Remove(client);
         _tecAirDbContext.SaveChanges();
 
-        return Ok(new { MESSAGE = "client Deleted" });
+        return Ok(new { MESSAGE = "cliente Deleted" });
     }
 }
