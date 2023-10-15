@@ -1,7 +1,9 @@
 <app-navbar></app-navbar>
 
-<div class="flight-container" #flightContainer>
-    <app-flight-display *ngFor="let flight of flights" [origin]="flight.origin" [destination]="flight.destination" [price]="flight.price"></app-flight-display>
+<div class="button-container">
+    <button (click)="moveLeft()"><</button>
+    <div class="flight-container" #flightContainer>
+        <app-flight-display *ngFor="let flight of flights" [origin]="flight.origin" [destination]="flight.destination" [price]="flight.price"></app-flight-display>
+    </div>
+    <button (click)="moveRight()">></button>
 </div>
-<button (click)="moveLeft()">Left</button>
-<button (click)="moveRight()">Right</button>

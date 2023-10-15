@@ -2,8 +2,8 @@
     display: flex;
     flex-wrap: nowrap;
     overflow: hidden;
-    width: 75%;
-    margin: 0 auto;
+    width: 90%;
+    margin: 80px auto;
 }
 
 .flight-container app-flight-display {
@@ -13,5 +13,31 @@
 
 .flight-container app-flight-display:hover {
     transform: scale(1.1);
+    cursor: pointer;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.button-container button {
+    justify-self: center;
+    margin: 50px;
+    font-weight: 700;
+    color: #1b3039;
+    padding: 9px 10px;
+    background: #eceff1;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: #000 5px 5px 10px;
+    transition: all 0.3s ease 0s;
+}
+
+.button-container button:hover {
+    background-color: #fff;
+    color: #64CCC5;
 }
 

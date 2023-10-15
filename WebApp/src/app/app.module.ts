@@ -22,6 +22,7 @@ import { CreatePromotionComponent } from './create-promotion/create-promotion.co
 import { DeletePromotionComponent } from './delete-promotion/delete-promotion.component';
 import { DeleteFlightComponent } from './delete-flight/delete-flight.component';
 import { FlightDisplayComponent } from './flight-display/flight-display.component';
+import { PromotionDisplayComponent } from './promotion-display/promotion-display.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { FlightDisplayComponent } from './flight-display/flight-display.componen
     CreatePromotionComponent,
     DeletePromotionComponent,
     DeleteFlightComponent,
-    FlightDisplayComponent
+    FlightDisplayComponent,
+    PromotionDisplayComponent
   ],
   imports: [
     BrowserModule,
