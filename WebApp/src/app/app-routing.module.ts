@@ -14,6 +14,11 @@ import { FlightOpeningComponent } from './flight-opening/flight-opening.componen
 import { FlightClosureComponent } from './flight-closure/flight-closure.component';
 import { FlightsComponent } from './flights/flights.component';
 import { PromotionsManagmentComponent } from './promotions-managment/promotions-managment.component';
+import { CreateFlightComponent } from './create-flight/create-flight.component';
+import { DeleteFlightComponent } from './delete-flight/delete-flight.component';
+import { CreatePromotionComponent } from './create-promotion/create-promotion.component';
+import { DeletePromotionComponent } from './delete-promotion/delete-promotion.component';
+
 
 const routes: Routes = [
   
@@ -40,7 +45,15 @@ const routes: Routes = [
 
   {path :'flight-closure', component : FlightClosureComponent},
   
-  {path :'flights', component : FlightsComponent}
+  {path :'flights', component : FlightsComponent},
+
+  {path :'create-flight', component : CreateFlightComponent},
+
+  {path :'delete-flight', component : DeleteFlightComponent},
+
+  {path :'create-promotion', component : CreatePromotionComponent},
+
+  {path :'delete-promotion', component : DeletePromotionComponent}
 ];
 
 @NgModule({

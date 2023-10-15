@@ -1,0 +1,17 @@
+.flight-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.flight-container app-flight-display {
+    width: 33.33%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.flight-container app-flight-display:hover {
+    transform: scale(1.1);
+}
+

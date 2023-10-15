@@ -17,6 +17,11 @@ import { FlightClosureComponent } from './flight-closure/flight-closure.componen
 import { FooterComponent } from './footer/footer.component';
 import { PromotionsManagmentComponent } from './promotions-managment/promotions-managment.component';
 import { FlightsComponent } from './flights/flights.component';
+import { CreateFlightComponent } from './create-flight/create-flight.component';
+import { CreatePromotionComponent } from './create-promotion/create-promotion.component';
+import { DeletePromotionComponent } from './delete-promotion/delete-promotion.component';
+import { DeleteFlightComponent } from './delete-flight/delete-flight.component';
+import { FlightDisplayComponent } from './flight-display/flight-display.component';
 
 
 @NgModule({
@@ -34,7 +39,12 @@ import { FlightsComponent } from './flights/flights.component';
     FlightClosureComponent,
     FooterComponent,
     PromotionsManagmentComponent,
-    FlightsComponent
+    FlightsComponent,
+    CreateFlightComponent,
+    CreatePromotionComponent,
+    DeletePromotionComponent,
+    DeleteFlightComponent,
+    FlightDisplayComponent
   ],
   imports: [
     BrowserModule,
