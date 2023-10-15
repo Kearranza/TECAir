@@ -5,7 +5,7 @@ CREATE TABLE CLIENTE(
     Nombre varchar(20) not null ,
     Apellido_1 varchar(30) not null ,
     Apellido_2 varchar(30),
-    Télefono varchar(15) not null ,
+    Telefono varchar(15) not null ,
     Correo varchar(30) not null
 );
 
@@ -49,7 +49,7 @@ CREATE TABLE TARJETA_DE_CREDITO(
 
 CREATE TABLE AVION(
     Placa varchar(10)
-        constraint AVIÓN_pk
+        constraint AVION_pk
             primary key,
     Filas int default 1,
     Columnas int default 1
@@ -61,21 +61,8 @@ CREATE TABLE MAPA_ASIENTOS(
             primary key,
     Num_asiento int default 1,
     Disponibilidad boolean default TRUE,
-    ID_Avión varchar(10) not null,
-    constraint MAPA_ASIENTOS_fk
-        foreign key (ID_Avión) references AVION (Placa)
-            ON UPDATE NO ACTION
-            ON DELETE NO ACTION
-);
-
-CREATE TABLE CALENDARIO_VUELO(
-    ID_Calendario varchar(20)
-        constraint CALENDARIO_VUELO_pk
-            primary key,
-    Fecha date not null ,
-    Precio int default 0,
     ID_Avion varchar(10) not null,
-    constraint CALENDARIO_VUELO_fk
+    constraint MAPA_ASIENTOS_fk
         foreign key (ID_Avion) references AVION (Placa)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
@@ -102,6 +89,24 @@ CREATE TABLE VUELOS(
             ON DELETE NO ACTION,
     constraint VUELOS__fk
         foreign key (Aereo_final) references AEREOPUERTO (ID_aereo)
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION
+);
+
+CREATE TABLE CALENDARIO_VUELO(
+    ID_Calendario varchar(20)
+        constraint CALENDARIO_VUELO_pk
+            primary key,
+    Fecha date not null ,
+    Precio int default 0,
+    ID_Avion varchar(10) not null,
+    ID_Vuelo int,
+    constraint CALENDARIO_VUELO_fk
+        foreign key (ID_Avion) references AVION (Placa)
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION,
+    constraint CALENDARIO_VUELO__fk
+        foreign key (ID_Vuelo) references VUELOS (ID_Vuelo)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
 );
@@ -137,6 +142,12 @@ CREATE TABLE PASE_ABORDAR(
             ON DELETE NO ACTION
 );
 
+CREATE TABLE COLOR(
+    ID_Color varchar(15)
+        constraint COLOR_pk
+            primary key
+);
+
 CREATE TABLE MALETA(
     ID_Maleta int
         constraint MALETA_pk
@@ -157,12 +168,6 @@ CREATE TABLE MALETA(
         foreign key (ID_Pasaje) references PASE_ABORDAR (ID_Pasaje)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
-);
-
-CREATE TABLE COLOR(
-    ID_Color varchar(15)
-        constraint COLOR_pk
-            primary key
 );
 
 CREATE TABLE PROMOCIONES(
