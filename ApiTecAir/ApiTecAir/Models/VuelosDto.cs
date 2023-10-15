@@ -5,7 +5,7 @@ namespace ApiTecAir.Models;
 public class VuelosDto
 {
     [Key]
-    public required int id_vuelo { set; get; }
+    public int id_vuelo { set; get; }
     
     public DateTime hora_salida { set; get; }
     

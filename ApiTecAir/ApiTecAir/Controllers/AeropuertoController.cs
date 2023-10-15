@@ -37,14 +37,14 @@ public class AeropuertoController : ControllerBase
     }
 
     [HttpGet("/{id}/aeropuerto")]
-    public AeropuertoDto GetById(int id)
+    public AeropuertoDto GetById(string id)
     {
         var aeropuerto = _tecAirDbContext.aereopuerto.Find(id);
         return aeropuerto;
     }
 
     [HttpPut("/aeropuerto/id")]
-    public IActionResult Put(int id, [FromBody] AeropuertoDto model)
+    public IActionResult Put(string id, [FromBody] AeropuertoDto model)
     {
         _tecAirDbContext.aereopuerto.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
@@ -55,7 +55,7 @@ public class AeropuertoController : ControllerBase
     }
     
     [HttpDelete("/aeropuerto/id")]
-    public IActionResult Delete(int id)
+    public IActionResult Delete(string id)
     {
         var aeropuerto = GetById(id);
 

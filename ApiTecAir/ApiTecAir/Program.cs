@@ -14,6 +14,14 @@ builder.Services.AddCors(options =>
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
+    
+    options.AddPolicy("IisPolicy",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:3333")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
 });
 
 builder.Services.AddControllers();
@@ -33,6 +41,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 if (app.Environment.IsProduction())
 {
     app.UseSwagger();
@@ -42,6 +51,7 @@ if (app.Environment.IsProduction())
 app.UseHttpsRedirection();
 
 app.UseCors("MyPolicy");
+app.UseCors("IisPolicy");
 
 app.UseAuthorization();
 

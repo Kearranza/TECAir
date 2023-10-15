@@ -4,5 +4,6 @@ namespace ApiTecAir.Models;
 
 public class ColorDto
 {
-    [Key] public required String id_color;
+    [Key] 
+    public required String id_color { set; get; }
 }

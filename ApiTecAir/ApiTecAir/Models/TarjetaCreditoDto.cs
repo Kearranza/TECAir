@@ -7,7 +7,7 @@ public class TarjetaCreditoDto
     [Key]
     public required string num_tarjeta { set; get; }
 
-    public DateTime fecha_exp;
+    public string fecha_exp;
     
     public int cvv { set; get; }
 

@@ -17,7 +17,7 @@ CREATE TABLE COLOR(
 
 CREATE TABLE USUARIO(
     ID_Usuario serial,
-    Contraseña varchar(15) not null ,
+    Contrasena varchar(15) not null ,
     Cedula int not null ,
     constraint USUARIO_pk
         primary key (ID_Usuario),
@@ -81,8 +81,13 @@ CREATE TABLE CALENDARIO_VUELO(
     Fecha date not null ,
     Precio int default 0,
     ID_Avion varchar(10) not null,
+    ID_Vuelo int,
     constraint CALENDARIO_VUELO_fk
         foreign key (ID_Avion) references AVION (Placa)
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION,
+    constraint CALENDARIO_VUELO__fk
+        foreign key (ID_Vuelo) references VUELOS (ID_Vuelo)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
 );

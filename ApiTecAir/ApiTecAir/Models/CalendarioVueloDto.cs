@@ -7,7 +7,7 @@ public class CalendarioVueloDto
     [Key]
     public required int id_calendario { set; get; }
     
-    public DateTime date { set; get; }
+    public DateTime fecha { set; get; }
     
     public float precio { set; get; }
     

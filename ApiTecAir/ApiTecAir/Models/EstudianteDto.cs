@@ -5,7 +5,7 @@ namespace ApiTecAir.Models;
 public class EstudianteDto
 {
     [Key]
-    public required string carnet { set; get; }
+    public int carnet { set; get; }
     
     public required string universidad { set; get; }
     

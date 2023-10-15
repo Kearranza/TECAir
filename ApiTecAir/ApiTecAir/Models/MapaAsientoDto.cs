@@ -8,7 +8,7 @@ public class MapaAsientoDto
     [Key]
     public int id_mapa_asiento { set; get; }
     
-    public required string num_asiento { set; get; }
+    public int num_asiento { set; get; }
     
     public bool disponibilidad { set; get; }
     

@@ -7,7 +7,7 @@ public class PromocionesDto
     [Key]
     public int id_promo { set; get; }
     
-    public int descuento { set; get; }
+    public float descuento { set; get; }
     
     public DateTime fecha_inicio { set; get; }
     

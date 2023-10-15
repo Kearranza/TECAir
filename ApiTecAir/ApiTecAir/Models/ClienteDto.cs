@@ -5,7 +5,7 @@ namespace ApiTecAir.Models;
 public class ClienteDto
 {
     [Key]
-    public  string cedula { set; get; }
+    public  int cedula { set; get; }
     
     public required string nombre { set; get; }
     
