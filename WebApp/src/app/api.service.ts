@@ -22,9 +22,8 @@ import { Color } from './Interfaces/color.interface';
 })
 export class APIService {
 
-  //Urls para conectarse a la API
-  private urlTestUrl = 'https://pokeapi.co/api/v2/pokemon/ditto';
-  private urlApi = 'http://localhost:5292'
+  //Url para conectarse a la API
+  private urlApi = 'http://localhost:5296'
 
   //Constructor que crea un httpClient para poder realizar conecciones con la API
   constructor(private http: HttpClient) { }
@@ -40,18 +39,18 @@ export class APIService {
     return this.http.get<Airport>(url)
   }
 
-  postDataAeropuerto(data: any): Observable<Airport> {
+  postDataAeropuerto(data: Airport): Observable<Airport> {
     const url = `${this.urlApi}/${'aeropuerto'}`;
     return this.http.post<Airport>(url, data);
   }
 
-  updateDataAeropuerto(id: number, data: any): Observable<any> {
-    const url = `${this.urlApi}/${'aeropuerto'}/${id}`;
+  updateDataAeropuerto(id: string, data: Airport): Observable<any> {
+    const url = `${this.urlApi}/${'aeropuerto'}/id?id=${id}`;
     return this.http.put(url, data);
   }
 
-  deleteDataAeropuerto(id: number): Observable<any> {
-    const url = `${this.urlApi}/${'aeropuerto'}/${id}`;
+  deleteDataAeropuerto(id: string): Observable<any> {
+    const url = `${this.urlApi}/${'aeropuerto'}/id?id=${id}`;
     return this.http.delete(url);
   }
 
@@ -71,12 +70,12 @@ export class APIService {
   }
 
   updateDataAvion(id: number, data: any): Observable<any> {
-    const url = `${this.urlApi}/${'avion'}/${id}`;
+    const url = `${this.urlApi}/${'avion'}/id?id=${id}`;
     return this.http.put(url, data);
   }
 
   DeleteDataAvion(id: number): Observable<any> {
-    const url = `${this.urlApi}/${'avion'}/${id}`;
+    const url = `${this.urlApi}/${'avion'}/id?id=${id}`;
     return this.http.delete(url);
   }
 
@@ -96,12 +95,12 @@ export class APIService {
   }
 
   updateDataFactura(id: number, data: any): Observable<any> {
-    const url = `${this.urlApi}/${'factura'}/${id}`;
+    const url = `${this.urlApi}/${'factura'}/id?id=${id}`;
     return this.http.put(url, data);
   }
 
   DeleteDataFactura(id: number): Observable<any> {
-    const url = `${this.urlApi}/${'factura'}/${id}`;
+    const url = `${this.urlApi}/${'factura'}/id?id=${id}`;
     return this.http.delete(url);
   }
 
@@ -121,12 +120,12 @@ export class APIService {
   }
 
   updateDataCliente(id: number, data: any): Observable<any> {
-    const url = `${this.urlApi}/${'cliente'}/${id}`;
+    const url = `${this.urlApi}/${'cliente'}/id?id=${id}`;
     return this.http.put(url, data);
   }
 
   DeleteDataCliente(id: number): Observable<any> {
-    const url = `${this.urlApi}/${'cliente'}/${id}`;
+    const url = `${this.urlApi}/${'cliente'}/id?id=${id}`;
     return this.http.delete(url);
   }
 
@@ -146,12 +145,12 @@ export class APIService {
   }
 
   updateDataColor(id: number, data: any): Observable<any> {
-    const url = `${this.urlApi}/${'color'}/${id}`;
+    const url = `${this.urlApi}/${'color'}/id?id=${id}`;
     return this.http.put(url, data);
   }
 
   DeleteDataColor(id: number): Observable<any> {
-    const url = `${this.urlApi}/${'color'}/${id}`;
+    const url = `${this.urlApi}/${'color'}/id?id=${id}`;
     return this.http.delete(url);
   }
 
@@ -171,12 +170,12 @@ export class APIService {
   }
 
   updateDataCalendario(id: number, data: any): Observable<any> {
-    const url = `${this.urlApi}/${'calendar'}/${id}`;
+    const url = `${this.urlApi}/${'calendar'}/id?id=${id}`;
     return this.http.put(url, data);
   }
 
   DeleteDataCalendario(id: number): Observable<any> {
-    const url = `${this.urlApi}/${'calendar'}/${id}`;
+    const url = `${this.urlApi}/${'calendar'}/id?id=${id}`;
     return this.http.delete(url);
   }
 
@@ -196,12 +195,12 @@ export class APIService {
   }
 
   updateDataVuelos(id: number, data: any): Observable<any> {
-    const url = `${this.urlApi}/${'vuelos'}/${id}`;
+    const url = `${this.urlApi}/${'vuelos'}/id?id=${id}`;
     return this.http.put(url, data);
   }
 
   DeleteDataVuelos(id: number): Observable<any> {
-    const url = `${this.urlApi}/${'vuelos'}/${id}`;
+    const url = `${this.urlApi}/${'vuelos'}/id?id=${id}`;
     return this.http.delete(url);
   }
 
@@ -221,12 +220,12 @@ export class APIService {
   }
 
   updateDataPromociones(id: number, data: any): Observable<any> {
-    const url = `${this.urlApi}/${'promociones'}/${id}`;
+    const url = `${this.urlApi}/${'promociones'}/id?id=${id}`;
     return this.http.put(url, data);
   }
 
   DeleteDataPromociones(id: number): Observable<any> {
-    const url = `${this.urlApi}/${'promociones'}/${id}`;
+    const url = `${this.urlApi}/${'promociones'}/id?id=${id}`;
     return this.http.delete(url);
   }
 
@@ -246,12 +245,12 @@ export class APIService {
   }
 
   updateDataEscala(id: number, data: any): Observable<any> {
-    const url = `${this.urlApi}/${'escala'}/${id}`;
+    const url = `${this.urlApi}/${'escala'}/id?id=${id}`;
     return this.http.put(url, data);
   }
 
   DeleteDataEscala(id: number): Observable<any> {
-    const url = `${this.urlApi}/${'escala'}/${id}`;
+    const url = `${this.urlApi}/${'escala'}/id?id=${id}`;
     return this.http.delete(url);
   }
 
@@ -271,12 +270,12 @@ export class APIService {
   }
 
   updateDataAsiento(id: number, data: any): Observable<any> {
-    const url = `${this.urlApi}/${'asiento'}/${id}`;
+    const url = `${this.urlApi}/${'asiento'}/id?id=${id}`;
     return this.http.put(url, data);
   }
 
   DeleteDataAsiento(id: number): Observable<any> {
-    const url = `${this.urlApi}/${'asiento'}/${id}`;
+    const url = `${this.urlApi}/${'asiento'}/id?id=${id}`;
     return this.http.delete(url);
   }
 
@@ -296,12 +295,12 @@ export class APIService {
   }
 
   updateDataEstudiante(id: number, data: any): Observable<any> {
-    const url = `${this.urlApi}/${'estudiante'}/${id}`;
+    const url = `${this.urlApi}/${'estudiante'}/id?id=${id}`;
     return this.http.put(url, data);
   }
 
   DeleteDataEstudiante(id: number): Observable<any> {
-    const url = `${this.urlApi}/${'estudiante'}/${id}`;
+    const url = `${this.urlApi}/${'estudiante'}/id?id=${id}`;
     return this.http.delete(url);
   }
 
@@ -321,12 +320,12 @@ export class APIService {
   }
 
   updateDataMaleta(id: number, data: any): Observable<any> {
-    const url = `${this.urlApi}/${'maleta'}/${id}`;
+    const url = `${this.urlApi}/${'maleta'}/id?id=${id}`;
     return this.http.put(url, data);
   }
 
   DeleteDataMaleta(id: number): Observable<any> {
-    const url = `${this.urlApi}/${'maleta'}/${id}`;
+    const url = `${this.urlApi}/${'maleta'}/id?id=${id}`;
     return this.http.delete(url);
   }
 
@@ -346,12 +345,12 @@ export class APIService {
   }
 
   updateDataTarjeta(id: number, data: any): Observable<any> {
-    const url = `${this.urlApi}/${'tarjeta'}/${id}`;
+    const url = `${this.urlApi}/${'tarjeta'}/id?id=${id}`;
     return this.http.put(url, data);
   }
 
   DeleteDataTarjeta(id: number): Observable<any> {
-    const url = `${this.urlApi}/${'tarjeta'}/${id}`;
+    const url = `${this.urlApi}/${'tarjeta'}/id?id=${id}`;
     return this.http.delete(url);
   }
 
@@ -371,12 +370,12 @@ export class APIService {
   }
 
   updateDataPaseA(id: number, data: any): Observable<any> {
-    const url = `${this.urlApi}/${'pase_abordar'}/${id}`;
+    const url = `${this.urlApi}/${'pase_abordar'}/id?id=${id}`;
     return this.http.put(url, data);
   }
 
   DeleteDataPaseA(id: number): Observable<any> {
-    const url = `${this.urlApi}/${'pase_abordar'}/${id}`;
+    const url = `${this.urlApi}/${'pase_abordar'}/id?id=${id}`;
     return this.http.delete(url);
   }
 
@@ -396,12 +395,12 @@ export class APIService {
   }
 
   updateDataUser(id: number, data: any): Observable<any> {
-    const url = `${this.urlApi}/${'user'}/${id}`;
+    const url = `${this.urlApi}/${'user'}/id?id=${id}`;
     return this.http.put(url, data);
   }
 
   DeleteDataUser(id: number): Observable<any> {
-    const url = `${this.urlApi}/${'user'}/${id}`;
+    const url = `${this.urlApi}/${'user'}/id?id=${id}`;
     return this.http.delete(url);
   }
 }
