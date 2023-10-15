@@ -1,8 +1,6 @@
-import { Client } from "./client.interface";
-
 export interface Student{
-    carnet:string;
-    cedula:Client;
+    carnet:number;
     universidad:string;
     millas:number
+    cedula:number;
 }

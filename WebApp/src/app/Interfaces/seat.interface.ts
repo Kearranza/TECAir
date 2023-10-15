@@ -1,9 +1,7 @@
-import { Plane } from "./plane.interface";
-
 export interface Seat{
     id_asiento: number;
-    num_asiento: string;
+    num_asiento: number;
     disponibilidad:boolean;
-    id_avion:Plane
+    id_avion:string
 
 }

@@ -1,9 +1,11 @@
-import { Plane } from "./plane.interface";
-import { Airport } from "./airport.interface";
+import { Calendar } from "./calendar.interface";
+import { Scales } from "./scales.interface";
 
 export interface Flight{
     id_vuelo:number;
-    avion:Plane;
-    aereo_destino: Airport;
-    hora_salida: Date
+    hora_salida:Date;
+    aereo_origen:string;
+    aereo_final:string
+    calendarios:Calendar[]
+    escalas:Scales[];
 }

@@ -114,7 +114,7 @@ export class APIService {
     return this.http.get<Client>(url)
   }
 
-  postDataCliente(data: any): Observable<Client> {
+  postDataCliente(data: Client): Observable<Client> {
     const url = `${this.urlApi}/${'cliente'}`;
     return this.http.post<Client>(url, data);
   }

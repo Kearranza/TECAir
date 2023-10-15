@@ -25,6 +25,8 @@ export class ClientLoginComponent {
     this.charge.getClient();
 
     for (let clients of this.charge.client){
+      console.log(clients);
+      
       if (usernameInput && passwordInput) {
 
         if (clients.correo !== usernameInput.value || clients.apellido_1 !== passwordInput.value) {
