@@ -11,5 +11,5 @@
     </div>
     <button type="submit">Iniciar sesión</button>
     <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
-    <a href="#">¡Regístrate!</a>
+    <a [routerLink]="['/client-register']">¡Regístrate!</a>
 </form>

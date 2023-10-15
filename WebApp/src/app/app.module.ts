@@ -24,6 +24,7 @@ import { DeleteFlightComponent } from './delete-flight/delete-flight.component';
 import { FlightDisplayComponent } from './flight-display/flight-display.component';
 import { PromotionDisplayComponent } from './promotion-display/promotion-display.component';
 import { ClientLoginComponent } from './client-login/client-login.component';
+import { ClientRegisterComponent } from './client-register/client-register.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { ClientLoginComponent } from './client-login/client-login.component';
     DeleteFlightComponent,
     FlightDisplayComponent,
     PromotionDisplayComponent,
-    ClientLoginComponent
+    ClientLoginComponent,
+    ClientRegisterComponent
   ],
   imports: [
     BrowserModule,

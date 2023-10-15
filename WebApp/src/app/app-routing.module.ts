@@ -19,6 +19,7 @@ import { DeleteFlightComponent } from './delete-flight/delete-flight.component';
 import { CreatePromotionComponent } from './create-promotion/create-promotion.component';
 import { DeletePromotionComponent } from './delete-promotion/delete-promotion.component';
 import { ClientLoginComponent } from './client-login/client-login.component';
+import { ClientRegisterComponent } from './client-register/client-register.component';
 
 
 const routes: Routes = [
@@ -55,6 +56,8 @@ const routes: Routes = [
   {path :'create-promotion', component : CreatePromotionComponent},
 
   {path :'delete-promotion', component : DeletePromotionComponent},
+
+  {path :'client-register', component : ClientRegisterComponent},
 
   {path :'client-login', component : ClientLoginComponent}
 ];

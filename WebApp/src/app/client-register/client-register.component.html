@@ -1,0 +1,61 @@
+<form>
+    <h2 class="logo">Ingresa tus datos</h2>
+    <div>
+        <label for="name">Nombre:</label>
+        <div>
+            <input type="text" id="name" name="name" required>
+        </div>
+    </div>
+    <div>
+        <label for="lastname1">Primer Apellido:</label>
+        <div>
+            <input type="text" id="lastname1" name="lastname1" required>
+        </div>
+    </div>
+    <div>
+        <label for="lastname2">Segundo Apellido:</label>
+        <div>
+            <input type="text" id="lastname2" name="lastname2" required>
+        </div>
+    </div>
+    <div>
+        <label for="phone">Teléfono:</label>
+        <div>
+            <input type="number" id="phone" name="phone" required inputmode="numeric" >
+        </div>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <div>
+            <input type="email" id="email" name="email" required>
+        </div>
+    </div>
+    <div>
+        <label>¿Eres estudiante?</label>
+        <div class="radio-buttons">
+            <label>
+                <input type="radio" name="student" value="yes" [(ngModel)]="student">
+                <span>Sí</span>
+            </label>
+            <label>
+                <input type="radio" name="student" value="no" [(ngModel)]="student">
+                <span>No</span>
+            </label>
+        </div>
+    </div>
+    <div *ngIf="student === 'yes'">
+        <div>
+            <label for="university">Universidad:</label>
+            <div>
+                <input type="text" id="university" name="university">
+            </div>
+        </div>
+        <div>
+            <label for="uniID">Carnet:</label>
+            <div>
+                <input type="number" id="suniID" name="uniID" inputmode="numeric">
+            </div>
+        </div>
+    </div>
+    <button class="button" type="submit" >Registrar</button>
+</form>
