@@ -1,0 +1,106 @@
+/* Páginas de estilos encargada de estilizar y acomodar login */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    max-height: 600px;
+    border: 5px solid #fff;
+    padding: 20px;
+    background-image: url('../../assets/Sky.png');
+    border-radius: 7% ;
+    box-shadow: #000 5px 5px 10px;
+}
+
+form img {
+    display: block;
+    margin: auto;
+    max-width: 50%;
+}
+
+
+div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #fff;
+    text-align: center;
+}
+
+input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+button {
+
+    margin-top: 10px; 
+    font-weight: 700;
+    color: #1b3039;
+    padding: 9px 25px;
+    background: #eceff1;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: #000 5px 5px 10px;
+    transition: all 0.3s ease 0s;
+
+}
+
+.logo {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px white;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #64CCC5;
+
+}
+
+p {
+    color: red;
+    text-shadow: red 0px 0px 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+a {
+    font-size: 15px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px white;
+    color: black;
+    transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+    color: #64CCC5;
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+form {
+    max-width: 98%;
+    max-height: 98%;
+}
+}

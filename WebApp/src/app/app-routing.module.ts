@@ -18,18 +18,19 @@ import { CreateFlightComponent } from './create-flight/create-flight.component';
 import { DeleteFlightComponent } from './delete-flight/delete-flight.component';
 import { CreatePromotionComponent } from './create-promotion/create-promotion.component';
 import { DeletePromotionComponent } from './delete-promotion/delete-promotion.component';
+import { ClientLoginComponent } from './client-login/client-login.component';
 
 
 const routes: Routes = [
   
   {path :'login', component : LoginComponent },
-  {path :'', component : LoginComponent, pathMatch: 'full' },
 
   {path :'app', component : AppComponent},
 
   {path :'admin-selector', component : AdminSelectorComponent},
 
   {path :'client-view', component : ClientViewComponent},
+  {path :'', component : ClientViewComponent, pathMatch: 'full' },
 
   {path :'promotions-managment', component : PromotionsManagmentComponent},
 
@@ -53,7 +54,9 @@ const routes: Routes = [
 
   {path :'create-promotion', component : CreatePromotionComponent},
 
-  {path :'delete-promotion', component : DeletePromotionComponent}
+  {path :'delete-promotion', component : DeletePromotionComponent},
+
+  {path :'client-login', component : ClientLoginComponent}
 ];
 
 @NgModule({
