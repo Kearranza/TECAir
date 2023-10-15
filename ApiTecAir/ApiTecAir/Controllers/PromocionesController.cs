@@ -8,12 +8,12 @@ using Microsoft.EntityFrameworkCore;
 namespace ApiTecAir.Controllers;
 
 [Route ("/api/[controller]")]
-public class SaleController : ControllerBase
+public class PromocionesController : ControllerBase
 {
     private TECAirDbContext _tecAirDbContext;
     private IMapper _mapper;
 
-    public SaleController(TECAirDbContext tecAirs, IMapper mapper)
+    public PromocionesController(TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
         _mapper = mapper;

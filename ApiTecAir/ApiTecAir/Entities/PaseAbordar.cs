@@ -15,7 +15,7 @@ public class PaseAbordar
     
     public int cedula_cliente { set; get; }
     
-    public int id_calendario { set; get; }
+    public string id_calendario { set; get; }
     
     public Cliente cliente { set; get; }
     

@@ -5,15 +5,15 @@ namespace ApiTecAir.Entities;
 public class CalendarioVuelo
 {
     [Key]
-    public int id_calendario { set; get; }
+    public string id_calendario { set; get; }
     
     public DateTime fecha { set; get; }
     
     public float precio { set; get; }
     
-    public string placa { set; get; }
+    public string id_avion { set; get; }
     
-    public string id_vuelo { set; get; }
+    public int id_vuelo { set; get; }
     
     public Avion avion { set; get; }
     

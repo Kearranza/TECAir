@@ -12,7 +12,7 @@ public class MapaAsiento
     
     public bool disponibilidad { set; get; }
     
-    public string placa { set; get; }
+    public string id_avión { set; get; }
     
     public Avion avion { set; get; }
     

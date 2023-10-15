@@ -4,13 +4,13 @@ namespace ApiTecAir.Dtos;
 
 public class CalendarioVueloDto
 {
-    public  int id_calendario { set; get; }
+    public  string id_calendario { set; get; }
     
     public DateTime fecha { set; get; }
     
     public float precio { set; get; }
     
-    public string placa { set; get; }
+    public string id_avion { set; get; }
     
     public int id_vuelo { set; get; }
     

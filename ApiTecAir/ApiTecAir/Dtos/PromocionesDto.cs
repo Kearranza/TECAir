@@ -16,5 +16,5 @@ public class PromocionesDto
     
     public  string destino { set; get; }
     
-    public CalendarioVueloDto aplicado_calendario { set; get; }
+    public string aplicado_calendario { set; get; }
 }

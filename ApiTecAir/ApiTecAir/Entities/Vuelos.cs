@@ -11,7 +11,7 @@ public class Vuelos
     
     public string aereo_origen { set; get; }
     
-    public string aereo_destino { set; get; }
+    public string aereo_final { set; get; }
     
     public Aeropuerto origen { set; get; }
     

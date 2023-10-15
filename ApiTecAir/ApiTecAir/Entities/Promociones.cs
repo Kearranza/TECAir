@@ -11,13 +11,13 @@ public class Promociones
     
     public DateTime fecha_inicio { set; get; }
     
-    public DateTime fecha_fin { set; get; }
+    public DateTime fecha_final { set; get; }
     
     public  string origen { set; get; }
     
     public  string destino { set; get; }
     
-    public int aplicado_calendario { set; get; }
+    public string aplicado_calendario { set; get; }
     
     public CalendarioVuelo calendario { set; get; }
 }

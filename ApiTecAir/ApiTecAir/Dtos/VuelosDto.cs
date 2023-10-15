@@ -10,7 +10,7 @@ public class VuelosDto
     
     public string aereo_origen { set; get; }
     
-    public string aereo_destino { set; get; }
+    public string aereo_final { set; get; }
     
     public List<CalendarioVueloDto> calendarios { set; get; }
     

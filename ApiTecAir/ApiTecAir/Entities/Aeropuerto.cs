@@ -11,5 +11,7 @@ public class Aeropuerto
     
     public string pais { set; get; }
     
-    public List<Vuelos> vuelos { set; get; }
+    public List<Vuelos> vuelosOrigen { set; get; }
+    
+    public List<Vuelos> vuelosDestino { set; get; }
 }

@@ -22,7 +22,7 @@ public class MapaAsientoController : ControllerBase
     public IActionResult CreateSeat([FromBody] MapaAsientoDto payload)
     {
         var model = _mapper.Map<MapaAsiento>(payload);
-        var seatExist = _tecAirDbContext.mapa_asiento.Any(e => e.id_mapa_asiento == model.id_mapa_asiento);
+        var seatExist = _tecAirDbContext.mapa_asientos.Any(e => e.id_mapa_asiento == model.id_mapa_asiento);
         if (seatExist == true)
         {
             return Ok(new { Message = "Seat Already Created" });
@@ -37,14 +37,14 @@ public class MapaAsientoController : ControllerBase
     [HttpGet("/asiento")]
     public IActionResult GetAllSeats()
     {
-        var seats = _tecAirDbContext.mapa_asiento;
+        var seats = _tecAirDbContext.mapa_asientos;
         return Ok(seats);
     }
 
     [HttpGet("/{id}/asiento")]
     public MapaAsiento GetById(int id)
     {
-        var seat = _tecAirDbContext.mapa_asiento.Find(id);
+        var seat = _tecAirDbContext.mapa_asientos.Find(id);
         return seat;
     }
 
@@ -52,7 +52,7 @@ public class MapaAsientoController : ControllerBase
     public IActionResult Put(int id, [FromBody] MapaAsientoDto payload)
     {
         var model = _mapper.Map<MapaAsiento>(payload);
-        _tecAirDbContext.mapa_asiento.Attach(model);
+        _tecAirDbContext.mapa_asientos.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 
         _tecAirDbContext.SaveChanges();
@@ -65,7 +65,7 @@ public class MapaAsientoController : ControllerBase
     {
         var seat = GetById(id);
 
-        _tecAirDbContext.mapa_asiento.Remove(seat);
+        _tecAirDbContext.mapa_asientos.Remove(seat);
         _tecAirDbContext.SaveChanges();
 
         return Ok(new { MESSAGE = "Seat Deleted" });

@@ -23,7 +23,7 @@ public class TarjetaCreditoController : ControllerBase
     public IActionResult CreateTarjeta([FromBody] TarjetaCreditoDto payload)
     {
         var model = _mapper.Map<TarjetaCredito>(payload);
-        var tarjetaExist = _tecAirDbContext.tarjeta_credito.Any(e => e.num_tarjeta == model.num_tarjeta);
+        var tarjetaExist = _tecAirDbContext.tarjeta_de_credito.Any(e => e.num_tarjeta == model.num_tarjeta);
         if (tarjetaExist == true)
         {
             return Ok(new { Message = "Tarjeta de credito Already Created" });
@@ -38,14 +38,14 @@ public class TarjetaCreditoController : ControllerBase
     [HttpGet("/tarjeta")]
     public IActionResult GetAllTarjetas()
     {
-        var tarjetas = _tecAirDbContext.tarjeta_credito;
+        var tarjetas = _tecAirDbContext.tarjeta_de_credito;
         return Ok(tarjetas);
     }
 
     [HttpGet("/{id}/tarjeta")]
     public TarjetaCredito GetById(int id)
     {
-        var tarjeta = _tecAirDbContext.tarjeta_credito.Find(id);
+        var tarjeta = _tecAirDbContext.tarjeta_de_credito.Find(id);
         return tarjeta;
     }
 
@@ -53,7 +53,7 @@ public class TarjetaCreditoController : ControllerBase
     public IActionResult Put(int id, [FromBody] TarjetaCreditoDto payload)
     {
         var model = _mapper.Map<TarjetaCredito>(payload);
-        _tecAirDbContext.tarjeta_credito.Attach(model);
+        _tecAirDbContext.tarjeta_de_credito.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 
         _tecAirDbContext.SaveChanges();
@@ -66,7 +66,7 @@ public class TarjetaCreditoController : ControllerBase
     {
         var tarjeta = GetById(id);
 
-        _tecAirDbContext.tarjeta_credito.Remove(tarjeta);
+        _tecAirDbContext.tarjeta_de_credito.Remove(tarjeta);
         _tecAirDbContext.SaveChanges();
 
         return Ok(new { MESSAGE = "Tarjeta de credito Deleted" });

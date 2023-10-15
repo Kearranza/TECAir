@@ -27,13 +27,13 @@ public class TECAirDbContext : DbContext
     
     public virtual DbSet<Vuelos> vuelos { set; get; }
 
-    public virtual DbSet<CalendarioVuelo> calendario_vuelos { set; get; }
+    public virtual DbSet<CalendarioVuelo> calendario_vuelo { set; get; }
 
     public virtual DbSet<Avion> avion { set; get; }
     
     public virtual DbSet<Escala> escala { set; get; }
     
-    public virtual DbSet<MapaAsiento> mapa_asiento { set; get; }
+    public virtual DbSet<MapaAsiento> mapa_asientos { set; get; }
     
     public virtual DbSet<Maleta> maleta { set; get; }
     
@@ -41,7 +41,7 @@ public class TECAirDbContext : DbContext
     
     public virtual DbSet<Usuario> usuario { set; get; }
     
-    public virtual DbSet<TarjetaCredito> tarjeta_credito { set; get; }
+    public virtual DbSet<TarjetaCredito> tarjeta_de_credito { set; get; }
     
     public virtual DbSet<Aeropuerto> aereopuerto { set; get; }
     
@@ -86,18 +86,18 @@ public class TECAirDbContext : DbContext
 
         modelbuilder.Entity<Vuelos>()
             .HasOne(_ => _.destino)
-            .WithMany(_ => _.vuelos)
-            .HasForeignKey(_ => _.aereo_destino);
+            .WithMany(_ => _.vuelosDestino)
+            .HasForeignKey(_ => _.aereo_final);
         
         modelbuilder.Entity<Vuelos>()
             .HasOne(_ => _.origen)
-            .WithMany(_ => _.vuelos)
+            .WithMany(_ => _.vuelosOrigen)
             .HasForeignKey(_ => _.aereo_origen);
         
         modelbuilder.Entity<CalendarioVuelo>()
             .HasOne(_ => _.avion)
             .WithMany(_ => _.calendarios)
-            .HasForeignKey(_ => _.placa);
+            .HasForeignKey(_ => _.id_avion);
         
         modelbuilder.Entity<CalendarioVuelo>()
             .HasOne(_ => _.vuelo)
@@ -117,6 +117,6 @@ public class TECAirDbContext : DbContext
         modelbuilder.Entity<MapaAsiento>()
             .HasOne(_ => _.avion)
             .WithMany(_ => _.asientos)
-            .HasForeignKey(_ => _.placa);
+            .HasForeignKey(_ => _.id_avión);
     }
 }

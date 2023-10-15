@@ -7,12 +7,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ApiTecAir.Controllers;
 
-public class ScaleController : ControllerBase
+public class EscalaController : ControllerBase
 {
     private TECAirDbContext _tecAirDbContext;
     private IMapper _mapper;
 
-    public ScaleController(TECAirDbContext tecAirs, IMapper mapper)
+    public EscalaController(TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
         _mapper = mapper;

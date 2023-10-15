@@ -22,7 +22,7 @@ public class CalendarioVueloController : ControllerBase
     public IActionResult CreateCalendar([FromBody] CalendarioVueloDto payload)
     {
         var model = _mapper.Map<CalendarioVuelo>(payload);
-        var calendarExist = _tecAirDbContext.calendario_vuelos.Any(e => e.id_calendario == model.id_calendario);
+        var calendarExist = _tecAirDbContext.calendario_vuelo.Any(e => e.id_calendario == model.id_calendario);
         if (calendarExist == true)
         {
             return Ok(new { Message = "Calendar Already Created" });
@@ -37,14 +37,14 @@ public class CalendarioVueloController : ControllerBase
     [HttpGet("/calendar")]
     public IActionResult GetAllCalendars()
     {
-        var calendars = _tecAirDbContext.calendario_vuelos;
+        var calendars = _tecAirDbContext.calendario_vuelo;
         return Ok(calendars);
     }
 
     [HttpGet("/{id}/calendar")]
     public CalendarioVuelo GetById(int id)
     {
-        var calendar = _tecAirDbContext.calendario_vuelos.Find(id);
+        var calendar = _tecAirDbContext.calendario_vuelo.Find(id);
         return calendar;
     }
 
@@ -52,7 +52,7 @@ public class CalendarioVueloController : ControllerBase
     public IActionResult Put(int id, [FromBody] CalendarioVueloDto payload)
     {
         var model = _mapper.Map<CalendarioVuelo>(payload);
-        _tecAirDbContext.calendario_vuelos.Attach(model);
+        _tecAirDbContext.calendario_vuelo.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;
 
         _tecAirDbContext.SaveChanges();
@@ -65,7 +65,7 @@ public class CalendarioVueloController : ControllerBase
     {
         var calendar = GetById(id);
 
-        _tecAirDbContext.calendario_vuelos.Remove(calendar);
+        _tecAirDbContext.calendario_vuelo.Remove(calendar);
         _tecAirDbContext.SaveChanges();
 
         return Ok(new { MESSAGE = "Calendar Deleted" });
