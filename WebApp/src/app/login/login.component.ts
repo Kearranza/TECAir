@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ChargeThingsService } from '../charge-things.service';
+import { Airport } from '../Interfaces/airport.interface';
+import { APIService } from '../api.service';
 
 // Componente para el login de la aplicación, encargado de validar el usuario y contraseña ingresados por el usuario.
 
@@ -14,7 +17,7 @@ export class LoginComponent {
   password: string = 'admin';
   errorMessage: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private charge:ChargeThingsService) {}
 
   // Función para el login que se ejecuta al presionar el botón y que valida si el usuario y contraseña son correctos
   onSubmit() {
@@ -39,7 +42,7 @@ export class LoginComponent {
         // Redirigir al usuario a la página de inicio.
         this.router.navigate(['/admin-selector']);
       }
-    }
+    }   
   }
 
 }
