@@ -284,12 +284,12 @@ export class APIService {
     return this.http.get<Student[]>(url)
   }
 
-  getDataEEstudiante(id:string): Observable<Student> {
+  getDataEEstudiante(id:number): Observable<Student> {
     const url  = `${this.urlApi}/${id}/${'estudiante'}`;
     return this.http.get<Student>(url)
   }
 
-  postDataEstudiante(data: any): Observable<Student> {
+  postDataEstudiante(data: Student): Observable<Student> {
     const url = `${this.urlApi}/${'estudiante'}`;
     return this.http.post<Student>(url, data);
   }
