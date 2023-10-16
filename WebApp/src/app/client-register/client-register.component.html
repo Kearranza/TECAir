@@ -3,7 +3,7 @@
     <div>
         <label for="id">Cédula:</label>
         <div>
-            <input type="text" id="id" name="id" required [(ngModel)] = "client.cedula" [(ngModel)] = "students.cedula" >
+            <input type="number" id="id" name="id" required [(ngModel)] = "client.cedula" [(ngModel)] = "students.cedula" [(ngModel)] = "user.cedula">
         </div>
     </div>
     <div>
@@ -36,6 +36,19 @@
             <input type="email" id="email" name="email" [(ngModel)] = "client.correo">
         </div>
     </div>
+    <div>
+        <label for="id_usuario">Id usuario:</label>
+        <div>
+            <input type="number" id="id_usuario" name="id_usuario" [(ngModel)] = "user.id_usuario">
+        </div>
+    </div>
+    <div>
+        <label for="contraseña">Contraseña:</label>
+        <div>
+            <input type="text" id="contraseña" name="contraseña" [(ngModel)] = "user.contrasena">
+        </div>
+    </div>
+    
     <div>
         <label>¿Eres estudiante?</label>
         <div class="radio-buttons">

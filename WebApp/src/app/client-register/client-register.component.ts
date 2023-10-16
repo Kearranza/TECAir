@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Client } from '../Interfaces/client.interface';
 import { APIService } from '../api.service';
 import { Student } from '../Interfaces/student.interface';
+import { User } from '../Interfaces/user.interface';
 
 @Component({
   selector: 'app-client-register',
@@ -32,15 +33,22 @@ export class ClientRegisterComponent {
     cedula: 0
   };
 
+  user: User = {
+    id_usuario: 0,
+    contrasena: '',
+    cedula: 0
+  }
+
   constructor(private apiService: APIService) {}
 
   onSubmit() {
     if (this.student == 'yes'){
-      console.log(this.students)
       this.PostC();
+      this.PostU();
       this.PostE();
     }else{
-      return this.PostC();
+      this.PostC();
+      this.PostU();
     }
   }
 
@@ -53,6 +61,12 @@ export class ClientRegisterComponent {
   PostE(){
     this.apiService.postDataEstudiante(this.students).subscribe(data => {
       console.log(this.students)
+      console.log('Funca E')
+    })
+  }
+  PostU(){
+    this.apiService.postDataUser(this.user).subscribe(data => {
+      console.log(this.user)
       console.log('Funca E')
     })
   }

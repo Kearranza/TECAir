@@ -389,12 +389,12 @@ export class APIService {
     return this.http.get<User>(url)
   }
 
-  postDataUser(data: any): Observable<User> {
+  postDataUser(data: User): Observable<User> {
     const url = `${this.urlApi}/${'user'}`;
     return this.http.post<User>(url, data);
   }
 
-  updateDataUser(id: number, data: any): Observable<any> {
+  updateDataUser(id: number, data: User): Observable<any> {
     const url = `${this.urlApi}/${'user'}/id?id=${id}`;
     return this.http.put(url, data);
   }
