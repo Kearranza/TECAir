@@ -16,6 +16,12 @@ export class FlightsComponent implements OnInit {
     { origin: 'Las Vegas', destination: 'Phoenix', price: 75 },
   ];
 
+  origins = ['New York', 'Chicago', 'Houston', 'Boston', 'Las Vegas'];
+  destinations = ['Los Angeles', 'Miami', 'Denver', 'Washington D.C.', 'Phoenix'];
+  selectedOrigin = '';
+  selectedDestination = '';
+  filteredFlights = this.flights;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -39,5 +45,19 @@ export class FlightsComponent implements OnInit {
       left: scrollLeft + itemWidth,
       behavior: 'smooth'
     });
+  }
+
+  filterFlights() {
+    if (this.selectedOrigin === '' && this.selectedDestination === '') {
+      this.filteredFlights = this.flights;
+    } else {
+      this.filteredFlights = this.flights.filter(flight => {
+        return (this.selectedOrigin === '' || flight.origin === this.selectedOrigin) && (this.selectedDestination === '' || flight.destination === this.selectedDestination);
+      });
+    }
+  }
+
+  ngOnChanges() {
+    this.filterFlights();
   }
 }

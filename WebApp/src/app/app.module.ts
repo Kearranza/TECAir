@@ -25,6 +25,7 @@ import { FlightDisplayComponent } from './flight-display/flight-display.componen
 import { PromotionDisplayComponent } from './promotion-display/promotion-display.component';
 import { ClientLoginComponent } from './client-login/client-login.component';
 import { ClientRegisterComponent } from './client-register/client-register.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { ClientRegisterComponent } from './client-register/client-register.compo
     FlightDisplayComponent,
     PromotionDisplayComponent,
     ClientLoginComponent,
-    ClientRegisterComponent
+    ClientRegisterComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+
+<div class="selection-container">
+    <h2 class="logo">Reservación</h2>
+    <form>
+        <div class="form-group">
+            <label for="id">Cédula:</label>
+            <input type="text" id="id" name="id" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="lastname1">Primer Apellido:</label>
+            <input type="text" id="lastname1" name="lastname1" required>
+        </div>
+        <div class="form-group">
+            <label for="lastname2">Segundo Apellido:</label>
+            <input type="text" id="lastname2" name="lastname2" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Teléfono:</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <button type="submit">Reservar</button>
+    </form>
+</div>
+
+<div class="seat-selector">
+    <h2>Selecciona tu asiento:</h2>
+    <div class="seat-matrix">
+    <div class="seat-row" *ngFor="let row of seats">
+        <div class="seat" *ngFor="let seat of row">
+        <div class="seat-number" [ngClass]="{'available': seat.available, 'unavailable': !seat.available, 'reserved': !seat.available, 'active': seat.active}"
+            (click)="reserveSeat(seat)">
+            {{ seat.number }}
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

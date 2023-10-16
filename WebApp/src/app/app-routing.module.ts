@@ -20,6 +20,7 @@ import { CreatePromotionComponent } from './create-promotion/create-promotion.co
 import { DeletePromotionComponent } from './delete-promotion/delete-promotion.component';
 import { ClientLoginComponent } from './client-login/client-login.component';
 import { ClientRegisterComponent } from './client-register/client-register.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 
 const routes: Routes = [
@@ -59,7 +60,9 @@ const routes: Routes = [
 
   {path :'client-register', component : ClientRegisterComponent},
 
-  {path :'client-login', component : ClientLoginComponent}
+  {path :'client-login', component : ClientLoginComponent},
+
+  {path :'reservation', component : ReservationComponent}
 ];
 
 @NgModule({

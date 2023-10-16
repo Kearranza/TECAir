@@ -3,7 +3,9 @@
 <div class="button-container">
     <button (click)="moveLeft()"><</button>
     <div class="flight-container" #flightContainer>
-        <app-promotion-display *ngFor="let flight of flights" [origin]="flight.origin" [destination]="flight.destination" [price]="flight.price" [discount]="flight.discount"></app-promotion-display>
+        <app-promotion-display [routerLink]="['/reservation']" *ngFor="let flight of flights" [origin]="flight.origin" [destination]="flight.destination" [price]="flight.price" [discount]="flight.discount"></app-promotion-display>
     </div>
     <button (click)="moveRight()">></button>
 </div>
+
+<app-footer></app-footer>

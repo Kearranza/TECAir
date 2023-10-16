@@ -1,3 +1,38 @@
+.selection-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    max-height: 600px;
+    border: 5px solid #fff;
+    padding: 20px;
+    background-image: url('../../assets/Sky.png');
+    border-radius: 7% ;
+    box-shadow: #000 5px 5px 10px;
+}
+
+label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #fff;
+    text-align: center;
+}
+
+.logo {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: white;
+    text-shadow: 0 0 10px white;
+}
+
 .flight-container {
     display: flex;
     flex-wrap: nowrap;
@@ -41,3 +76,19 @@
     color: #64CCC5;
 }
 
+select {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    width: 80%;
+    box-sizing: border-box;
+    text-align-last: center;
+    transition: transform 0.1s ease-in-out;
+    margin-bottom: 10px;
+}
+
+select:focus {
+    transform: scale(1.1);
+    outline: none;
+}
