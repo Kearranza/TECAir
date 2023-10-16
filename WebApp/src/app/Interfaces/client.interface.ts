@@ -5,7 +5,7 @@ import { Boarding_pass } from "./boarding_pass.interface";
 import { Credit_card } from "./credit_card.interface";
 
 export interface Client{
-    cedula:string;
+    cedula:number;
     nombre:string;
     apellido_1:string;
     apellido_2:string;

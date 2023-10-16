@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Client } from '../Interfaces/client.interface';
 import { APIService } from '../api.service';
+import { Student } from '../Interfaces/student.interface';
 
 @Component({
   selector: 'app-client-register',
@@ -10,13 +11,13 @@ import { APIService } from '../api.service';
 export class ClientRegisterComponent {
   student: string = 'no';
 
-  client1:Client = {
-    cedula: '123',
-    nombre: 'Santiago',
-    apellido_1: 'Acuna',
-    apellido_2: 'Araya',
-    telefono: '321',
-    correo: '1@gmail.com',
+  client:Client = {
+    cedula: 0,
+    nombre: '',
+    apellido_1: '',
+    apellido_2: '',
+    telefono: '',
+    correo: '',
     estudiantes: [],
     usuarios: [],
     maletas: [],
@@ -24,18 +25,35 @@ export class ClientRegisterComponent {
     tarjetas: []
   }
 
+  students:Student = {
+    carnet: 0,
+    universidad: '',
+    millas: 100,
+    cedula: 0
+  };
+
   constructor(private apiService: APIService) {}
 
   onSubmit() {
-    // Handle form submission here;
-    //console.log(this.client);
-    this.PostC();
+    if (this.student == 'yes'){
+      console.log(this.students)
+      this.PostC();
+      this.PostE();
+    }else{
+      return this.PostC();
+    }
   }
 
   PostC(){
-    this.apiService.postDataCliente(this.client1).subscribe(data => {
-      console.log(this.client1)
-      console.log('Funca')
+    this.apiService.postDataCliente(this.client).subscribe(data => {
+      console.log(this.client)
+      console.log('Funca C')
+    })
+  }
+  PostE(){
+    this.apiService.postDataEstudiante(this.students).subscribe(data => {
+      console.log(this.students)
+      console.log('Funca E')
     })
   }
 }

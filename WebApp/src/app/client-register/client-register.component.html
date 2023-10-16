@@ -3,37 +3,37 @@
     <div>
         <label for="id">Cédula:</label>
         <div>
-            <input type="text" id="id" name="id" required >
+            <input type="text" id="id" name="id" required [(ngModel)] = "client.cedula" [(ngModel)] = "students.cedula" >
         </div>
     </div>
     <div>
         <label for="name">Nombre:</label>
         <div>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" required [(ngModel)] = "client.nombre">
         </div>
     </div>
     <div>
         <label for="lastname1">Primer Apellido:</label>
         <div>
-            <input type="text" id="lastname1" name="lastname1" >
+            <input type="text" id="lastname1" name="lastname1" [(ngModel)] = "client.apellido_1">
         </div>
     </div>
     <div>
         <label for="lastname2">Segundo Apellido:</label>
         <div>
-            <input type="text" id="lastname2" name="lastname2" >
+            <input type="text" id="lastname2" name="lastname2" [(ngModel)] = "client.apellido_2">
         </div>
     </div>
     <div>
         <label for="phone">Teléfono:</label>
         <div>
-            <input type="text" id="phone" name="phone" >
+            <input type="text" id="phone" name="phone" [(ngModel)] = "client.telefono">
         </div>
     </div>
     <div>
         <label for="email">Email:</label>
         <div>
-            <input type="email" id="email" name="email" >
+            <input type="email" id="email" name="email" [(ngModel)] = "client.correo">
         </div>
     </div>
     <div>
@@ -53,13 +53,13 @@
         <div>
             <label for="university">Universidad:</label>
             <div>
-                <input type="text" id="university" name="university">
+                <input type="text" id="university" name="university" [(ngModel)] = "students.universidad">
             </div>
         </div>
         <div>
             <label for="uniID">Carnet:</label>
             <div>
-                <input type="number" id="suniID" name="uniID" inputmode="numeric">
+                <input type="number" id="suniID" name="uniID" inputmode="numeric" [(ngModel)] = "students.carnet">
             </div>
         </div>
     </div>
