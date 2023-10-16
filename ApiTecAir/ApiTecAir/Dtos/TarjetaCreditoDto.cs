@@ -4,9 +4,9 @@ namespace ApiTecAir.Dtos;
 
 public class TarjetaCreditoDto
 {
-    public  string num_tarjeta { set; get; }
+    public int num_tarjeta { set; get; }
 
-    public string fecha_exp;
+    public string fecha_exp { set; get; }
     
     public int cvv { set; get; }
 
