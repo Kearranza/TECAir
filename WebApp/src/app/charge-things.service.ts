@@ -14,6 +14,7 @@ import { Scales } from './Interfaces/scales.interface';
 import { Seat } from './Interfaces/seat.interface';
 import { Student } from './Interfaces/student.interface';
 import { User } from './Interfaces/user.interface';
+import { DisplayFlight } from './Interfaces/displayflight.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,12 @@ export class ChargeThingsService {
   seat:Seat[] = [];
   student:Student[] = [];
   user:User[] = [];
+  display:DisplayFlight[] = [];
+  temp:DisplayFlight = {
+    origin:'',
+    destination:'',
+    price:0,
+  }
 
   constructor(private apiService:APIService) { }
 
@@ -115,5 +122,19 @@ export class ChargeThingsService {
       this.user = data;
     }, error => {
       console.error('Error:', error);})
+  }
+  getDisplay(){
+    let map = new Map();
+    for (let item of this.calendar) {
+  map.set(item.id_vuelo, item);
+    }
+    for (let item of this.flight) {
+      if (map.has(item.id_vuelo)) { // replace with your condition
+          this.temp.origin = item.aereo_origen,
+          this.temp.destination = item.aereo_final,
+          this.temp.price = map.get(item.id_vuelo).precio
+        this.display.push(this.temp);
+      }
+    }
   }
 }

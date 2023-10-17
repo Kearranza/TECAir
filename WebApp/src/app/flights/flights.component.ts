@@ -10,26 +10,25 @@ export class FlightsComponent implements OnInit {
   
   @ViewChild('flightContainer') flightContainer?: ElementRef;
   
-  
-  
-  flights = [
-    { origin: 'New York', destination: 'Los Angeles', price: 300 },
-    { origin: 'Chicago', destination: 'Miami', price: 250 },
-    { origin: 'Houston', destination: 'Denver', price: 200},
-    { origin: 'Boston', destination: 'Washington D.C.', price: 100},
-    { origin: 'Las Vegas', destination: 'Phoenix', price: 75 },
-  ];
+  constructor(private charge:ChargeThingsService) { }
 
-  origins = ['New York', 'Chicago', 'Houston', 'Boston', 'Las Vegas'];
-  destinations = ['Los Angeles', 'Miami', 'Denver', 'Washington D.C.', 'Phoenix'];
+  origins:string[] = [];
+  destinations:string[] = [];
   selectedOrigin = '';
   selectedDestination = '';
-  filteredFlights = this.flights;
-
-  constructor() { }
+  filteredFlights = this.charge.display;
 
   ngOnInit(): void {
+    this.charge.getAirport();
+    this.charge.getCalendar();
+    this.charge.getDisplay();
+    console.log(this.charge.display);
+    for(let item of this.charge.airport){
+      this.origins.push(item.id_aereo);
+    };
+    this.destinations = this.origins;
   }
+
 
   moveLeft() {
     const container = this.flightContainer?.nativeElement;
@@ -53,9 +52,9 @@ export class FlightsComponent implements OnInit {
 
   filterFlights() {
     if (this.selectedOrigin === '' && this.selectedDestination === '') {
-      this.filteredFlights = this.flights;
+      this.filteredFlights = this.charge.display;
     } else {
-      this.filteredFlights = this.flights.filter(flight => {
+      this.filteredFlights = this.charge.display.filter(flight => {
         return (this.selectedOrigin === '' || flight.origin === this.selectedOrigin) && (this.selectedDestination === '' || flight.destination === this.selectedDestination);
       });
     }

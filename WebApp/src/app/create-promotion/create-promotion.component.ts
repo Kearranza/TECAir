@@ -13,15 +13,14 @@ export class CreatePromotionComponent {
   sale:Sales ={
     id_promo:0,
     descuento:0,
-    fecha_inicio:0,
-    fecha_fin:0,
+    fecha_inicio: new Date(),
+    fecha_fin: new Date(),
     origen:'',
     destino:'',
     aplicado_calendario:'',
-
   }
 
-  constructor(private apiService: APIService, private charge:ChargeThingsService) {}
+  constructor(private apiService: APIService, private charge:ChargeThingsService) { this.onInit();}
 
   onInit(){
     this.charge.getAirport();
@@ -29,7 +28,7 @@ export class CreatePromotionComponent {
   }
 
   onSubmit(){
-    if(this.charge.airport.some(item => item.id_aereo == this.sale.origen || this.charge.airport.some(item => item.id_aereo == this.sale.destino)) || this.charge.calendar.some(thisc => thisc.id_calendario == this.sale.aplicado_calendario))
+    if(this.charge.airport.some(item => item.id_aereo == this.sale.origen && this.charge.airport.some(item => item.id_aereo == this.sale.destino)) && this.charge.calendar.some(thisc => thisc.id_calendario == this.sale.aplicado_calendario))
     {
         this.PostS();
     }

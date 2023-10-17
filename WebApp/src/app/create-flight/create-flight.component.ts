@@ -11,26 +11,26 @@ export class CreateFlightComponent {
 
   flight:Flight ={
     id_vuelo:0,
-    hora_salida: 0,
+    hora_salida: new Date(),
     aereo_origen:'',
     aereo_final:'',
     calendarios: [],
     escalas: [],
   }
 
-  constructor(private apiService: APIService, private charge:ChargeThingsService) {}
+  constructor(private apiService: APIService, private charge:ChargeThingsService) { this.onInit();}
 
   onInit(){
     this.charge.getAirport();
   }
 
   onSubmit() {
-
-    if(this.charge.airport.some(item => item.id_aereo === this.flight.aereo_origen || this.charge.airport.some(item => item.id_aereo == this.flight.aereo_final)))
+    if(this.charge.airport.some(item => item.id_aereo === this.flight.aereo_origen && this.charge.airport.some(item => item.id_aereo == this.flight.aereo_final)))
     {
         this.PostF();
+    }else {
+      console.log(this.charge.airport)
     }
-
   }
 
   PostF(){

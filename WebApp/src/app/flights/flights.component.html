@@ -15,7 +15,7 @@
 </div>
 
 <div class="button-container">
-    <button (click)="moveLeft()"><</button>
+    <button (click)="moveLeft()"></button>
     <div class="flight-container" #flightContainer>
         <ng-container *ngIf="filteredFlights.length > 0; else noFlights">
             <ng-template ngFor let-flight [ngForOf]="filteredFlights">

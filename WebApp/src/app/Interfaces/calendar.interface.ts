@@ -3,7 +3,7 @@ import { Sales } from "./sales.interface";
 
 export interface Calendar{
     id_calendario:string;
-    fecha:number;
+    fecha:Date;
     precio:number;
     id_avion:string;
     id_vuelo:number;

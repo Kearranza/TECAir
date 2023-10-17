@@ -12,7 +12,7 @@ export class CreateCalendarComponent {
 
   calendar:Calendar = {
     id_calendario: '',
-    fecha:Date.now(),
+    fecha:new Date(),
     precio:0,
     id_avion: '',
     id_vuelo: 0,
@@ -20,7 +20,7 @@ export class CreateCalendarComponent {
     promociones: []
   }
 
-  constructor(private apiService: APIService, private charge:ChargeThingsService) {}
+  constructor(private apiService: APIService, private charge:ChargeThingsService) { this.onInit();}
 
   onInit(){
     this.charge.getPlane();
@@ -29,7 +29,7 @@ export class CreateCalendarComponent {
   
   onSubmit(){
     
-    if(this.charge.plane.some(item => item.placa === this.calendar.id_avion || this.charge.flight.some(item => item.id_vuelo == this.calendar.id_vuelo)))
+    if(this.charge.plane.some(item => item.placa === this.calendar.id_avion && this.charge.flight.some(item => item.id_vuelo == this.calendar.id_vuelo)))
     {
         this.PostC();
     }
