@@ -10,7 +10,9 @@ builder.Services.AddCors(options =>
     options.AddPolicy("MyPolicy",
         builder =>
         {
-            builder.WithOrigins("http://localhost:4200") // actualiza con el sitio que necesitas
+            builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
@@ -19,6 +21,14 @@ builder.Services.AddCors(options =>
         builder =>
         {
             builder.WithOrigins("http://localhost:3333")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+    
+    options.AddPolicy("IisWebPolicy",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:4000")
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
@@ -55,6 +65,7 @@ app.UseHttpsRedirection();
 
 app.UseCors("MyPolicy");
 app.UseCors("IisPolicy");
+app.UseCors("IisWebPolicy");
 
 app.UseAuthorization();
 

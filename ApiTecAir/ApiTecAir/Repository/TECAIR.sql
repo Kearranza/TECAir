@@ -104,7 +104,7 @@ CREATE TABLE CALENDARIO_VUELO(
         constraint CALENDARIO_VUELO_pk
             primary key,
     Fecha date not null ,
-    Precio int default 0,
+    Precio int not null ,
     ID_Avion varchar(10) not null,
     ID_Vuelo int,
     constraint CALENDARIO_VUELO_fk
