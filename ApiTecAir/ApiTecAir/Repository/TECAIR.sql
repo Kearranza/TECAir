@@ -34,7 +34,7 @@ CREATE TABLE VUELOS(
         foreign key (Aereo_origen) references AEREOPUERTO (ID_aereo)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION,
-        constraint VUELOS__fk
+        constraint VUELOS_AEREOPUERTO_fk
         foreign key (Aereo_final) references AEREOPUERTO (ID_aereo)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
@@ -46,7 +46,7 @@ CREATE TABLE USUARIO(
     Cedula int not null ,
     constraint USUARIO_pk
         primary key (ID_Usuario),
-    constraint USUARIO_fk
+    constraint USUARIO_CLIENTE_fk
         foreign key (Cedula) references CLIENTE (Cedula)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
@@ -59,7 +59,7 @@ CREATE TABLE ESTUDIANTE(
     Universidad varchar(50) not null ,
     Millas int default 0,
     Cedula int not null ,
-    constraint ESTUDIANTE_fk
+    constraint ESTUDIANTE_CLIENTE_fk
         foreign key (Cedula) references CLIENTE (Cedula)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
@@ -70,8 +70,8 @@ CREATE TABLE TARJETA_DE_CREDITO(
         constraint TARJETA_DE_CREDITO_pk
             primary key,
     Fecha_exp varchar(5) not null ,
-    CVV int default 000,
-    Cedula int not null ,
+    CVV int not null,
+    Cedula int not null,
     constraint TARJETA_DE_CREDITO_fk
         foreign key (Cedula) references CLIENTE (Cedula)
             ON UPDATE NO ACTION
@@ -93,7 +93,7 @@ CREATE TABLE MAPA_ASIENTOS(
     Num_asiento int default 1,
     Disponibilidad boolean default TRUE,
     ID_Avión varchar(10) not null,
-    constraint MAPA_ASIENTOS_fk
+    constraint MAPA_ASIENTOS_AVION_fk
         foreign key (ID_Avión) references AVION (Placa)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
@@ -107,11 +107,11 @@ CREATE TABLE CALENDARIO_VUELO(
     Precio int not null ,
     ID_Avion varchar(10) not null,
     ID_Vuelo int,
-    constraint CALENDARIO_VUELO_fk
+    constraint CALENDARIO_VUELO_AVION_fk
         foreign key (ID_Avion) references AVION (Placa)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION,
-    constraint CALENDARIO_VUELO__fk
+    constraint CALENDARIO_VUELO_VUELOS_fk
         foreign key (ID_Vuelo) references VUELOS (ID_Vuelo)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
@@ -125,7 +125,7 @@ CREATE TABLE ESCALA(
     Origen varchar(3) not null ,
     Destino varchar(3) not null ,
     ID_Vuelo int not null ,
-    constraint ESCALA_fk
+    constraint ESCALA_VUELOS_fk
         foreign key (ID_Vuelo) references VUELOS (ID_Vuelo)
 );
 
@@ -138,11 +138,11 @@ CREATE TABLE PASE_ABORDAR(
     Hora_salida time not null,
     Cedula_cliente int not null,
     ID_Calendario varchar(20),
-    constraint PASE_ABORDAR_fk
+    constraint PASE_ABORDAR_CLIENTE_fk
         foreign key (Cedula_cliente) references CLIENTE (Cedula)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION,
-    constraint PASE_ABORDAR__fk
+    constraint PASE_ABORDAR_CALENDARIO_VUELO_fk
         foreign key (ID_Calendario) references CALENDARIO_VUELO (ID_Calendario)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
@@ -156,15 +156,15 @@ CREATE TABLE MALETA(
     Peso decimal default 0,
     Color varchar(15) not null,
     ID_Pasaje int not null,
-    constraint MALETA_fk
+    constraint MALETA_CLIENTE_fk
         foreign key (Cedula_Cliente) references CLIENTE (Cedula)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION,
-    constraint MALETA__fk
+    constraint MALETA_COLOR_fk
         foreign key (Color) references COLOR (ID_Color)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION,
-    constraint MALETA___fk
+    constraint MALETA_PASE_ABORDAR_fk
         foreign key (ID_Pasaje) references PASE_ABORDAR (ID_Pasaje)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
@@ -180,7 +180,7 @@ CREATE TABLE PROMOCIONES(
     Origen varchar(20) not null,
     Destino varchar(20) not null,
     Aplicado_calendario varchar(20),
-    constraint PROMOCIONES_fk
+    constraint PROMOCIONES_CALENDARIO_VUELO_fk
         foreign key (Aplicado_calendario) references CALENDARIO_VUELO (ID_Calendario)
 );
 
