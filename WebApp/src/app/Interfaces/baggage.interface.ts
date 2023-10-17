@@ -3,5 +3,5 @@ export interface Baggage{
     cedula_cliente:number;
     peso:number;
     color:string;
-    id_pasaje:number
+    id_pasaje:number;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { ChargeThingsService } from '../charge-things.service';
 
 @Component({
   selector: 'app-flights',
@@ -8,6 +9,9 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 export class FlightsComponent implements OnInit {
   
   @ViewChild('flightContainer') flightContainer?: ElementRef;
+  
+  
+  
   flights = [
     { origin: 'New York', destination: 'Los Angeles', price: 300 },
     { origin: 'Chicago', destination: 'Miami', price: 250 },
