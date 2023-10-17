@@ -16,6 +16,7 @@ import { Seat } from './Interfaces/seat.interface';
 import { Student } from './Interfaces/student.interface';
 import { User } from './Interfaces/user.interface';
 import { Color } from './Interfaces/color.interface';
+import { Userpost } from './Interfaces/userpost.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -389,9 +390,9 @@ export class APIService {
     return this.http.get<User>(url)
   }
 
-  postDataUser(data: User): Observable<User> {
+  postDataUser(data: Userpost): Observable<Userpost> {
     const url = `${this.urlApi}/${'user'}`;
-    return this.http.post<User>(url, data);
+    return this.http.post<Userpost>(url, data);
   }
 
   updateDataUser(id: number, data: User): Observable<any> {

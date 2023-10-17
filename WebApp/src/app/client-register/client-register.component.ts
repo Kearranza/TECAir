@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Client } from '../Interfaces/client.interface';
 import { APIService } from '../api.service';
 import { Student } from '../Interfaces/student.interface';
-import { User } from '../Interfaces/user.interface';
+import { Userpost } from '../Interfaces/userpost.interface';
 
 @Component({
   selector: 'app-client-register',
@@ -33,8 +33,7 @@ export class ClientRegisterComponent {
     cedula: 0
   };
 
-  user: User = {
-    id_usuario: 0,
+  userpost: Userpost = {
     contrasena: '',
     cedula: 0
   }
@@ -65,8 +64,8 @@ export class ClientRegisterComponent {
     })
   }
   PostU(){
-    this.apiService.postDataUser(this.user).subscribe(data => {
-      console.log(this.user)
+    this.apiService.postDataUser(this.userpost).subscribe(data => {
+      console.log(this.userpost)
       console.log('Funca U')
     })
   }
