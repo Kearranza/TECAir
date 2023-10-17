@@ -67,7 +67,7 @@ export class ClientRegisterComponent {
   PostU(){
     this.apiService.postDataUser(this.user).subscribe(data => {
       console.log(this.user)
-      console.log('Funca E')
+      console.log('Funca U')
     })
   }
 }

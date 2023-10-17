@@ -2,19 +2,19 @@
     <h2 class="logo">Ingrese los datos del vuelo</h2>
     <div>
         <label for="idFlight">Número de Vuelo:</label>
-        <input type="number" id="idFlight" name="idFlight">
+        <input type="number" id="idFlight" name="idFlight" [(ngModel)] = "flight.id_vuelo">
     </div>
     <div>
         <label for="datetime">Hora Salida:</label>
-        <input type="datetime-local" id="departure" name="departure">
+        <input type="datetime-local" id="departure" name="departure" [(ngModel)] = "flight.hora_salida">
     </div>
     <div>
         <label for="origin">Origen:</label>
-        <input type="text" id="origin" name="origin">
+        <input type="text" id="origin" name="origin" [(ngModel)] = "flight.aereo_origen">
     </div>
     <div>
         <label for="destiny">Destino:</label>
-        <input type="text" id="destiny" name="destiny">
+        <input type="text" id="destiny" name="destiny" [(ngModel)] = "flight.aereo_final">
     </div>
     <button type="submit">Crear</button>
 </form>
