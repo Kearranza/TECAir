@@ -11,7 +11,7 @@ public class PaseAbordar
     
     public   string asiento { set; get; }
     
-    public DateTime hora_salida { set; get; }
+    public TimeOnly hora_salida { set; get; }
     
     public int cedula_cliente { set; get; }
     

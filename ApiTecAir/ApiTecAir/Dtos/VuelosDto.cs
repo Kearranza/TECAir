@@ -6,7 +6,7 @@ public class VuelosDto
 {
     public int id_vuelo { set; get; }
     
-    public DateTime hora_salida { set; get; }
+    public TimeOnly hora_salida { set; get; }
     
     public string aereo_origen { set; get; }
     

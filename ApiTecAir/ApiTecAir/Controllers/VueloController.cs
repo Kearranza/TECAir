@@ -51,6 +51,7 @@ public class VueloController : ControllerBase
     [HttpPut("/vuelos/id")]
     public IActionResult Put(int id, [FromBody] VuelosDto payload)
     {
+        
         var model = _mapper.Map<Vuelos>(payload);
         _tecAirDbContext.vuelos.Attach(model);
         _tecAirDbContext.Entry(model).State = EntityState.Modified;

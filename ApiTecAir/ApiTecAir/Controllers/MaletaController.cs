@@ -35,9 +35,9 @@ public class MaletaController : ControllerBase
     }
 
     [HttpGet("/maleta")]
-    public IActionResult GetAllSales()
+    public IActionResult GetAllMaletas()
     {
-        var suitcase = _tecAirDbContext.promociones;
+        var suitcase = _tecAirDbContext.maleta;
         return Ok(suitcase);
     }
 
