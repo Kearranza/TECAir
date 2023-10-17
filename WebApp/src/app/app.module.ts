@@ -26,6 +26,8 @@ import { PromotionDisplayComponent } from './promotion-display/promotion-display
 import { ClientLoginComponent } from './client-login/client-login.component';
 import { ClientRegisterComponent } from './client-register/client-register.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { CreateCalendarComponent } from './create-calendar/create-calendar.component';
+import { DeleteCalendarComponent } from './delete-calendar/delete-calendar.component';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { ReservationComponent } from './reservation/reservation.component';
     PromotionDisplayComponent,
     ClientLoginComponent,
     ClientRegisterComponent,
-    ReservationComponent
+    ReservationComponent,
+    CreateCalendarComponent,
+    DeleteCalendarComponent
   ],
   imports: [
     BrowserModule,

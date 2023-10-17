@@ -21,6 +21,8 @@ import { DeletePromotionComponent } from './delete-promotion/delete-promotion.co
 import { ClientLoginComponent } from './client-login/client-login.component';
 import { ClientRegisterComponent } from './client-register/client-register.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { CreateCalendarComponent } from './create-calendar/create-calendar.component';
+import { DeleteCalendarComponent } from './delete-calendar/delete-calendar.component';
 
 
 const routes: Routes = [
@@ -62,7 +64,11 @@ const routes: Routes = [
 
   {path :'client-login', component : ClientLoginComponent},
 
-  {path :'reservation', component : ReservationComponent}
+  {path :'reservation', component : ReservationComponent},
+
+  {path :'create-calendar', component : CreateCalendarComponent},
+
+  {path :'delete-calendar', component : DeleteCalendarComponent}
 ];
 
 @NgModule({
