@@ -5,6 +5,6 @@ export interface Sales{
     fecha_fin:Date;
     origen:string;
     destino:string;
-    aplicado_calendario:string
+    aplicado_calendario:string;
 
 }

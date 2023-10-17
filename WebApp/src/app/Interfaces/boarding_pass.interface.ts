@@ -3,6 +3,6 @@ export interface Boarding_pass{
     puerta: string;
     asiento: string;
     hora_salida:Date;
-    cedula_cliente:number
-    id_calendario:number
+    cedula_cliente:number;
+    id_calendario:number;
 }

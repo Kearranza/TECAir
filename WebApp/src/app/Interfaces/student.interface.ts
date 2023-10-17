@@ -1,6 +1,6 @@
 export interface Student{
     carnet:number;
     universidad:string;
-    millas:number
+    millas:number;
     cedula:number;
 }
