@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./delete-promotion.component.css']
 })
 export class DeletePromotionComponent {
-
+  onSubmit(){}
 }

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./create-promotion.component.css']
 })
 export class CreatePromotionComponent {
-
+  onSubmit(){}
 }

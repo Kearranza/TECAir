@@ -1,1 +1,32 @@
-<p>create-promotion works!</p>
+<form (ngSubmit)="onSubmit()">
+    <h2 class="logo">Ingrese los datos de la Promoción</h2>
+    <div>
+        <label for="idPromotion">Número de Promoción:</label>
+        <input type="number" id="idPromotion" name="idPromotion">
+    </div>
+    <div>
+        <label for="discount">Descuento:</label>
+        <input type="number" id="discount" name="discount">
+    </div>
+    <div>
+        <label for="beginDate">Fecha Inicio:</label>
+        <input type="date" id="beginDate" name="beginDate">
+    </div>
+    <div>
+        <label for="endDate">Fecha Final:</label>
+        <input type="date" id="endDate" name="endDate">
+    </div>
+    <div>
+        <label for="origin">Origen:</label>
+        <input type="text" id="origin" name="origin">
+    </div>
+    <div>
+        <label for="destiny">Destino:</label>
+        <input type="text" id="destiny" name="destiny">
+    </div>
+    <div>
+        <label for="calendar">Nombre Calendario:</label>
+        <input type="text" id="calendar" name="calendar">
+    </div>
+    <button type="submit">Crear</button>
+</form>
