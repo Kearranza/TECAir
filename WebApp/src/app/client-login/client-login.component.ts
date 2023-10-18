@@ -25,7 +25,7 @@ export class ClientLoginComponent {
       
       if (this.usernameInput && this.passwordInput) {
 
-        if (users.id_usuario !== this.usernameInput || users.contrasena !== this.passwordInput) {
+        if (users.cedula !== this.usernameInput || users.contrasena !== this.passwordInput) {
 
           this.errorMessage = 'El nombre de usuario o la contraseña son incorrectos.';
 
@@ -34,7 +34,7 @@ export class ClientLoginComponent {
           this.errorMessage = '';
 
           // Redirigir al usuario a la página de inicio.
-          this.router.navigate(['/admin-selector']);
+          this.router.navigate(['/client-view']);
         }
       }
     }   
