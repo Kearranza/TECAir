@@ -7,13 +7,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ApiTecAir.Controllers;
 
-
 public class TarjetaCreditoController : ControllerBase
 {
     private TECAirDbContext _tecAirDbContext;
     private IMapper _mapper;
 
-    TarjetaCreditoController(TECAirDbContext tecAirs, IMapper mapper)
+    public TarjetaCreditoController (TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
         _mapper = mapper;

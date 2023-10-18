@@ -11,9 +11,9 @@ public class Cliente
     
     public  string apellido_1 { set; get; }
     
-    public  string apellido_2 { set; get; }
+    public  string? apellido_2 { set; get; }
     
-    public  string télefono { set; get; }
+    public  string telefono { set; get; }
     
     public  string correo { set; get; }
     

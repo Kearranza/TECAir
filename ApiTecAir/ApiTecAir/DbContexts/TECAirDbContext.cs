@@ -49,6 +49,8 @@ public class TECAirDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelbuilder)
     {
+        // Se asignan todas las clausulas de foreign key para las tablas
+        
         modelbuilder.Entity<Estudiante>()
             .HasOne(_ => _.cliente)
             .WithMany(_ => _.estudiantes)
@@ -73,6 +75,11 @@ public class TECAirDbContext : DbContext
             .HasOne(_ => _.pasaje)
             .WithMany(_ => _.maletas)
             .HasForeignKey(_ => _.id_pasaje);
+        
+        modelbuilder.Entity<Maleta>()
+            .HasOne(_ => _.Mcolor)
+            .WithMany(_ => _.maletas)
+            .HasForeignKey(_ => _.color);
         
         modelbuilder.Entity<PaseAbordar>()
             .HasOne(_ => _.cliente)
@@ -118,5 +125,28 @@ public class TECAirDbContext : DbContext
             .HasOne(_ => _.avion)
             .WithMany(_ => _.asientos)
             .HasForeignKey(_ => _.id_avión);
+        
+        //Se agregan de manera automatica las entidades obtenidas
+        //de las foreign keys
+        
+        modelbuilder.Entity<Avion>().Navigation(e => e.calendarios);
+        modelbuilder.Entity<Avion>().Navigation(e => e.asientos);
+        
+        modelbuilder.Entity<CalendarioVuelo>().Navigation(e => e.pases);
+        modelbuilder.Entity<CalendarioVuelo>().Navigation(e => e.promociones);
+        
+        modelbuilder.Entity<Cliente>().Navigation(e => e.maletas).AutoInclude();
+        modelbuilder.Entity<Cliente>().Navigation(e => e.estudiantes).AutoInclude();
+        modelbuilder.Entity<Cliente>().Navigation(e => e.tarjetas).AutoInclude();
+        modelbuilder.Entity<Cliente>().Navigation(e => e.pases).AutoInclude();
+        modelbuilder.Entity<Cliente>().Navigation(e => e.usuarios).AutoInclude();
+        
+        modelbuilder.Entity<Color>().Navigation(e => e.maletas);
+        
+        modelbuilder.Entity<PaseAbordar>().Navigation(e => e.maletas);
+        
+        modelbuilder.Entity<Vuelos>().Navigation(e => e.calendarios).AutoInclude();
+        modelbuilder.Entity<Vuelos>().Navigation(e => e.escalas).AutoInclude();
+        
     }
 }

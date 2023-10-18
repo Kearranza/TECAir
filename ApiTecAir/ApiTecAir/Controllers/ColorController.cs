@@ -38,7 +38,7 @@ public class ColorController : ControllerBase
     [HttpGet("/color")]
     public IActionResult GetAllColor()
     {
-        var color = _tecAirDbContext.avion;
+        var color = _tecAirDbContext.color;
         return Ok(color);
     }
 

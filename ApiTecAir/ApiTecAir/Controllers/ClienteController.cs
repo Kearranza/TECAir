@@ -36,9 +36,9 @@ public class ClienteController : ControllerBase
     }
 
     [HttpGet("/cliente")]
-    public async Task<IActionResult> GetAllClients()
+    public IActionResult GetAllClients()
     {
-        var clients = await _tecAirDbContext.cliente.Include(_ => _.estudiantes).ToListAsync();
+        var clients = _tecAirDbContext.cliente;
         return Ok(clients);
     }
 
