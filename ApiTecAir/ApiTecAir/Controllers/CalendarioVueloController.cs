@@ -42,14 +42,43 @@ public class CalendarioVueloController : ControllerBase
     }
 
     [HttpGet("/{id}/calendar")]
-    public CalendarioVuelo GetById(int id)
+    public CalendarioVuelo GetById(string id)
     {
         var calendar = _tecAirDbContext.calendario_vuelo.Find(id);
         return calendar;
     }
 
+    [HttpGet("/calendar/info")]
+    public IActionResult GetInfo()
+    {
+        var info = (from c in _tecAirDbContext.calendario_vuelo
+            join m in _tecAirDbContext.vuelos on c.id_vuelo equals m.id_vuelo
+            select new
+            {
+                precio = c.precio,
+                aero_origen = m.aereo_origen,
+                aero_final = m.aereo_final
+            }).Take(100);
+
+        return Ok(info);
+    }
+    
+    [HttpGet("/calendar/promos")]
+    public IActionResult GetPromos()
+    {
+        var info = (from c in _tecAirDbContext.calendario_vuelo
+            join m in _tecAirDbContext.promociones on c.id_calendario equals m.aplicado_calendario
+            select new
+            {
+                precio = c.precio,
+                aero_origen = m.descuento
+            }).Take(100);
+
+        return Ok(info);
+    }
+
     [HttpPut("/calendar/id")]
-    public IActionResult Put(int id, [FromBody] CalendarioVueloDto payload)
+    public IActionResult Put(string id, [FromBody] CalendarioVueloDto payload)
     {
         var model = _mapper.Map<CalendarioVuelo>(payload);
         _tecAirDbContext.calendario_vuelo.Attach(model);
@@ -61,7 +90,7 @@ public class CalendarioVueloController : ControllerBase
     }
     
     [HttpDelete("/calendar/id")]
-    public IActionResult Delete(int id)
+    public IActionResult Delete(string id)
     {
         var calendar = GetById(id);
 

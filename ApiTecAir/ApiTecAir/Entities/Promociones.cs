@@ -9,9 +9,9 @@ public class Promociones
     
     public float descuento { set; get; }
     
-    public DateTime fecha_inicio { set; get; }
+    public DateOnly fecha_inicio { set; get; }
     
-    public DateTime fecha_final { set; get; }
+    public DateOnly fecha_final { set; get; }
     
     public  string origen { set; get; }
     
