@@ -5,7 +5,7 @@ CREATE TABLE CLIENTE(
     Nombre varchar(20) not null ,
     Apellido_1 varchar(30) not null ,
     Apellido_2 varchar(30),
-    Télefono varchar(15) not null ,
+    Telefono varchar(15) not null ,
     Correo varchar(30) not null
 );
 
@@ -92,9 +92,9 @@ CREATE TABLE MAPA_ASIENTOS(
             primary key,
     Num_asiento int default 1,
     Disponibilidad boolean default TRUE,
-    ID_Avión varchar(10) not null,
+    ID_Avion varchar(10) not null,
     constraint MAPA_ASIENTOS_AVION_fk
-        foreign key (ID_Avión) references AVION (Placa)
+        foreign key (ID_Avion) references AVION (Placa)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
 );

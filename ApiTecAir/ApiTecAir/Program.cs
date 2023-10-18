@@ -25,6 +25,14 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod();
         });
     
+    options.AddPolicy("CagoEnCors",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:4200")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+    
     options.AddPolicy("IisWebPolicy",
         builder =>
         {
@@ -66,6 +74,7 @@ app.UseHttpsRedirection();
 app.UseCors("MyPolicy");
 app.UseCors("IisPolicy");
 app.UseCors("IisWebPolicy");
+app.UseCors("CagoEnCors");
 
 app.UseAuthorization();
 
