@@ -82,7 +82,7 @@ VALUES (20463143,'TEC', 985764213);
 INSERT INTO vuelos (id_vuelo, hora_salida, aereo_origen, aereo_final)
 values (404, '09:15:00.000', 'SJO', 'PTY');
 
-INSERT INTO calendario_vuelo (id_calendario, fecha, id_avion, id_vuelo)
+INSERT INTO calendario_vuelo (id_calendario, fecha, precio, id_avion, id_vuelo)
 VALUES ('San Jose, Panama','2023-12-15', 150,'HVM816', '404');
 
 INSERT INTO tarjeta_de_credito (num_tarjeta, fecha_exp, cedula)
