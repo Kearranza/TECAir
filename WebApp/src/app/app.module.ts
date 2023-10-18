@@ -28,6 +28,9 @@ import { ClientRegisterComponent } from './client-register/client-register.compo
 import { ReservationComponent } from './reservation/reservation.component';
 import { CreateCalendarComponent } from './create-calendar/create-calendar.component';
 import { DeleteCalendarComponent } from './delete-calendar/delete-calendar.component';
+import { SeatsSelectionComponent } from './seats-selection/seats-selection.component';
+import { PaymentComponent } from './payment/payment.component';
+import { ThanksComponent } from './thanks/thanks.component';
 
 
 @NgModule({
@@ -56,7 +59,10 @@ import { DeleteCalendarComponent } from './delete-calendar/delete-calendar.compo
     ClientRegisterComponent,
     ReservationComponent,
     CreateCalendarComponent,
-    DeleteCalendarComponent
+    DeleteCalendarComponent,
+    SeatsSelectionComponent,
+    PaymentComponent,
+    ThanksComponent
   ],
   imports: [
     BrowserModule,

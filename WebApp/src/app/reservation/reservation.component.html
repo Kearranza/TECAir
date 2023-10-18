@@ -1,8 +1,10 @@
 <app-navbar></app-navbar>
 
 <div class="selection-container">
+    
     <h2 class="logo">Reservación</h2>
-    <form>
+
+    <form (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="id">Cédula:</label>
             <input type="text" id="id" name="id" required>
@@ -29,20 +31,6 @@
         </div>
         <button type="submit">Reservar</button>
     </form>
-</div>
-
-<div class="seat-selector">
-    <h2>Selecciona tu asiento:</h2>
-    <div class="seat-matrix">
-    <div class="seat-row" *ngFor="let row of seats">
-        <div class="seat" *ngFor="let seat of row">
-        <div class="seat-number" [ngClass]="{'available': seat.available, 'unavailable': !seat.available, 'reserved': !seat.available, 'active': seat.active}"
-            (click)="reserveSeat(seat)">
-            {{ seat.number }}
-        </div>
-        </div>
-    </div>
-    </div>
 </div>
 
 <app-footer></app-footer>

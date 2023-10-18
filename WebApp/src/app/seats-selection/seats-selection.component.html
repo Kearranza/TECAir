@@ -1,0 +1,13 @@
+<div class="seat-selector">
+    <h2>Selecciona tu asiento:</h2>
+    <div class="seat-matrix">
+    <div class="seat-row" *ngFor="let row of seats">
+        <div class="seat" *ngFor="let seat of row">
+        <div class="seat-number" [ngClass]="{'available': seat.available, 'unavailable': !seat.available, 'reserved': !seat.available, 'active': seat.active}"
+            (click)="reserveSeat(seat)">
+            {{ seat.number }}
+        </div>
+        </div>
+    </div>
+    </div>
+</div>

@@ -23,6 +23,9 @@ import { ClientRegisterComponent } from './client-register/client-register.compo
 import { ReservationComponent } from './reservation/reservation.component';
 import { CreateCalendarComponent } from './create-calendar/create-calendar.component';
 import { DeleteCalendarComponent } from './delete-calendar/delete-calendar.component';
+import { PaymentComponent } from './payment/payment.component';
+import { SeatsSelectionComponent } from './seats-selection/seats-selection.component';
+import { ThanksComponent } from './thanks/thanks.component';
 
 
 const routes: Routes = [
@@ -68,7 +71,13 @@ const routes: Routes = [
 
   {path :'create-calendar', component : CreateCalendarComponent},
 
-  {path :'delete-calendar', component : DeleteCalendarComponent}
+  {path :'delete-calendar', component : DeleteCalendarComponent},
+
+  {path :'payment', component : PaymentComponent},
+
+  {path :'seats-selection', component : SeatsSelectionComponent},
+
+  {path :'thanks', component : ThanksComponent}
 ];
 
 @NgModule({

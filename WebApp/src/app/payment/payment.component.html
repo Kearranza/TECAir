@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+
+<div class="selection-container">
+    <h2 class="logo">Introduzca su tarjeta</h2>
+
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="id">Número de Tarjeta:</label>
+            <input type="number" id="id" name="id" required>
+        </div>
+        <div class="form-group">
+            <label for="cvv">CVV:</label>
+            <input type="number" id="cvv" name="cvv" required>
+        </div>
+        <button type="submit" (click)="generatePDF()">Comprar</button>
+    </form>
+</div>
