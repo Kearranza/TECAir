@@ -1,5 +1,6 @@
-export interface Display_flight {
+export interface Display_promo {
     origin:string;
     destination:string;
     price:number;
+    discount:number;
 }

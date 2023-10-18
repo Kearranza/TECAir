@@ -14,7 +14,8 @@ import { Scales } from './Interfaces/scales.interface';
 import { Seat } from './Interfaces/seat.interface';
 import { Student } from './Interfaces/student.interface';
 import { User } from './Interfaces/user.interface';
-import { DisplayFlight } from './Interfaces/displayflight.interface';
+import { Display_flight } from './Interfaces/displayflight.interface';
+import { Display_promo } from './Interfaces/displaypromo.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -36,11 +37,18 @@ export class ChargeThingsService {
   seat:Seat[] = [];
   student:Student[] = [];
   user:User[] = [];
-  display:DisplayFlight[] = [];
-  temp:DisplayFlight = {
+  display:Display_flight[] = [];
+  tempf:Display_flight = {
     origin:'',
     destination:'',
+    price:0
+  }
+  displaypromo:Display_promo[] = [];
+  tempp:Display_promo = {
+    origin: '',
+    destination: '',
     price:0,
+    discount:0
   }
 
   constructor(private apiService:APIService) { }
@@ -130,10 +138,28 @@ export class ChargeThingsService {
     }
     for (let item of this.flight) {
       if (map.has(item.id_vuelo)) { // replace with your condition
-          this.temp.origin = item.aereo_origen,
-          this.temp.destination = item.aereo_final,
-          this.temp.price = map.get(item.id_vuelo).precio
-        this.display.push(this.temp);
+          this.tempf.origin = item.aereo_origen,
+          this.tempf.destination = item.aereo_final,
+          this.tempf.price = map.get(item.id_vuelo).precio
+        this.display.push(this.tempf);
+      }
+    }
+  }
+  getDisplaypromo(){
+    let mapc = new Map();
+    for (let item2 of this.calendar) {
+      mapc.set(item2.id_vuelo, item2);
+    }
+    for (let item3 of this.flight) {
+      if (mapc.has(item3.id_vuelo)) { // replace with your condition
+          this.tempf.origin = item3.aereo_origen,
+          this.tempf.destination = item3.aereo_final,
+          this.tempf.price = mapc.get(item3.id_vuelo).precio
+      }
+    }
+    for (let item4 of this.sales) {
+      if (mapc.has(item4.aplicado_calendario)) { // replace with your condition
+          this.tempp.discount = item4.descuento;
       }
     }
   }
