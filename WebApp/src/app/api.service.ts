@@ -19,6 +19,8 @@ import { Color } from './Interfaces/color.interface';
 import { Userpost } from './Interfaces/userpost.interface';
 import { Display_flight } from './Interfaces/displayflight.interface';
 import { Display_promo } from './Interfaces/displaypromo.interface';
+import { Salespost } from './Interfaces/salespost.interface';
+import { Billpost } from './Interfaces/billpost.intaface';
 
 
 @Injectable({
@@ -93,9 +95,9 @@ export class APIService {
     return this.http.get<Bill>(url)
   }
 
-  postDataFactura(data: any): Observable<Bill> {
+  postDataFactura(data: Billpost): Observable<Billpost> {
     const url = `${this.urlApi}/${'factura'}`;
-    return this.http.post<Bill>(url, data);
+    return this.http.post<Billpost>(url, data);
   }
 
   updateDataFactura(id: number, data: any): Observable<any> {
@@ -228,9 +230,9 @@ export class APIService {
     return this.http.get<Sales>(url)
   }
 
-  postDataPromociones(data: any): Observable<Sales> {
+  postDataPromociones(data: Salespost): Observable<Salespost> {
     const url = `${this.urlApi}/${'promociones'}`;
-    return this.http.post<Sales>(url, data);
+    return this.http.post<Salespost>(url, data);
   }
 
   updateDataPromociones(id: number, data: any): Observable<any> {
