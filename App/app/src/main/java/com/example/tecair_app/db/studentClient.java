@@ -4,7 +4,7 @@ public class studentClient extends Client{
     String university;
     Integer carnet;
 
-    public studentClient(String username, String name, String lName1, String lName2, String email, Integer phone, Integer miles, String university, Integer carnet, Boolean isActive) {
+    public studentClient(String username, String name, String lName1, String lName2, String email, String phone, Integer miles, String university, Integer carnet, Boolean isActive) {
         super(username, name, lName1, lName2, email, phone, miles, isActive);
         this.university = university;
         this.carnet = carnet;

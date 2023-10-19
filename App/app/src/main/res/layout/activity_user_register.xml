@@ -74,7 +74,7 @@
                 android:layout_marginRight="30dp"
                 android:background="@drawable/text_box_bc"
                 android:hint="Nombre de Usuario"
-                android:inputType="number"
+                android:inputType="text"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp" />
 
@@ -126,7 +126,7 @@
                 android:layout_marginRight="30dp"
                 android:background="@drawable/text_box_bc"
                 android:hint="Cedula"
-                android:inputType="textPassword"
+                android:inputType="number"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp" />
             <LinearLayout
@@ -157,6 +157,7 @@
                     android:layout_marginTop="20dp"
                     android:backgroundTint="@color/main_color"
                     android:textAllCaps="false"
+                    android:onClick="onClickRegister"
                     android:text="Registrar" />
             </LinearLayout>
         </LinearLayout>

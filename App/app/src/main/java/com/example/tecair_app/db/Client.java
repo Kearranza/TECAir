@@ -6,7 +6,7 @@ public class Client {
     String lName1;
     String lName2;
     String email;
-    Integer phone;
+    String phone;
     Integer miles;
 
     Boolean isActive;
@@ -14,7 +14,7 @@ public class Client {
     //constuctor
 
 
-    public Client(String username, String name, String lName1, String lName2, String email, Integer phone, Integer miles, Boolean isActive) {
+    public Client(String username, String name, String lName1, String lName2, String email, String phone, Integer miles, Boolean isActive) {
         this.username = username;
         this.name = name;
         this.lName1 = lName1;
@@ -69,11 +69,11 @@ public class Client {
         this.email = email;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
