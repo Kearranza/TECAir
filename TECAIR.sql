@@ -83,11 +83,11 @@ CREATE TABLE VUELOS(
     Hora_salida time not null ,
     Aereo_origen varchar(3) not null ,
     Aereo_final varchar(3) not null ,
-    constraint VUELOS_fk
+    constraint VUELOS_fk1
         foreign key (Aereo_origen) references AEREOPUERTO (ID_aereo)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION,
-    constraint VUELOS__fk
+    constraint VUELOS_fk2
         foreign key (Aereo_final) references AEREOPUERTO (ID_aereo)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
@@ -102,11 +102,11 @@ CREATE TABLE CALENDARIO_VUELO(
     ID_Avion varchar(10) not null,
     ID_Vuelo int,
     Abierto boolean,
-    constraint CALENDARIO_VUELO_fk
+    constraint CALENDARIO_VUELO_fk1
         foreign key (ID_Avion) references AVION (Placa)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION,
-    constraint CALENDARIO_VUELO__fk
+    constraint CALENDARIO_VUELO_fk2
         foreign key (ID_Vuelo) references VUELOS (ID_Vuelo)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
@@ -133,11 +133,11 @@ CREATE TABLE PASE_ABORDAR(
     Hora_salida time not null,
     Cedula_cliente int not null,
     ID_Calendario varchar(20),
-    constraint PASE_ABORDAR_fk
+    constraint PASE_ABORDAR_fk1
         foreign key (Cedula_cliente) references CLIENTE (Cedula)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION,
-    constraint PASE_ABORDAR__fk
+    constraint PASE_ABORDAR_fk2
         foreign key (ID_Calendario) references CALENDARIO_VUELO (ID_Calendario)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
@@ -157,15 +157,15 @@ CREATE TABLE MALETA(
     Peso decimal default 0,
     Color varchar(15) not null,
     ID_Pasaje int not null,
-    constraint MALETA_fk
+    constraint MALETA_fk1
         foreign key (Cedula_Cliente) references CLIENTE (Cedula)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION,
-    constraint MALETA__fk
+    constraint MALETA_fk2
         foreign key (Color) references COLOR (ID_Color)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION,
-    constraint MALETA___fk
+    constraint MALETA_fk3
         foreign key (ID_Pasaje) references PASE_ABORDAR (ID_Pasaje)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
@@ -191,12 +191,17 @@ CREATE TABLE FACTURA(
             primary key,
     Cliente int,
     Tarjeta_cred int,
-    constraint FACTURA_fk
+    Calendario varchar(20),
+    constraint FACTURA_fk1
         foreign key (Cliente) references CLIENTE (Cedula)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION,
-    constraint FACTURA__fk
+    constraint FACTURA_fk2
         foreign key (Tarjeta_cred) references TARJETA_DE_CREDITO (Num_tarjeta)
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION,
+    constraint FACTURA_fk3
+        foreign key (Calendario) references CALENDARIO_VUELO (ID_Calendario)
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
 );
