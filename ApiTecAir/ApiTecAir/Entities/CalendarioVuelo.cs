@@ -15,6 +15,8 @@ public class CalendarioVuelo
     
     public int id_vuelo { set; get; }
     
+    public bool abierto { set; get; }
+    
     public Avion avion { set; get; }
     
     public Vuelos vuelo { set; get; }
