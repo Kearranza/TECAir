@@ -22,7 +22,6 @@ export class FlightsComponent implements OnInit {
     this.charge.getAirport();
     this.charge.getCalendar();
     this.charge.getDisplay();
-    console.log(this.charge.display);
     for(let item of this.charge.airport){
       this.origins.push(item.id_aereo);
     };
