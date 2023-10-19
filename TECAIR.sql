@@ -101,6 +101,7 @@ CREATE TABLE CALENDARIO_VUELO(
     Precio int default 0,
     ID_Avion varchar(10) not null,
     ID_Vuelo int,
+    Abierto boolean,
     constraint CALENDARIO_VUELO_fk
         foreign key (ID_Avion) references AVION (Placa)
             ON UPDATE NO ACTION
@@ -187,5 +188,15 @@ CREATE TABLE PROMOCIONES(
 CREATE TABLE FACTURA(
     ID_Factura serial
         constraint FACTURA_pk
-            primary key
+            primary key,
+    Cliente int,
+    Tarjeta_cred int,
+    constraint FACTURA_fk
+        foreign key (Cliente) references CLIENTE (Cedula)
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION,
+    constraint FACTURA__fk
+        foreign key (Tarjeta_cred) references TARJETA_DE_CREDITO (Num_tarjeta)
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION
 );
