@@ -17,6 +17,9 @@ import { Student } from './Interfaces/student.interface';
 import { User } from './Interfaces/user.interface';
 import { Color } from './Interfaces/color.interface';
 import { Userpost } from './Interfaces/userpost.interface';
+import { Display_flight } from './Interfaces/displayflight.interface';
+import { Display_promo } from './Interfaces/displaypromo.interface';
+
 
 @Injectable({
   providedIn: 'root'
@@ -158,6 +161,16 @@ export class APIService {
   getDataCalendario(): Observable<Calendar[]> {
     const url = `${this.urlApi}/${'calendar'}`;
     return this.http.get<Calendar[]>(url)
+  }
+
+  getDataCalendarioV(): Observable<Display_flight[]> {
+    const url = `${this.urlApi}/${'calendar'}/${'info'}`;
+    return this.http.get<Display_flight[]>(url)
+  }
+
+  getDataCalendarioP(): Observable<Display_promo[]> {
+    const url = `${this.urlApi}/${'calendar'}/${'promos'}`;
+    return this.http.get<Display_promo[]>(url)
   }
 
   getDataECalendario(id:string): Observable<Calendar> {

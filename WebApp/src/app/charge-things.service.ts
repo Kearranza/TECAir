@@ -132,35 +132,17 @@ export class ChargeThingsService {
       console.error('Error:', error);})
   }
   getDisplay(){
-    let map = new Map();
-    for (let item of this.calendar) {
-  map.set(item.id_vuelo, item);
-    }
-    for (let item of this.flight) {
-      if (map.has(item.id_vuelo)) { // replace with your condition
-          this.tempf.origin = item.aereo_origen,
-          this.tempf.destination = item.aereo_final,
-          this.tempf.price = map.get(item.id_vuelo).precio
-        this.display.push(this.tempf);
-      }
-    }
+    this.apiService.getDataCalendarioV().subscribe(data => {
+      this.display = data;
+    }, error => {
+      console.error('Error', error)
+    })
   }
   getDisplaypromo(){
-    let mapc = new Map();
-    for (let item2 of this.calendar) {
-      mapc.set(item2.id_vuelo, item2);
-    }
-    for (let item3 of this.flight) {
-      if (mapc.has(item3.id_vuelo)) { // replace with your condition
-          this.tempf.origin = item3.aereo_origen,
-          this.tempf.destination = item3.aereo_final,
-          this.tempf.price = mapc.get(item3.id_vuelo).precio
-      }
-    }
-    for (let item4 of this.sales) {
-      if (mapc.has(item4.aplicado_calendario)) { // replace with your condition
-          this.tempp.discount = item4.descuento;
-      }
-    }
+    this.apiService.getDataCalendarioP().subscribe(data => {
+      this.displaypromo = data;
+    }, error => {
+      console.error('Error', error)
+    })
   }
 }
