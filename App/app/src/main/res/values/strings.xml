@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">TecAir_app</string>
+    <string-array name="destinos">
+        <item>Destino 1</item>
+        <item>Destino 2</item>
+        <item>Destino 3</item>
+        <item>Destino 4</item>
+        <item>Destino 5</item>
+        <item>Destino 6</item>
+        <item>Destino 7</item>
+    </string-array>
 </resources>
