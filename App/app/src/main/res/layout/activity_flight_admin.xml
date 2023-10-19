@@ -79,6 +79,7 @@
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/main_color"
                 android:textAllCaps="false"
+                android:onClick="onClickViewFlights"
                 android:text="Continuar" />
         </LinearLayout>
     </LinearLayout>
