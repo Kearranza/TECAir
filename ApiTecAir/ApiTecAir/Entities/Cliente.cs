@@ -26,4 +26,6 @@ public class Cliente
     public List<PaseAbordar> pases { set; get; }
     
     public List<TarjetaCredito> tarjetas { set; get; }
+    
+    public List<Factura> facturas { set; get; }
 }

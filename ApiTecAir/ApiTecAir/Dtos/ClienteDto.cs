@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
+
 namespace ApiTecAir.Dtos;
 
 public class ClienteDto
@@ -25,4 +26,6 @@ public class ClienteDto
     public List<PaseAbordarDto> pases { set; get; }
     
     public List<TarjetaCreditoDto> tarjetas { set; get; }
+    
+    public List<FacturaDto> facturas { set; get; }
 }

@@ -22,4 +22,6 @@ public class CalendarioVuelo
     public List<PaseAbordar> pases { set; get; }
     
     public List<Promociones> promociones { set; get; }
+    
+    public List<Factura> facturas { set; get; }
 }

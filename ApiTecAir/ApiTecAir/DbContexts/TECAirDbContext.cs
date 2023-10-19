@@ -66,6 +66,21 @@ public class TECAirDbContext : DbContext
             .WithMany(_ => _.tarjetas)
             .HasForeignKey(_ => _.cedula);
         
+        modelbuilder.Entity<Factura>()
+            .HasOne(_ => _.ccliente)
+            .WithMany(_ => _.facturas)
+            .HasForeignKey(_ => _.cliente);
+        
+        modelbuilder.Entity<Factura>()
+            .HasOne(_ => _.tarjeta)
+            .WithMany(_ => _.facturas)
+            .HasForeignKey(_ => _.tarjeta_cred);
+        
+        modelbuilder.Entity<Factura>()
+            .HasOne(_ => _.calendario_vuelo)
+            .WithMany(_ => _.facturas)
+            .HasForeignKey(_ => _.calendario);
+        
         modelbuilder.Entity<Maleta>()
             .HasOne(_ => _.cliente)
             .WithMany(_ => _.maletas)
@@ -134,19 +149,25 @@ public class TECAirDbContext : DbContext
         
         modelbuilder.Entity<CalendarioVuelo>().Navigation(e => e.pases);
         modelbuilder.Entity<CalendarioVuelo>().Navigation(e => e.promociones);
+        modelbuilder.Entity<CalendarioVuelo>().Navigation(e => e.facturas);
         
         modelbuilder.Entity<Cliente>().Navigation(e => e.maletas).AutoInclude();
         modelbuilder.Entity<Cliente>().Navigation(e => e.estudiantes).AutoInclude();
         modelbuilder.Entity<Cliente>().Navigation(e => e.tarjetas).AutoInclude();
         modelbuilder.Entity<Cliente>().Navigation(e => e.pases).AutoInclude();
         modelbuilder.Entity<Cliente>().Navigation(e => e.usuarios).AutoInclude();
+        modelbuilder.Entity<Cliente>().Navigation(e => e.facturas).AutoInclude();
+        modelbuilder.Entity<Cliente>().Navigation(e => e.usuarios).AutoInclude();
+
         
-        modelbuilder.Entity<Color>().Navigation(e => e.maletas);
+        modelbuilder.Entity<Color>().Navigation(e => e.maletas).AutoInclude();
         
-        modelbuilder.Entity<PaseAbordar>().Navigation(e => e.maletas);
+        modelbuilder.Entity<PaseAbordar>().Navigation(e => e.maletas).AutoInclude();
         
         modelbuilder.Entity<Vuelos>().Navigation(e => e.calendarios).AutoInclude();
         modelbuilder.Entity<Vuelos>().Navigation(e => e.escalas).AutoInclude();
-        
+
+        modelbuilder.Entity<TarjetaCredito>().Navigation(e => e.facturas).AutoInclude();
+
     }
 }

@@ -14,4 +14,6 @@ public class TarjetaCredito
     public int cedula { set; get; }
 
     public Cliente cliente { set; get; }
+    
+    public List<Factura> facturas { set; get; }
 }

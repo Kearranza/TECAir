@@ -6,16 +6,10 @@ namespace ApiTecAir.Dtos;
 public class FacturaDto
 {
     public int id_factura { set; get; }
-    
-    public int precio { set; get; }
-    
-    public int cantidad { set; get; }
-    
-    public int total { set; get; }
-    
-    public int cedulacliente { set; get; }
-    
-    public CalendarioVueloDto calendario_vuelo { set; get; }
-    
-    public int tarjeta_credito { set; get; }
+
+    public int cliente { set; get; }
+
+    public int tarjeta_cred { set; get; }
+
+    public string calendario { set; get; }
 }
