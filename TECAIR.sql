@@ -11,7 +11,7 @@ CREATE TABLE CLIENTE(
 
 CREATE TABLE USUARIO(
     ID_Usuario serial,
-    Contraseña varchar(15) not null ,
+    Contrasena varchar(15) not null ,
     Cedula int not null ,
     constraint USUARIO_pk
         primary key (ID_Usuario),
