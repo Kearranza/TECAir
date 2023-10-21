@@ -1,7 +1,6 @@
 import { Calendar } from "./calendar.interface";
 
-export interface Bill{
-    id_factura:number;
+export interface Billpost{
     cliente:number;
     tarjeta_cred:number;
     calendario:string;

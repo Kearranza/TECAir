@@ -17,6 +17,11 @@ import { Student } from './Interfaces/student.interface';
 import { User } from './Interfaces/user.interface';
 import { Color } from './Interfaces/color.interface';
 import { Userpost } from './Interfaces/userpost.interface';
+import { Display_flight } from './Interfaces/displayflight.interface';
+import { Display_promo } from './Interfaces/displaypromo.interface';
+import { Salespost } from './Interfaces/salespost.interface';
+import { Billpost } from './Interfaces/billpost.intaface';
+
 
 @Injectable({
   providedIn: 'root'
@@ -65,7 +70,7 @@ export class APIService {
     return this.http.get<Plane>(url)
   }
 
-  postDataAvion(data: any): Observable<Plane> {
+  postDataAvion(data: Plane): Observable<Plane> {
     const url = `${this.urlApi}/${'avion'}`;
     return this.http.post<Plane>(url, data);
   }
@@ -90,9 +95,9 @@ export class APIService {
     return this.http.get<Bill>(url)
   }
 
-  postDataFactura(data: any): Observable<Bill> {
+  postDataFactura(data: Billpost): Observable<Billpost> {
     const url = `${this.urlApi}/${'factura'}`;
-    return this.http.post<Bill>(url, data);
+    return this.http.post<Billpost>(url, data);
   }
 
   updateDataFactura(id: number, data: any): Observable<any> {
@@ -140,7 +145,7 @@ export class APIService {
     return this.http.get<Color>(url)
   }
 
-  postDataColor(data: any): Observable<Color> {
+  postDataColor(data: Color): Observable<Color> {
     const url = `${this.urlApi}/${'color'}`;
     return this.http.post<Color>(url, data);
   }
@@ -160,12 +165,22 @@ export class APIService {
     return this.http.get<Calendar[]>(url)
   }
 
+  getDataCalendarioV(): Observable<Display_flight[]> {
+    const url = `${this.urlApi}/${'calendar'}/${'info'}`;
+    return this.http.get<Display_flight[]>(url)
+  }
+
+  getDataCalendarioP(): Observable<Display_promo[]> {
+    const url = `${this.urlApi}/${'calendar'}/${'promos'}`;
+    return this.http.get<Display_promo[]>(url)
+  }
+
   getDataECalendario(id:string): Observable<Calendar> {
     const url  = `${this.urlApi}/${id}/${'calendar'}`;
     return this.http.get<Calendar>(url)
   }
 
-  postDataCalendario(data: any): Observable<Calendar> {
+  postDataCalendario(data: Calendar): Observable<Calendar> {
     const url = `${this.urlApi}/${'calendar'}`;
     return this.http.post<Calendar>(url, data);
   }
@@ -190,7 +205,7 @@ export class APIService {
     return this.http.get<Flight>(url)
   }
 
-  postDataVuelos(data: any): Observable<Flight> {
+  postDataVuelos(data: Flight): Observable<Flight> {
     const url = `${this.urlApi}/${'vuelos'}`;
     return this.http.post<Flight>(url, data);
   }
@@ -215,9 +230,9 @@ export class APIService {
     return this.http.get<Sales>(url)
   }
 
-  postDataPromociones(data: any): Observable<Sales> {
+  postDataPromociones(data: Salespost): Observable<Salespost> {
     const url = `${this.urlApi}/${'promociones'}`;
-    return this.http.post<Sales>(url, data);
+    return this.http.post<Salespost>(url, data);
   }
 
   updateDataPromociones(id: number, data: any): Observable<any> {
@@ -240,7 +255,7 @@ export class APIService {
     return this.http.get<Scales>(url)
   }
 
-  postDataEscala(data: any): Observable<Scales> {
+  postDataEscala(data: Scales): Observable<Scales> {
     const url = `${this.urlApi}/${'escala'}`;
     return this.http.post<Scales>(url, data);
   }
@@ -265,7 +280,7 @@ export class APIService {
     return this.http.get<Seat>(url)
   }
 
-  postDataAsiento(data: any): Observable<Seat> {
+  postDataAsiento(data: Seat): Observable<Seat> {
     const url = `${this.urlApi}/${'asiento'}`;
     return this.http.post<Seat>(url, data);
   }
@@ -315,7 +330,7 @@ export class APIService {
     return this.http.get<Baggage>(url)
   }
 
-  postDataMaleta(data: any): Observable<Baggage> {
+  postDataMaleta(data: Baggage): Observable<Baggage> {
     const url = `${this.urlApi}/${'maleta'}`;
     return this.http.post<Baggage>(url, data);
   }
@@ -340,7 +355,7 @@ export class APIService {
     return this.http.get<Credit_card>(url)
   }
 
-  postDataTarjeta(data: any): Observable<Credit_card> {
+  postDataTarjeta(data: Credit_card): Observable<Credit_card> {
     const url = `${this.urlApi}/${'tarjeta'}`;
     return this.http.post<Credit_card>(url, data);
   }
@@ -365,7 +380,7 @@ export class APIService {
     return this.http.get<Boarding_pass>(url)
   }
 
-  postDataPaseA(data: any): Observable<Boarding_pass> {
+  postDataPaseA(data: Boarding_pass): Observable<Boarding_pass> {
     const url = `${this.urlApi}/${'pase_abordar'}`;
     return this.http.post<Boarding_pass>(url, data);
   }

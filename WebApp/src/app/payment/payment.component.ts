@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ChargeThingsService } from '../charge-things.service';
 import jsPDF from 'jspdf';
+import { Credit_card } from '../Interfaces/credit_card.interface';
+import { APIService } from '../api.service';
+import { ChargeThingsService } from '../charge-things.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-payment',
@@ -9,7 +12,14 @@ import jsPDF from 'jspdf';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent {
-  constructor(private router: Router, private charge:ChargeThingsService) {}
+  constructor(private router: Router, private data:DataService, private apiservice:APIService, private charge:ChargeThingsService) {}
+
+  credit_card:Credit_card = {
+    num_tarjeta:'',
+    fecha_ex:'',
+    cvv:0,
+    cedula_cliente: 0
+  }
 
   generatePDF() {
     const doc = new jsPDF();
@@ -55,7 +65,16 @@ export class PaymentComponent {
   }
 
   onSubmit() {
+    this.charge.getClient();
       // Redirigir al usuario a la página de inicio.
-      this.router.navigate(['/thanks']);
+    if(this.charge.client.some(item => item.cedula === this.data.client.cedula)){
+      this.credit_card.cedula_cliente = this.data.client.cedula;
+      this.apiservice.postDataTarjeta(this.credit_card);
+    }else{
+      this.apiservice.postDataCliente(this.data.client)
+      this.credit_card.cedula_cliente = this.data.client.cedula;
+      this.apiservice.postDataTarjeta(this.credit_card);
     }
+    this.router.navigate(['/thanks']);
+  }
 }
