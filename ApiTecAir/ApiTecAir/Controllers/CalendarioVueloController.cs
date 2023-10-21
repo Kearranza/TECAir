@@ -55,6 +55,7 @@ public class CalendarioVueloController : ControllerBase
             join m in _tecAirDbContext.vuelos on c.id_vuelo equals m.id_vuelo
             select new
             {
+                calendarioId = c.id_calendario,
                 precio = c.precio,
                 aero_origen = m.aereo_origen,
                 aero_final = m.aereo_final
@@ -64,7 +65,7 @@ public class CalendarioVueloController : ControllerBase
     }
     
     [HttpGet("/calendar/info/{id}")]
-    public IActionResult GetInfo(string id)
+    public IActionResult GetHoraById(string id)
     {
         var info = (from c in _tecAirDbContext.calendario_vuelo
             join m in _tecAirDbContext.vuelos on c.id_vuelo equals m.id_vuelo
@@ -84,6 +85,7 @@ public class CalendarioVueloController : ControllerBase
             join m in _tecAirDbContext.promociones on c.id_calendario equals m.aplicado_calendario
             select new
             {
+                calendarioId = c.id_calendario,
                 precio = c.precio,
                 aero_origen = m.descuento
             }).Take(100);
