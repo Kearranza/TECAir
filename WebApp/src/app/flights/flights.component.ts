@@ -16,7 +16,6 @@ export class FlightsComponent implements OnInit {
   destinations:string[] = [];
   selectedOrigin = '';
   selectedDestination = '';
-  filteredFlights = this.charge.display;
 
   ngOnInit(): void {
     this.charge.getAirport();
@@ -27,6 +26,8 @@ export class FlightsComponent implements OnInit {
     };
     this.destinations = this.origins;
   }
+
+  filteredFlights = this.charge.display;
 
 
   moveLeft() {

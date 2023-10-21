@@ -1,5 +1,6 @@
 import { Boarding_pass } from "./boarding_pass.interface";
 import { Sales } from "./sales.interface";
+import { Bill } from "./bill.interface";
 
 export interface Calendar{
     id_calendario:string;
@@ -7,6 +8,8 @@ export interface Calendar{
     precio:number;
     id_avion:string;
     id_vuelo:number;
+    abierto:boolean;
     pases:Boarding_pass[];
     promociones:Sales[];
+    facturas:Bill[];
 }

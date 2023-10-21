@@ -23,7 +23,8 @@ export class ClientRegisterComponent {
     usuarios: [],
     maletas: [],
     pases: [],
-    tarjetas: []
+    tarjetas: [],
+    facturas: [],
   }
 
   students:Student = {

@@ -16,8 +16,10 @@ export class CreateCalendarComponent {
     precio:0,
     id_avion: '',
     id_vuelo: 0,
+    abierto: false,
     pases: [],
-    promociones: []
+    promociones: [],
+    facturas: [],
   }
 
   constructor(private apiService: APIService, private charge:ChargeThingsService) { this.onInit();}
