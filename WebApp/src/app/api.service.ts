@@ -177,7 +177,7 @@ export class APIService {
 
   getDataECalendario(id:string): Observable<Calendar> {
     const url  = `${this.urlApi}/${id}/${'calendar'}`;
-    return this.http.get<Calendar>(url)
+    return this.http.get<any>(url)
   }
 
   postDataCalendario(data: Calendar): Observable<Calendar> {
@@ -185,7 +185,7 @@ export class APIService {
     return this.http.post<Calendar>(url, data);
   }
 
-  updateDataCalendario(id: number, data: any): Observable<any> {
+  updateDataCalendario(id: string, data: any): Observable<any> {
     const url = `${this.urlApi}/${'calendar'}/id?id=${id}`;
     return this.http.put(url, data);
   }

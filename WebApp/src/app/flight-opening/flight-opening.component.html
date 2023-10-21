@@ -4,7 +4,7 @@
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="flightToOpen">Vuelo:</label>
-            <input type="string" id="flightToOpen" name="flightToOpen" >
+            <input type="string" id="flightToOpen" name="flightToOpen" [(ngModel)] = "string">
         </div>
         <button type="submit" >Abrir</button>
     </form>
