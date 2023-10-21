@@ -63,6 +63,20 @@ public class CalendarioVueloController : ControllerBase
         return Ok(info);
     }
     
+    [HttpGet("/calendar/info/{id}")]
+    public IActionResult GetInfo(string id)
+    {
+        var info = (from c in _tecAirDbContext.calendario_vuelo
+            join m in _tecAirDbContext.vuelos on c.id_vuelo equals m.id_vuelo
+            where c.id_calendario == id
+            select new
+            {
+                hora = m.hora_salida
+            }).Take(1);
+
+        return Ok(info);
+    }
+    
     [HttpGet("/calendar/promos")]
     public IActionResult GetPromos()
     {
