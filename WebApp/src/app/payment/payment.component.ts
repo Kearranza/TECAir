@@ -15,42 +15,40 @@ export class PaymentComponent {
     const doc = new jsPDF();
 
     // Agregar la imagen
+    const product = [ 'MEX', 'SJS', 200,123456];
     const img = new Image();
     img.src = '../../../assets/TECAirLogo.png';
     doc.addImage(img, 'PNG', 20, 20, 50, 50);
   
     // Agregar el encabezado de la factura
+    doc.setFont('Roboto', 'bold');
     doc.setFontSize(22);
-    doc.text('Factura', 105, 20);
+    doc.text('Pase de abordaje', 105, 50);
+    doc.setFont('Roboto', 'sans-serif');
     doc.setFontSize(16);
-    doc.text('Fecha: 01/01/2022', 20, 40);
-    doc.text('Número de factura: 123456', 20, 50);
+    doc.text('Fecha: 01/01/2022', 20, 80);
+    doc.text('Número de factura: 123456', 20, 90);
+
+    doc.text('Cédula:'+product[3].toString(), 20, 110);
+    doc.text('Tarjeta: 123456', 20, 120);
   
     // Agregar la tabla de productos
-    const products = [
-      { name: 'Producto 1', price: 10 },
-      { name: 'Producto 2', price: 20 },
-      { name: 'Producto 3', price: 30 },
-    ];
-    let y = 70;
+    let y = 150;
     doc.setFontSize(14);
-    doc.text('Productos', 20, y);
+    doc.text('Origen', 20, y);
+    doc.text('Destino', 50, y);
     doc.text('Precio', 150, y);
+
     y += 10;
     doc.line(20, y, 190, y);
     y += 5;
-    products.forEach(product => {
-      doc.text(product.name, 20, y);
-      doc.text(product.price.toString(), 150, y);
-      y += 10;
-    });
-  
-    // Agregar el total de la factura
-    const total = products.reduce((acc, product) => acc + product.price, 0);
+
+    doc.text(product[0].toString(), 20, y);
+    doc.text(product[1].toString(), 50, y);
+    doc.text(product[2].toString(), 150, y);
+
+    y += 5;
     doc.line(20, y, 190, y);
-    y += 10;
-    doc.text('Total:', 20, y);
-    doc.text(total.toString(), 150, y);
   
     // Guardar el PDF
     doc.save('factura.pdf');
