@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./baggage-assignment.component.css']
 })
 export class BaggageAssignmentComponent {
+  onSubmit(){}
 
 }

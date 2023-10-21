@@ -63,6 +63,7 @@ export class SeatsSelectionComponent implements OnInit {
     }
   }
 
+  // Reserve or unreserve a seat
   reserveSeat(seat: { id: number, number: number, available: boolean, active: boolean } | null) {
     if (seat && seat.available) {
       seat.available = false;

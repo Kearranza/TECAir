@@ -59,7 +59,7 @@ export class PaymentComponent {
 
     doc.text(this.flightInfo[0].toString(), 20, y);
     doc.text(this.flightInfo[1].toString(), 50, y);
-    doc.text(this.flightInfo[2].toString(), 150, y);
+    doc.text('₡'+this.flightInfo[2].toString(), 150, y);
 
     y += 5;
     doc.line(20, y, 190, y);
