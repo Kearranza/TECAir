@@ -20,12 +20,16 @@ export class PaymentComponent {
     cvv:0,
     cedula_cliente: 0
   }
+  flightInfo = [ 'MEX', 'SJS', 200,123456];
+  depatureDate = '01/01/2022';
+  ticketNumber = 123456789;
+  creditCardNumber = 123456789;
 
+  //Generar PDF, que se descarga automaticamente
   generatePDF() {
     const doc = new jsPDF();
 
     // Agregar la imagen
-    const product = [ 'MEX', 'SJS', 200,123456];
     const img = new Image();
     img.src = '../../../assets/TECAirLogo.png';
     doc.addImage(img, 'PNG', 20, 20, 50, 50);
@@ -36,13 +40,13 @@ export class PaymentComponent {
     doc.text('Pase de abordaje', 105, 50);
     doc.setFont('Roboto', 'sans-serif');
     doc.setFontSize(16);
-    doc.text('Fecha: 01/01/2022', 20, 80);
-    doc.text('Número de factura: 123456', 20, 90);
+    doc.text('Fecha:' + this.depatureDate, 20, 80);
+    doc.text('Número de pasaje:' + this.ticketNumber , 20, 90);
 
-    doc.text('Cédula:'+product[3].toString(), 20, 110);
-    doc.text('Tarjeta: 123456', 20, 120);
+    doc.text('Cédula:' + this.flightInfo[3].toString(), 20, 110);
+    doc.text('Tarjeta:' + this.creditCardNumber, 20, 120);
   
-    // Agregar la tabla de productos
+    // Agregar la información del vuelo
     let y = 150;
     doc.setFontSize(14);
     doc.text('Origen', 20, y);
@@ -53,9 +57,9 @@ export class PaymentComponent {
     doc.line(20, y, 190, y);
     y += 5;
 
-    doc.text(product[0].toString(), 20, y);
-    doc.text(product[1].toString(), 50, y);
-    doc.text(product[2].toString(), 150, y);
+    doc.text(this.flightInfo[0].toString(), 20, y);
+    doc.text(this.flightInfo[1].toString(), 50, y);
+    doc.text(this.flightInfo[2].toString(), 150, y);
 
     y += 5;
     doc.line(20, y, 190, y);
@@ -66,7 +70,7 @@ export class PaymentComponent {
 
   onSubmit() {
     this.charge.getClient();
-      // Redirigir al usuario a la página de inicio.
+
     if(this.charge.client.some(item => item.cedula === this.data.client.cedula)){
       this.credit_card.cedula_cliente = this.data.client.cedula;
       this.apiservice.postDataTarjeta(this.credit_card);
@@ -75,6 +79,7 @@ export class PaymentComponent {
       this.credit_card.cedula_cliente = this.data.client.cedula;
       this.apiservice.postDataTarjeta(this.credit_card);
     }
+    // Redirigir al usuario a la página de pago efectuado
     this.router.navigate(['/thanks']);
   }
 }

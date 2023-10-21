@@ -1,1 +1,11 @@
-<p>flight-opening works!</p>
+<div class="selection-container">
+    <h2 class="logo">Seleccione el vuelo a abrir</h2>
+
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="flightToOpen">Vuelo:</label>
+            <input type="string" id="flightToOpen" name="flightToOpen" >
+        </div>
+        <button type="submit" >Abrir</button>
+    </form>
+</div>

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./flight-closure.component.css']
 })
 export class FlightClosureComponent {
-
+  onSubmit() {}
 }

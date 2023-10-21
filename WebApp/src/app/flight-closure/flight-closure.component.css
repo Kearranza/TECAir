@@ -1,0 +1,78 @@
+.selection-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    border: 5px solid #fff;
+    padding: 20px;
+    background-image: url('../../assets/Sky.png');
+    border-radius: 7% ;
+    box-shadow: #000 5px 5px 10px;
+    
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 2px;
+}
+
+.logo {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    color: white;
+    text-shadow: 0 0 10px white;
+}
+
+button {
+    margin-top: 10px; 
+    font-weight: 700;
+    color: #1b3039;
+    padding: 9px 25px;
+    background: #eceff1;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: #000 5px 5px 10px;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #64CCC5;
+
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 5px 28px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+input:focus {
+    transform: scale(1.1);
+}
