@@ -14,7 +14,11 @@ public class CalendarioVueloDto
     
     public int id_vuelo { set; get; }
     
+    public bool abierto { set; get; }
+    
     public List<PaseAbordarDto> pases { set; get; }
     
     public List<PromocionesDto> promociones { set; get; }
+    
+    public List<FacturaDto> facturas { set; get; }
 }

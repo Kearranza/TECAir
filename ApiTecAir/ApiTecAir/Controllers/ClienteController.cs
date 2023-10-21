@@ -49,6 +49,14 @@ public class ClienteController : ControllerBase
         return client;
     }
 
+    [HttpGet("/cliente/{id}/maletas")]
+    public int GetMaletasCliente(int id)
+    {
+        var cantidad = _tecAirDbContext.cliente.Find(id).maletas.Count();
+
+        return cantidad;
+    }
+
     [HttpPut("/cliente/id")]
     public IActionResult Put(int id, [FromBody] ClienteDto payload)
     {

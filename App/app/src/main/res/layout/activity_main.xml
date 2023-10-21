@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:columnCount="2"
-        android:rowCount="3"
+        android:rowCount="2"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginTop="-80dp"
@@ -31,14 +31,15 @@
             android:layout_row="0"
             android:layout_column="0"
             android:layout_margin="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:onClick="onClickFlights">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:onClick="onClickRegister">
+                >
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
@@ -48,7 +49,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Buscar vuelo"
+                    android:text="Vuelos"
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
@@ -64,22 +65,27 @@
             android:layout_row="0"
             android:layout_column="1"
             android:layout_margin="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:onClick="onClickPromo">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
+                    android:src="@drawable/baseline_percent_24"
+
                     android:src="@drawable/baseline_app_registration_24"
                     android:layout_gravity="center_horizontal"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Promociones"
                     android:text="Registrarse"
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold"
@@ -95,7 +101,8 @@
             android:layout_row="1"
             android:layout_column="0"
             android:layout_margin="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:onClick="onClickRegister">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -105,13 +112,18 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
+                    android:src="@drawable/baseline_app_registration_24"
+
                     android:src="@drawable/baseline_shopping_cart_checkout_24"
+ 
                     android:layout_gravity="center_horizontal"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Registrar"
                     android:text="Check-In"
+
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
@@ -125,6 +137,7 @@
             android:layout_rowWeight="1"
             android:layout_row="1"
             android:layout_column="1"
+            android:onClick="onClickLogin"
             android:layout_margin="12dp"
             app:cardElevation="12dp">
 
@@ -137,6 +150,8 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@drawable/baseline_login_24"
+
+
                     android:layout_gravity="center_horizontal"
                     />
                 <TextView
@@ -203,7 +218,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
+                    android:text="Iniciar Sesion"
                     android:text="Otros"
+
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
@@ -220,7 +238,7 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:textSize="36sp"
+        android:textSize="40sp"
         android:layout_marginTop="30dp"/>
 
 
