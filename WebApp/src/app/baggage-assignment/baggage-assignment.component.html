@@ -6,15 +6,25 @@
             <label for="clientID">Cédula cliente:</label>
             <input type="number" id="clientID" name="clientID" >
         </div>
+
         <div class="form-group">
             <label for="baggageID">Número de Maleta:</label>
             <input type="number" id="baggageID" name="baggageID" >
         </div>
 
         <div class="form-group">
-            <label for="color1">Color1:</label>
-            <input class="color" type="color" id="color1" name="color1" >
+            <label for="weight">Peso (kg):</label>
+            <input type="number" id="weight" name="weight" >
         </div>
+
+        <div *ngFor="let color of colors">
+            <div class="form-group">
+            <label for="color{{color.id}}">Color {{color.id}}:</label>
+            <input class="color" type="color" id="color{{color.id}}" name="color{{color.id}}">
+            </div>
+        </div>
+
+        <button *ngIf="colors.length < 3" (click)="addColorInput()">Agregar campo de color</button>
 
         <button type="submit" >Abrir</button>
     </form>
