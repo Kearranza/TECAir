@@ -1,4 +1,4 @@
-export interface Boarding_pass{
+export interface Boarding_pass{//Interface for saving boarding pass
     id_pasaje:number;
     puerta: string;
     asiento: string;

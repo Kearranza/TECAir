@@ -18,7 +18,7 @@ export class ClientLoginComponent {
 
     constructor(private router: Router, private charge:ChargeThingsService, private apiService:APIService, private data:DataService) {}
 
-  client: Client = {
+  client: Client = { //an instance of client
       cedula: 0,
       nombre: '',
       apellido_1: '',
@@ -36,9 +36,9 @@ export class ClientLoginComponent {
   // Function for login that is executed when the button is pressed and validates the form
   onSubmit() {
 
-    this.charge.getUser();
+    this.charge.getUser();// charges users
 
-    for (let users of this.charge.user){
+    for (let users of this.charge.user){//seeks in the users for the inputs given
       
       if (this.usernameInput && this.passwordInput) {
 
@@ -48,13 +48,13 @@ export class ClientLoginComponent {
 
         } else {
           this.errorMessage = '';
-          this.apiService.getDataECliente(users.cedula).subscribe(data => {
+          this.apiService.getDataECliente(users.cedula).subscribe(data => {//gets the client 
             console.log(this.client)
             this.client = data;
           }, error => {
             console.error('Error:', error);})
           
-          this.data.client = this.client;
+          this.data.client = this.client;//charges the client 
           console.log('aa')
           console.log(this.data.client)
 

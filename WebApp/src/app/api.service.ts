@@ -28,14 +28,13 @@ import { BaggagePost } from './Interfaces/baggagepost.interface';
 })
 export class APIService {
 
-  //Url para conectarse a la API
+  //Url of the API
   private urlApi = 'http://localhost:5296'
 
-  //Constructor que crea un httpClient para poder realizar conecciones con la API
   constructor(private http: HttpClient) { }
 
-  // Metodos de Post y Gets para la API
-  getDataAeropuerto(): Observable<Airport[]> {
+  //Methods of Get, Post, Update, Delete 
+  getDataAeropuerto(): Observable<Airport[]> {//
     const url = `${this.urlApi}/${'aeropuerto'}`;
     return this.http.get<Airport[]>(url)
   }

@@ -10,7 +10,7 @@ import { Sales } from '../Interfaces/sales.interface';
 })
 export class CreatePromotionComponent {
 
-  sale:Sales ={
+  sale:Sales ={//an instance of sales
     id_promo:0,
     descuento:0,
     fecha_inicio: new Date(),
@@ -23,19 +23,19 @@ export class CreatePromotionComponent {
   constructor(private apiService: APIService, private charge:ChargeThingsService) { this.onInit();}
 
   onInit(){
-    this.charge.getAirport();
-    this.charge.getCalendar();
+    this.charge.getAirport();//charges airport
+    this.charge.getCalendar();//charges calendar
   }
 
   // Function that is executed when the button is pressed and validates the form
   onSubmit(){
     if(this.charge.airport.some(item => item.id_aereo == this.sale.origen && this.charge.airport.some(item => item.id_aereo == this.sale.destino)) && this.charge.calendar.some(thisc => thisc.id_calendario == this.sale.aplicado_calendario))
-    {
+    {// if the calendar, origen and destino exist saves the promo 
         this.PostS();
     }
   }
 
-  PostS(){
+  PostS(){//calls the service to save promos
     this.apiService.postDataPromociones(this.sale).subscribe(data => {
       console.log(this.sale)
       console.log('Funca S')

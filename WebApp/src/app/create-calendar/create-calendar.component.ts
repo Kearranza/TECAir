@@ -10,7 +10,7 @@ import { Calendar } from '../Interfaces/calendar.interface';
 })
 export class CreateCalendarComponent {
 
-  calendar:Calendar = {
+  calendar:Calendar = {//an intance of calendar
     id_calendario: '',
     fecha:new Date(),
     precio:0,
@@ -25,21 +25,21 @@ export class CreateCalendarComponent {
   constructor(private apiService: APIService, private charge:ChargeThingsService) { this.onInit();}
 
   onInit(){
-    this.charge.getPlane();
-    this.charge.getFlight();
+    this.charge.getPlane();//charges planes 
+    this.charge.getFlight();//charges airport 
   }
   
   // Function that is executed when the button is pressed and validates the form
   onSubmit(){
     
     if(this.charge.plane.some(item => item.placa === this.calendar.id_avion && this.charge.flight.some(item => item.id_vuelo == this.calendar.id_vuelo)))
-    {
+    {// if placa and id vuelo exist in the database saves the calendar
         this.PostC();
     }
 
   }
 
-  PostC(){
+  PostC(){//calls the service to save calendar
     this.apiService.postDataCalendario(this.calendar).subscribe(data => {
       console.log(this.calendar)
       console.log('Funca C')

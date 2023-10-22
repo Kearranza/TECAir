@@ -15,13 +15,13 @@ import { Billpost } from '../Interfaces/billpost.intaface';
 export class PaymentComponent {
   constructor(private router: Router, private data:DataService, private apiservice:APIService, private charge:ChargeThingsService) {}
 
-  billpost:Billpost = {
+  billpost:Billpost = {//an instance of billpost
     cliente:0,
     tarjeta_cred:0,
     calendario:''
 }
 
-  credit_card:Credit_card = {
+  credit_card:Credit_card = {//an instance of credit card 
     num_tarjeta:0,
     fecha_ex:'',
     cvv:0,
@@ -76,19 +76,20 @@ export class PaymentComponent {
   }
 
   onSubmit() {
-    this.charge.getClient();
+    this.charge.getClient();//Gets all the clients
 
-    if(this.charge.client.some(item => item.cedula === this.data.client.cedula)){
-      this.credit_card.cedula_cliente = this.data.client.cedula;
-      this.apiservice.postDataTarjeta(this.credit_card);
+    if(this.charge.client.some(item => item.cedula === this.data.client.cedula)){//sees if the client exist
+      this.credit_card.cedula_cliente = this.data.client.cedula;//assigns the value of cedula to the credit card cedula cliente
+      this.apiservice.postDataTarjeta(this.credit_card);//if the client exist saves the credit card
     }else{
-      this.apiservice.postDataCliente(this.data.client)
-      this.credit_card.cedula_cliente = this.data.client.cedula;
-      this.apiservice.postDataTarjeta(this.credit_card);
+      this.apiservice.postDataCliente(this.data.client)//saves the new client
+      this.credit_card.cedula_cliente = this.data.client.cedula;//assigns the value of cedula to the credit card cedula cliente
+      this.apiservice.postDataTarjeta(this.credit_card);//if the client exist saves the credit card
     }
-    this.billpost.cliente = this.credit_card.cedula_cliente;
-    this.billpost.calendario = this.data.calendar.id_calendario;
-    this.billpost.tarjeta_cred = this.credit_card.num_tarjeta;
+    this.billpost.cliente = this.credit_card.cedula_cliente;//assigns the billpost cedula the value of the cedula
+    this.billpost.calendario = this.data.calendar.id_calendario;//assings the billpost calendario value the value of id calendario
+    this.billpost.tarjeta_cred = this.credit_card.num_tarjeta;//assigns the billpost tarjeta cred the value of the num tarjeta
+    this.apiservice.postDataFactura(this.billpost)//saves the new bill
     // Redirect the user to the page of the completed payment
     this.router.navigate(['/thanks']);
   }

@@ -5,7 +5,7 @@ import { Boarding_pass } from "./boarding_pass.interface";
 import { Credit_card } from "./credit_card.interface";
 import { Bill } from "./bill.interface";
 
-export interface Client{
+export interface Client{//Interface for saving client
     cedula:number;
     nombre:string;
     apellido_1:string;

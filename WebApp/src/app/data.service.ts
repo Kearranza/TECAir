@@ -7,11 +7,11 @@ import { Boarding_pass } from './Interfaces/boarding_pass.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class DataService {//Makes a service for mantein data between pages
 
   constructor() { }
 
-  billpdf:billpdf = {
+  billpdf:billpdf = {//Creates an intance for billpdf
     origen:'',
     destino:'',
     precio:0,
@@ -19,7 +19,7 @@ export class DataService {
     cedula:'',
     tarjeta:'',
   }
-  calendar:Calendar = {
+  calendar:Calendar = {//Creates an intance for calendar
     id_calendario:'',
     fecha: new Date(),
     precio:0,
@@ -30,7 +30,7 @@ export class DataService {
     promociones:[],
     facturas:[]
   }
-  client:Client = {
+  client:Client = {//Creates an intance for client
     cedula:0,
     nombre:'',
     apellido_1:'',
@@ -45,7 +45,7 @@ export class DataService {
     facturas:[],
   }
 
-  boarding_pass:Boarding_pass = {
+  boarding_pass:Boarding_pass = {//Creates an intance for boarding pass
     id_pasaje:0,
     puerta: '',
     asiento: '',

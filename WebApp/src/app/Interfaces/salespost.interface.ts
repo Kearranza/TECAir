@@ -1,4 +1,4 @@
-export interface Salespost{
+export interface Salespost{//Interface for post sales/promos
     descuento:number;
     fecha_inicio:Date;
     fecha_fin:Date;

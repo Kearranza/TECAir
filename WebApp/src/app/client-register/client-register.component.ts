@@ -12,7 +12,7 @@ import { Userpost } from '../Interfaces/userpost.interface';
 export class ClientRegisterComponent {
   student: string = 'no';
 
-  client:Client = {
+  client:Client = {//an intance of client
     cedula: 0,
     nombre: '',
     apellido_1: '',
@@ -27,14 +27,14 @@ export class ClientRegisterComponent {
     facturas: [],
   }
 
-  students:Student = {
+  students:Student = {//an intance of student
     carnet: 0,
     universidad: '',
     millas: 100,
     cedula: 0
   };
 
-  userpost: Userpost = {
+  userpost: Userpost = {//an intance of userpost
     contrasena: '',
     cedula: 0
   }
@@ -43,7 +43,7 @@ export class ClientRegisterComponent {
 
   // Function that is executed when the button is pressed and validates the form
   onSubmit() {
-    if (this.student == 'yes'){
+    if (this.student == 'yes'){//checks if the user is true to save student
       this.PostC();
       this.PostU();
       this.PostE();
@@ -53,19 +53,19 @@ export class ClientRegisterComponent {
     }
   }
 
-  PostC(){
+  PostC(){//calls the service to save client
     this.apiService.postDataCliente(this.client).subscribe(data => {
       console.log(this.client)
       console.log('Funca C')
     })
   }
-  PostE(){
+  PostE(){//calls the service to save student
     this.apiService.postDataEstudiante(this.students).subscribe(data => {
       console.log(this.students)
       console.log('Funca E')
     })
   }
-  PostU(){
+  PostU(){//calls the service to save user
     this.apiService.postDataUser(this.userpost).subscribe(data => {
       console.log(this.userpost)
       console.log('Funca U')

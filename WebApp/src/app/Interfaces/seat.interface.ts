@@ -1,4 +1,4 @@
-export interface Seat{
+export interface Seat{//Interface for saving seat
     id_asiento: number;
     num_asiento: number;
     disponibilidad:boolean;

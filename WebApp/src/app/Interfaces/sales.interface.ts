@@ -1,4 +1,4 @@
-export interface Sales{
+export interface Sales{//Interface for saving sales/promo
     id_promo:number;
     descuento:number;
     fecha_inicio:Date;

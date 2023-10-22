@@ -21,8 +21,9 @@ import { Display_promo } from './Interfaces/displaypromo.interface';
   providedIn: 'root'
 })
 
-export class ChargeThingsService {
+export class ChargeThingsService {//Makes a service for getting all the data in the database
 
+  //Creates the list necesaries for charging the elements in the data base
   airport:Airport[] = [];
   baggage:Baggage[] = [];
   Bill:Bill[] = []
@@ -42,102 +43,102 @@ export class ChargeThingsService {
 
   constructor(private apiService:APIService) { }
 
-  getAirport(){
-    this.apiService.getDataAeropuerto().subscribe(data => {
-      this.airport = data;
-    }, error => {
+  getAirport(){//Charges the elements of airport
+    this.apiService.getDataAeropuerto().subscribe(data => {//charges the information in data 
+      this.airport = data;//the list gets the charged data
+    }, error => {//if there an error it will catch it and show it in console
       console.error('Error:', error);})
   }
-  getBaggage(){
-    this.apiService.getDataMaleta().subscribe(data => {
-      this.baggage = data;
-    }, error => {
+  getBaggage(){//Charges the elements of baggage
+    this.apiService.getDataMaleta().subscribe(data => {//charges the information in data 
+      this.baggage = data;//the list gets the charged data
+    }, error => {//if there an error it will catch it and show it in console
       console.error('Error:', error);})
   }
-  getBoarding_pass(){
-    this.apiService.getDataPaseA().subscribe(data => {
-      this.boarding_pass = data;
-    }, error => {
+  getBoarding_pass(){//Charges the elements of boarding pass
+    this.apiService.getDataPaseA().subscribe(data => {//charges the information in data 
+      this.boarding_pass = data;//the list gets the charged data
+    }, error => {//if there an error it will catch it and show it in console
       console.error('Error:', error);})
   }
-  getCalendar(){
-    this.apiService.getDataCalendario().subscribe(data => {
-      this.calendar = data;
-    }, error => {
+  getCalendar(){//Charges the elements of calendar
+    this.apiService.getDataCalendario().subscribe(data => {//charges the information in data 
+      this.calendar = data;//the list gets the charged data
+    }, error => {//if there an error it will catch it and show it in console
       console.error('Error:', error);})
   }
-  getClient(){
-    this.apiService.getDataCliente().subscribe(data => {
-      this.client = data;
-    }, error => {
+  getClient(){//Charges the elements of client
+    this.apiService.getDataCliente().subscribe(data => {//charges the information in data 
+      this.client = data;//the list gets the charged data
+    }, error => {//if there an error it will catch it and show it in console
       console.error('Error:', error);})
   }
-  getCredit_card(){
-    this.apiService.getDataTarjeta().subscribe(data => {
-      this.credit_card = data;
-    }, error => {
+  getCredit_card(){//Charges the elements of credit card
+    this.apiService.getDataTarjeta().subscribe(data => {//charges the information in data 
+      this.credit_card = data;//the list gets the charged data
+    }, error => {//if there an error it will catch it and show it in console
       console.error('Error:', error);})
   }
-  getFlight(){
-    this.apiService.getDataVuelos().subscribe(data => {
-      this.flight = data;
-    }, error => {
+  getFlight(){//Charges the elements of flight
+    this.apiService.getDataVuelos().subscribe(data => {//charges the information in data 
+      this.flight = data;//the list gets the charged data
+    }, error => {//if there an error it will catch it and show it in console
       console.error('Error:', error);})
   }
-  getPlane(){
-    this.apiService.getDataAvion().subscribe(data => {
-      this.plane = data;
-    }, error => {
+  getPlane(){//Charges the elements of plane
+    this.apiService.getDataAvion().subscribe(data => {//charges the information in data 
+      this.plane = data;//the list gets the charged data
+    }, error => {//if there an error it will catch it and show it in console
       console.error('Error:', error);})
   }
-  getScales(){
-    this.apiService.getDataEscala().subscribe(data => {
-      this.scales = data;
-    }, error => {
+  getScales(){//Charges the elements of scales
+    this.apiService.getDataEscala().subscribe(data => {//charges the information in data 
+      this.scales = data;//the list gets the charged data
+    }, error => {//if there an error it will catch it and show it in console
       console.error('Error:', error);})
   }
-  getSales(){
-    this.apiService.getDataPromociones().subscribe(data => {
-      this.sales = data;
-    }, error => {
+  getSales(){//Charges the elements of sales
+    this.apiService.getDataPromociones().subscribe(data => {//charges the information in data 
+      this.sales = data;//the list gets the charged data
+    }, error => {//if there an error it will catch it and show it in console
       console.error('Error:', error);})
   }
-  getSeat(){
-    this.apiService.getDataAsiento().subscribe(data => {
-      this.seat = data;
-    }, error => {
+  getSeat(){//Charges the elements of seat
+    this.apiService.getDataAsiento().subscribe(data => {//charges the information in data 
+      this.seat = data;//the list gets the charged data
+    }, error => {//if there an error it will catch it and show it in console
       console.error('Error:', error);})
   }
-  getStudent(){
-    this.apiService.getDataEstudiante().subscribe(data => {
-      this.student = data;
-    }, error => {
+  getStudent(){//Charges the elements of student
+    this.apiService.getDataEstudiante().subscribe(data => {//charges the information in data 
+      this.student = data;//the list gets the charged data
+    }, error => {//if there an error it will catch it and show it in console
       console.error('Error:', error);})
   }
-  getUser(){
-    this.apiService.getDataUser().subscribe(data => {
-      this.user = data;
-    }, error => {
+  getUser(){//Charges the elements of user
+    this.apiService.getDataUser().subscribe(data => {//charges the information in data 
+      this.user = data;//the list gets the charged data
+    }, error => {//if there an error it will catch it and show it in console
       console.error('Error:', error);})
   }
-  getDisplay(){
-    this.apiService.getDataCalendarioV().subscribe(data => {
-      this.display = data;
-    }, error => {
+  getDisplay(){//Charges the elements necesaries for display flights
+    this.apiService.getDataCalendarioV().subscribe(data => {//charges the information in data 
+      this.display = data;//the list gets the charged data
+    }, error => {//if there an error it will catch it and show it in console
       console.error('Error', error)
     })
   }
-  getDisplaypromo(){
-    this.apiService.getDataCalendarioP().subscribe(data => {
+  getDisplaypromo(){//Charges the elements necesaries for display promos
+    this.apiService.getDataCalendarioP().subscribe(data => {//charges the information in data 
       this.displaypromo = data;
-    }, error => {
+    }, error => {//if there an error it will catch it and show it in console
       console.error('Error', error)
     })
   }
-  getBill(){
-    this.apiService.getDataFactura().subscribe(data => {
-      this.Bill = data;
-    }, error => {
+  getBill(){//Charges the elements of bill
+    this.apiService.getDataFactura().subscribe(data => {//charges the information in data 
+      this.Bill = data;//the list gets the charged data
+    }, error => {//if there an error it will catch it and show it in console
       console.error('Error', error)
     })
   }

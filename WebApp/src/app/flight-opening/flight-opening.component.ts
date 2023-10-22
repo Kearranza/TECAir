@@ -11,7 +11,7 @@ export class FlightOpeningComponent {
 
   string:string = '';
 
-  calendar:Calendar = {
+  calendar:Calendar = {//an instance of calendar
     id_calendario:'',
     fecha: new Date(),
     precio:0,
@@ -27,11 +27,11 @@ export class FlightOpeningComponent {
 
   // Function that is executed when the button is pressed and validates the form
   onSubmit() {
-    this.apiService.getDataECalendario(this.string).subscribe(data => {
+    this.apiService.getDataECalendario(this.string).subscribe(data => {//gets the value of calendar
       this.calendar = data;
     }, error => {
       console.error('Error:', error);})
-    this.calendar.abierto = true;
-    this.apiService.updateDataCalendario(this.string, this.calendar)  
+    this.calendar.abierto = true ;//changes the abierto state to true 
+    this.apiService.updateDataCalendario(this.string, this.calendar)//update the calendario  
   }
 }

@@ -9,7 +9,7 @@ import { ChargeThingsService } from '../charge-things.service';
 })
 export class CreateFlightComponent {
 
-  flight:Flight ={
+  flight:Flight ={//an instance of flight 
     id_vuelo:0,
     hora_salida: new Date(),
     aereo_origen:'',
@@ -21,20 +21,20 @@ export class CreateFlightComponent {
   constructor(private apiService: APIService, private charge:ChargeThingsService) { this.onInit();}
 
   onInit(){
-    this.charge.getAirport();
+    this.charge.getAirport();//charges the airport
   }
 
   // Function that is executed when the button is pressed and validates the form
   onSubmit() {
     if(this.charge.airport.some(item => item.id_aereo === this.flight.aereo_origen && this.charge.airport.some(item => item.id_aereo == this.flight.aereo_final)))
-    {
+    {//if the aereo origen and aereo final exists in the data base saves ta flight 
         this.PostF();
     }else {
       console.log(this.charge.airport)
     }
   }
 
-  PostF(){
+  PostF(){//calls the service to save flight
     this.apiService.postDataVuelos(this.flight).subscribe(data => {
       console.log(this.flight)
       console.log('Funca F')

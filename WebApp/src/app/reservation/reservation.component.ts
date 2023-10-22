@@ -14,7 +14,7 @@ export class ReservationComponent{
   
   constructor(private router: Router, private data:DataService) {}
 
-  client:Client = {
+  client:Client = {//an instance of client
     cedula:0,
     nombre:'',
     apellido_1:'',
@@ -30,12 +30,12 @@ export class ReservationComponent{
   };
 
   ngOnInit(){
-    this.client = this.data.client
+    this.client = this.data.client//updates the client with the saved in data
     console.log('Prueba')
     console.log(this.data.client)
   }
 
-  billpdf:billpdf = {
+  billpdf:billpdf = {//an intance of billpdf
     origen:'',
     destino:'',
     precio:0,
@@ -47,8 +47,8 @@ export class ReservationComponent{
   onSubmit() {
       // Redirigir al usuario a la página de inicio.
       console.log(this.data.client)
-      this.data.billpdf.cedula = this.billpdf.cedula;
-      this.data.client = this.client;
+      this.data.billpdf.cedula = this.billpdf.cedula;//updates the data bill pdf for cedula
+      this.data.client = this.client;//updates the data with the saved in client
       this.router.navigate(['/payment']);
 
     }

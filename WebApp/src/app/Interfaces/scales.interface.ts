@@ -1,4 +1,4 @@
-export interface Scales{
+export interface Scales{//Interface for saving scales
     id_escala:number;
     orden_lugares:string;
     origen:string;
