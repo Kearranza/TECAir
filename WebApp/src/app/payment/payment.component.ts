@@ -5,6 +5,7 @@ import { Credit_card } from '../Interfaces/credit_card.interface';
 import { APIService } from '../api.service';
 import { ChargeThingsService } from '../charge-things.service';
 import { DataService } from '../data.service';
+import { Billpost } from '../Interfaces/billpost.intaface';
 
 @Component({
   selector: 'app-payment',
@@ -14,8 +15,14 @@ import { DataService } from '../data.service';
 export class PaymentComponent {
   constructor(private router: Router, private data:DataService, private apiservice:APIService, private charge:ChargeThingsService) {}
 
+  billpost:Billpost = {
+    cliente:0,
+    tarjeta_cred:0,
+    calendario:''
+}
+
   credit_card:Credit_card = {
-    num_tarjeta:'',
+    num_tarjeta:0,
     fecha_ex:'',
     cvv:0,
     cedula_cliente: 0
@@ -79,6 +86,9 @@ export class PaymentComponent {
       this.credit_card.cedula_cliente = this.data.client.cedula;
       this.apiservice.postDataTarjeta(this.credit_card);
     }
+    this.billpost.cliente = this.credit_card.cedula_cliente;
+    this.billpost.calendario = this.data.calendar.id_calendario;
+    this.billpost.tarjeta_cred = this.credit_card.num_tarjeta;
     // Redirigir al usuario a la página de pago efectuado
     this.router.navigate(['/thanks']);
   }

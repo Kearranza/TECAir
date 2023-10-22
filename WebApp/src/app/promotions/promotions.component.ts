@@ -6,10 +6,10 @@ import { ChargeThingsService } from '../charge-things.service';
   templateUrl: './promotions.component.html',
   styleUrls: ['./promotions.component.css']
 })
-export class PromotionsComponent implements OnInit {
+export class PromotionsComponent {
   
 @ViewChild('flightContainer') flightContainer?: ElementRef;
-  realDiscount = 0.4;
+  realDiscount = 100;
 
   constructor(private charge:ChargeThingsService) { }
 

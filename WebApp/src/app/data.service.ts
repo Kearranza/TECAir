@@ -14,8 +14,8 @@ export class DataService {
   billpdf:billpdf = {
     origen:'',
     destino:'',
-    precio:'',
-    fecha: new Date(),
+    precio:0,
+    fecha: 0,
     cedula:'',
     tarjeta:'',
   }

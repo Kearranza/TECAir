@@ -1,8 +1,8 @@
 export interface billpdf{
     origen:string;
     destino:string;
-    precio:string;
-    fecha:Date;
+    precio:number;
+    fecha:number;
     cedula:string;
     tarjeta:string;
 } 

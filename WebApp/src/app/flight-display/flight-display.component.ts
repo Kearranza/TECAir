@@ -10,6 +10,7 @@ export class FlightDisplayComponent {
   @Input() destination?: string;
   @Input() price?: number;
   @Input() discount?: number;
+  @Input() calendar_id?: string;
 
   //Variables para determinar el tiempo de vuelo
   @Input() start?: Date; 
