@@ -11,7 +11,7 @@ export class PromotionDisplayComponent {
   @Input() price?: number;
   @Input() discount?: number;
 
-  //Variables para determinar el tiempo de vuelo
+  // Variables to determine the flight time
   @Input() start?: Date; 
   @Input() end?: Date;
 

@@ -25,6 +25,7 @@ export class FlightClosureComponent {
 
   constructor(private apiService: APIService) {}
 
+  // Function that is executed when the button is pressed and validates the form
   onSubmit() {
     this.apiService.getDataECalendario(this.string).subscribe(data => {
       this.calendar = data;

@@ -24,6 +24,7 @@ export class CreateFlightComponent {
     this.charge.getAirport();
   }
 
+  // Function that is executed when the button is pressed and validates the form
   onSubmit() {
     if(this.charge.airport.some(item => item.id_aereo === this.flight.aereo_origen && this.charge.airport.some(item => item.id_aereo == this.flight.aereo_final)))
     {

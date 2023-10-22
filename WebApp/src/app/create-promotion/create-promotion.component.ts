@@ -27,6 +27,7 @@ export class CreatePromotionComponent {
     this.charge.getCalendar();
   }
 
+  // Function that is executed when the button is pressed and validates the form
   onSubmit(){
     if(this.charge.airport.some(item => item.id_aereo == this.sale.origen && this.charge.airport.some(item => item.id_aereo == this.sale.destino)) && this.charge.calendar.some(thisc => thisc.id_calendario == this.sale.aplicado_calendario))
     {

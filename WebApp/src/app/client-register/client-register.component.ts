@@ -41,6 +41,7 @@ export class ClientRegisterComponent {
 
   constructor(private apiService: APIService) {}
 
+  // Function that is executed when the button is pressed and validates the form
   onSubmit() {
     if (this.student == 'yes'){
       this.PostC();

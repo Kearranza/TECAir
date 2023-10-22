@@ -29,6 +29,7 @@ export class CreateCalendarComponent {
     this.charge.getFlight();
   }
   
+  // Function that is executed when the button is pressed and validates the form
   onSubmit(){
     
     if(this.charge.plane.some(item => item.placa === this.calendar.id_avion && this.charge.flight.some(item => item.id_vuelo == this.calendar.id_vuelo)))

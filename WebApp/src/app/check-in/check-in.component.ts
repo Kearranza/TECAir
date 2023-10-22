@@ -45,6 +45,7 @@ export class CheckInComponent {
     escalas: [],
   }
 
+  // Function for login that is executed when the button is pressed and validates the form
   onSubmit() {
     this.charge.getBill()
     if(this.charge.Bill.some(item => item.cliente === this.boarding_pass.cedula_cliente && this.charge.Bill.some(item => item.calendario == this.boarding_pass.id_calendario)))

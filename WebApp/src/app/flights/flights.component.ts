@@ -34,6 +34,7 @@ export class FlightsComponent{
   }
   filteredFlights = this.flight;
 
+  // Function that move the carousel of flights to the left
   moveLeft() {
     const container = this.flightContainer?.nativeElement;
     const scrollLeft = container.scrollLeft;
@@ -44,6 +45,7 @@ export class FlightsComponent{
     });
   }
 
+  // Function that moves the carousel of flights to the right
   moveRight() {
     const container = this.flightContainer?.nativeElement;
     const scrollLeft = container.scrollLeft;
@@ -54,6 +56,7 @@ export class FlightsComponent{
     });
   }
 
+  // Function that change the value of the list filterFlights when the user select a new origin or destination
   filterFlights() {
     if (this.selectedOrigin === '' && this.selectedDestination === '') {
       this.filteredFlights = this.charge.display;
@@ -64,6 +67,7 @@ export class FlightsComponent{
     }
   }
 
+  // Function that is executed when the button is pressed and validates the form
   toReserve(string:string, origin:string , destination:string, price:number){
     this.data.calendar.id_calendario = string;
     this.data.billpdf.origen = origin;
@@ -73,6 +77,7 @@ export class FlightsComponent{
     this.router.navigate(['/reservation'])
   }
 
+  // Fuction refresh the list of flights when the user select a new origin or destination
   ngOnChanges() {
     this.filterFlights();
   }

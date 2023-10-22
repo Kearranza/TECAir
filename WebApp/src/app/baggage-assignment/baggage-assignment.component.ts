@@ -27,6 +27,7 @@ export class BaggageAssignmentComponent {
 
   colors: ColorInput[] = [{ id: 1 }];
 
+  //Add extra colors input fields to the form
   addColorInput() {
     if (this.colors.length < 3) {
       const newColorInput: ColorInput = { id: this.colors.length + 1 };
@@ -34,6 +35,7 @@ export class BaggageAssignmentComponent {
     }
   }
 
+  // Function that is executed when the button is pressed and validates the form
   onSubmit(){
     this.charge.getBoarding_pass();
     if(this.charge.boarding_pass.some(item => item.cedula_cliente === this.baggage.cedula_cliente && this.charge.boarding_pass.some(item => item.id_pasaje == this.baggage.id_pasaje)))
@@ -51,6 +53,7 @@ export class BaggageAssignmentComponent {
     })
   }
 
+  //Let the admin add more baggages to the form
   repeatCode(num : number) {
     this.repeatCount += num;
   }

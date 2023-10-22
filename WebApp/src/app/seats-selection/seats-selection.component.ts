@@ -23,7 +23,6 @@ interface SeatMatrix {
 export class SeatsSelectionComponent {
 
   //Mae necesito esto para el pasaje (puerta de abordaje, hora de salida, asiento y número de vuelo)
-
   seats: Seat[] = [
     { num_asiento: 1, disponibilidad: false },
     { num_asiento: 2, disponibilidad: true },
@@ -56,16 +55,15 @@ export class SeatsSelectionComponent {
     { num_asiento: 29, disponibilidad: false },
     { num_asiento: 30, disponibilidad: false },
   ];
-
   reservedFlight?: SeatMatrix;
-
   seatsMatrix: SeatMatrix[][] = [];
 
   constructor(private router: Router, private data:DataService, private charge:ChargeThingsService) {
     this.seatsMatrix = this.convertSeatsToMatrix(this.seats);
   }
 
-  //
+
+  // This method is called when the user clicks on a seat in the UI and reserves it
   reserveSeat(seat: SeatMatrix) {
     if (!seat.disponibilidad) {
       if (this.reservedFlight === seat) {
@@ -79,6 +77,7 @@ export class SeatsSelectionComponent {
     console.log(this.reservedFlight);
   }
 
+  //Ths method converts the array of seats to a matrix of seats that also add a new property called reserved to be used in the UI
   private convertSeatsToMatrix(seats: Seat[]): Seat[][] {
     const seatsWithReserved = seats.map(seat => ({ ...seat, reserved: false }));
     const groupsOfSix = [];

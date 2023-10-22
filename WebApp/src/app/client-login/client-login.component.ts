@@ -11,7 +11,7 @@ import { Client } from '../Interfaces/client.interface';
   styleUrls: ['./client-login.component.css']
 })
 export class ClientLoginComponent {
-    // Variables para el login
+    // Variables for the login form
     errorMessage: string = '';
     usernameInput:number = 0;
     passwordInput:string = '';
@@ -33,7 +33,7 @@ export class ClientLoginComponent {
       facturas: [],
     }
 
-  // Función para el login que se ejecuta al presionar el botón y que valida si el usuario y contraseña son correctos
+  // Function for login that is executed when the button is pressed and validates the form
   onSubmit() {
 
     this.charge.getUser();
@@ -58,7 +58,6 @@ export class ClientLoginComponent {
           console.log('aa')
           console.log(this.data.client)
 
-          // Redirigir al usuario a la página de inicio.
           this.router.navigate(['/client-view']);
         }
       }

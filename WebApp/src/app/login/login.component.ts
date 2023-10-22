@@ -19,7 +19,7 @@ export class LoginComponent {
 
   constructor(private router: Router, private charge:ChargeThingsService) {}
 
-  // Función para el login que se ejecuta al presionar el botón y que valida si el usuario y contraseña son correctos
+  // Function that is executed when the button is pressed and validates the form
   onSubmit() {
 
     const usernameInput = document.getElementById('username') as HTMLInputElement;
@@ -39,7 +39,7 @@ export class LoginComponent {
         usernameInput.style.borderColor = '';
         passwordInput.style.borderColor = '';
 
-        // Redirigir al usuario a la página de inicio.
+        // Redirect the user to the admid selector.
         this.router.navigate(['/admin-selector']);
       }
     }   
