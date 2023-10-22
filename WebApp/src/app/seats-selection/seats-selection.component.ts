@@ -1,4 +1,9 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+interface Seat {
+  number: number;
+  occupied: boolean;
+}
 
 @Component({
   selector: 'app-seats-selection',
@@ -6,73 +11,69 @@ import { Component, OnInit} from '@angular/core';
   styleUrls: ['./seats-selection.component.css']
 })
 export class SeatsSelectionComponent implements OnInit {
-  seats: { id: number, number: number, available: boolean, active: boolean }[][] = [];
-  activeSelection: { id: number, number: number, available: boolean } | null = null;
+
+  seats: Seat[] = [
+    { number: 1, occupied: false },
+    { number: 2, occupied: true },
+    { number: 3, occupied: false },
+    { number: 4, occupied: false },
+    { number: 5, occupied: false },
+    { number: 6, occupied: false },
+    { number: 7, occupied: false },
+    { number: 8, occupied: false },
+    { number: 9, occupied: false },
+    { number: 10, occupied: false },
+    { number: 11, occupied: false },
+    { number: 12, occupied: false },
+    { number: 13, occupied: false },
+    { number: 14, occupied: false },
+    { number: 15, occupied: false },
+    { number: 16, occupied: false },
+    { number: 17, occupied: false },
+    { number: 18, occupied: false },
+    { number: 19, occupied: false },
+    { number: 20, occupied: false },
+    { number: 21, occupied: false },
+    { number: 22, occupied: false },
+    { number: 23, occupied: false },
+    { number: 24, occupied: false },
+    { number: 25, occupied: false },
+    { number: 26, occupied: false },
+    { number: 27, occupied: false },
+    { number: 28, occupied: false },
+    { number: 29, occupied: false },
+    { number: 30, occupied: false }
+  ];
+
+  reserved: Seat[] = [];
+  activeSelection?: Seat;
 
   ngOnInit() {
-    // Replace this with your actual seat data
-    const seatData = [
-      { id: 1, number: '1', available: true },
-      { id: 2, number: '2', available: false },
-      { id: 3, number: '3', available: true },
-      { id: 4, number: '4', available: true },
-      { id: 5, number: '5', available: false },
-      { id: 6, number: '6', available: true },
-      { id: 7, number: '7', available: true },
-      { id: 8, number: '8', available: true },
-      { id: 9, number: '9', available: false },
-      { id: 10, number: '10', available: true },
-      { id: 11, number: '11', available: true },
-      { id: 12, number: '12', available: true },
-      { id: 13, number: '13', available: true },
-      { id: 14, number: '14', available: true },
-      { id: 15, number: '15', available: true },
-      { id: 16, number: '16', available: false },
-      { id: 17, number: '17', available: true },
-      { id: 18, number: '18', available: true },
-      { id: 19, number: '19', available: true },
-      { id: 20, number: '20', available: true },
-      { id: 21, number: '21', available: true },
-      { id: 22, number: '22', available: true },
-      { id: 23, number: '23', available: true },
-      { id: 24, number: '24', available: true },
-      { id: 25, number: '25', available: true },
-      { id: 26, number: '26', available: true },
-      { id: 27, number: '27', available: true },
-      { id: 28, number: '28', available: true },
-      { id: 29, number: '29', available: true },
-      { id: 30, number: '30', available: true },
-    ];
-
-    // Calculate the number of rows needed based on the number of seats
-    const numRows = Math.ceil(seatData.length / 6);
-
-    // Loop through the seat data and create the seats list
-    for (let i = 0; i < numRows; i++) {
-      const row: { id: number, number: number, available: boolean, active: boolean }[] = [];
-      for (let j = 0; j < 6; j++) {
-        const seatIndex = i * 6 + j;
-        if (seatIndex < seatData.length) {
-          const seat = seatData[seatIndex];
-          row.push({ id: seat.id, number: parseInt(seat.number), available: seat.available, active: false });
-        } else {
-          row.push({ id: 0, number: 0, available: false, active: false });
-        }
-      }
-      this.seats.push(row);
-    }
+    this.seats = this.addReservedProperty(this.seats);
   }
 
-  // Reserve or unreserve a seat
-  reserveSeat(seat: { id: number, number: number, available: boolean, active: boolean } | null) {
-    if (seat && seat.available) {
-      seat.available = false;
-      seat.active = true;
-      this.activeSelection = seat;
-    } else if (seat !== null) {
-      seat.available = true;
-      seat.active = false;
-      this.activeSelection = null;
+  addReservedProperty(seats: Seat[]) {
+    return seats.map(seat => ({ ...seat, reserved: false }));
+  }
+
+  reserveSeat(seat: Seat) {
+    if (seat.occupied) {
+      return;
     }
+
+    if (this.activeSelection) {
+      if (this.activeSelection === seat) {
+        this.activeSelection = undefined;
+        return;
+      }
+
+      if (this.reserved.includes(this.activeSelection)) {
+        this.reserved.splice(this.reserved.indexOf(this.activeSelection), 1);
+      }
+    }
+
+    this.activeSelection = seat;
+
+    this.reserved.push(seat);
   }
 }

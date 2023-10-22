@@ -10,6 +10,7 @@ import { Client } from '../Interfaces/client.interface';
   styleUrls: ['./reservation.component.css']
 })
 export class ReservationComponent{
+  student: string = 'no';
   
   constructor(private router: Router, private data:DataService) {}
 

@@ -1,12 +1,9 @@
-<div class="seat-selector">
-    <h2>Selecciona tu asiento:</h2>
-    <div class="seat-matrix">
-    <div class="seat-row" *ngFor="let row of seats">
-        <div class="seat" *ngFor="let seat of row">
-        <div class="seat-number" [ngClass]="{'available': seat.available, 'unavailable': !seat.available, 'reserved': !seat.available, 'active': seat.active}"
-            (click)="reserveSeat(seat)">
-            {{ seat.number }}
-        </div>
+<div class="seats-container">
+    <div class="row" *ngFor="let seat of seats">
+    <div class="seat" [class.occupied]="seat.occupied" [class.reserved]="reserved.includes(seat)" [class.active]="activeSelection === seat" (click)="reserveSeat(seat)">
+        <div class="seat-image-container">
+        <img src="../../assets/seat.png" alt="Seat Image">
+        <div class="seat-number-overlay">{{ seat.number }}</div>
         </div>
     </div>
     </div>
