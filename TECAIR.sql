@@ -150,7 +150,7 @@ CREATE TABLE COLOR(
 );
 
 CREATE TABLE MALETA(
-    ID_Maleta int
+    ID_Maleta serial
         constraint MALETA_pk
             primary key,
     Cedula_Cliente int not null,
