@@ -6,7 +6,7 @@
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="id">Número de Tarjeta:</label>
-            <input type="string" id="id" name="id" required [(ngModel)] = "credit_card.num_tarjeta">
+            <input type="number" id="id" name="id" required [(ngModel)] = "credit_card.num_tarjeta">
         </div>
         <div class="form-group">
             <label for="cvv">CVV:</label>
@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             <label for="fechaexp">Fecha de expiracion:</label>
-            <input type="string" id="fechaexp" name="fechaexp" required [(ngModel)] = "credit_card.fecha_ex">
+            <input type="string" id="fechaexp" name="fechaexp" required [(ngModel)] = "credit_card.fecha_exp">
         </div>
         <button type="submit" (click)="generatePDF()">Comprar</button>
     </form>

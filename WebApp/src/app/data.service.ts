@@ -19,17 +19,8 @@ export class DataService {//Makes a service for mantein data between pages
     cedula:'',
     tarjeta:'',
   }
-  calendar:Calendar = {//Creates an intance for calendar
-    id_calendario:'',
-    fecha: new Date(),
-    precio:0,
-    id_avion:'',
-    id_vuelo:0,
-    abierto:false,
-    pases: [],
-    promociones:[],
-    facturas:[]
-  }
+  id_calendario: string = '';
+  
   client:Client = {//Creates an intance for client
     cedula:0,
     nombre:'',
@@ -52,5 +43,14 @@ export class DataService {//Makes a service for mantein data between pages
     hora_salida:new Date(),
     cedula_cliente:0,
     id_calendario:'',
+  }
+
+  setData(key: string, data: any) {
+    sessionStorage.setItem(key, JSON.stringify(data));
+  }
+
+  getData(key: string) {
+    const data = sessionStorage.getItem(key);
+    return data ? JSON.parse(data) : null;
   }
 }

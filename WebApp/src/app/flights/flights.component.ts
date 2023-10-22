@@ -3,6 +3,7 @@ import { ChargeThingsService } from '../charge-things.service';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 import { Display_flight } from '../Interfaces/displayflight.interface';
+import { billpdf } from '../Interfaces/billpdf.interface';
 
 @Component({
   selector: 'app-flights',
@@ -20,7 +21,17 @@ export class FlightsComponent{
   selectedOrigin = '';
   selectedDestination = '';
   date = new Date();
-  flight:Display_flight[] = [];
+  flight:any;
+  filteredFlights:any;
+
+  billpdf:billpdf = {//an intance of billpdf
+    origen:'',
+    destino:'',
+    precio:0,
+    fecha: 0,
+    cedula:'',
+    tarjeta:'',
+  }
 
   ngOnInit(): void {
     this.charge.getAirport();
@@ -31,8 +42,10 @@ export class FlightsComponent{
     };
     this.destinations = this.origins;
     this.flight = this.charge.display;
+    this.filteredFlights = this.flight;
+    console.log(this.flight)
+    console.log(this.data.client)
   }
-  filteredFlights = this.flight;
 
   // Function that move the carousel of flights to the left
   moveLeft() {
@@ -69,11 +82,12 @@ export class FlightsComponent{
 
   // Function that is executed when the button is pressed and validates the form
   toReserve(string:string, origin:string , destination:string, price:number){
-    this.data.calendar.id_calendario = string;
-    this.data.billpdf.origen = origin;
-    this.data.billpdf.destino = destination;
-    this.data.billpdf.precio = price;
-    this.data.billpdf.fecha = this.date.getDate();
+    this.data.setData('calendario','Uno')
+    this.billpdf.origen = origin;
+    this.billpdf.destino = destination;
+    this.billpdf.precio = price;
+    this.billpdf.fecha = this.date.getDate();
+    this.data.setData('billpdf', this.billpdf)
     this.router.navigate(['/reservation'])
   }
 

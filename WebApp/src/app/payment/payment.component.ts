@@ -6,6 +6,9 @@ import { APIService } from '../api.service';
 import { ChargeThingsService } from '../charge-things.service';
 import { DataService } from '../data.service';
 import { Billpost } from '../Interfaces/billpost.intaface';
+import { Calendar } from '../Interfaces/calendar.interface';
+import { Client } from '../Interfaces/client.interface';
+import { billpdf } from '../Interfaces/billpdf.interface';
 
 @Component({
   selector: 'app-payment',
@@ -13,20 +16,80 @@ import { Billpost } from '../Interfaces/billpost.intaface';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent {
+
   constructor(private router: Router, private data:DataService, private apiservice:APIService, private charge:ChargeThingsService) {}
 
   billpost:Billpost = {//an instance of billpost
     cliente:0,
     tarjeta_cred:0,
     calendario:''
-}
+  }
+
+  billpdf:billpdf = {//an intance of billpdf
+    origen:'',
+    destino:'',
+    precio:0,
+    fecha: 0,
+    cedula:'',
+    tarjeta:'',
+  }
+
+  client: Client = { //an instance of client
+    cedula: 0,
+    nombre: '',
+    apellido_1: '',
+    apellido_2: '',
+    telefono: '',
+    correo: '',
+    estudiantes: [],
+    usuarios: [],
+    maletas: [],
+    pases: [],
+    tarjetas: [],
+    facturas: [],
+  }
 
   credit_card:Credit_card = {//an instance of credit card 
     num_tarjeta:0,
-    fecha_ex:'',
+    fecha_exp:'',
     cvv:0,
-    cedula_cliente: 0
+    cedula: 0,
+    facturas: []
   }
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+
+  calendar:Calendar = {//an intance of calendar
+    id_calendario: '',
+    fecha:new Date(),
+    precio:0,
+    id_avion: '',
+    id_vuelo: 0,
+    abierto: false,
+    pases: [],
+    promociones: [],
+    facturas: [],
+  }  
+
+  ngOnInit(){
+    this.client = this.data.getData('client');
+    this.billpdf = this.data.getData('billpdf');
+    this.charge.getClient();
+    this.charge.getAirport();
+    console.log(this.charge.airport)
+    console.log(this.client);
+    console.log(this.billpdf);
+    console.log(this.charge.client);
+  }
+
+  flightInfo = [ 'MEX', 'SJS', 200,123456];
+  depatureDate = '01/01/2022';
+  ticketNumber = 123456789;
+  creditCardNumber = 123456789;
+=======
+>>>>>>> f92b3b1b102ceef490bd35fcfbcda927a3b4f639
+>>>>>>> Stashed changes
 
   //Generate PDF, which is automatically downloaded
   generatePDF() {
@@ -72,20 +135,35 @@ export class PaymentComponent {
 
   onSubmit() {
     this.charge.getClient();//Gets all the clients
-
-    if(this.charge.client.some(item => item.cedula === this.data.client.cedula)){//sees if the client exist
-      this.credit_card.cedula_cliente = this.data.client.cedula;//assigns the value of cedula to the credit card cedula cliente
-      this.apiservice.postDataTarjeta(this.credit_card);//if the client exist saves the credit card
-    }else{
-      this.apiservice.postDataCliente(this.data.client)//saves the new client
-      this.credit_card.cedula_cliente = this.data.client.cedula;//assigns the value of cedula to the credit card cedula cliente
-      this.apiservice.postDataTarjeta(this.credit_card);//if the client exist saves the credit card
-    }
-    this.billpost.cliente = this.credit_card.cedula_cliente;//assigns the billpost cedula the value of the cedula
-    this.billpost.calendario = this.data.calendar.id_calendario;//assings the billpost calendario value the value of id calendario
-    this.billpost.tarjeta_cred = this.credit_card.num_tarjeta;//assigns the billpost tarjeta cred the value of the num tarjeta
-    this.apiservice.postDataFactura(this.billpost)//saves the new bill
+    this.credit_card.cedula = Number(this.client.cedula);
+    console.log(this.credit_card)
+    this.billpost.cliente = Number(this.credit_card.cedula);//assigns the billpost cedula the value of the cedula
+    this.billpost.calendario = this.data.getData('calendario');//assings the billpost calendario value the value of id calendario
+    this.billpost.tarjeta_cred = Number(this.credit_card.num_tarjeta);//assigns the billpost tarjeta cred the value of the num tarjeta
+    this.PostC();
+    this.PostT();
+    console.log(this.billpost)
+    this.PostF();//saves the new bill
     // Redirect the user to the page of the completed payment
-    this.router.navigate(['/thanks']);
+    //this.router.navigate(['/thanks']);
+  }
+
+  PostF(){//calls the service to save client
+    this.apiservice.postDataFactura(this.billpost).subscribe(data => {
+      console.log(this.billpost)
+      console.log('Funca F')
+    })
+  }
+  PostC(){//calls the service to save client
+    this.apiservice.postDataCliente(this.client).subscribe(data => {
+      console.log(this.client)
+      console.log('Funca C')
+    })
+  }
+  PostT(){//calls the service to save client
+    this.apiservice.postDataTarjeta(this.credit_card).subscribe(data => {
+      console.log(this.credit_card)
+      console.log('Funca T')
+    })
   }
 }
