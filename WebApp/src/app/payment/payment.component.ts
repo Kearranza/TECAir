@@ -25,28 +25,28 @@ export class PaymentComponent {
   ticketNumber = 123456789;
   creditCardNumber = 123456789;
 
-  //Generar PDF, que se descarga automaticamente
+  //Generate PDF, which is automatically downloaded
   generatePDF() {
     const doc = new jsPDF();
 
-    // Agregar la imagen
+    // Add the image to the PDF
     const img = new Image();
     img.src = '../../../assets/TECAirLogo.png';
     doc.addImage(img, 'PNG', 20, 20, 50, 50);
   
-    // Agregar el encabezado de la factura
+    // Add the text to the PDF and set the font
     doc.setFont('Roboto', 'bold');
     doc.setFontSize(22);
     doc.text('Pase de abordaje', 105, 50);
     doc.setFont('Roboto', 'sans-serif');
     doc.setFontSize(16);
-    doc.text('Fecha:' + this.depatureDate, 20, 80);
+    doc.text('Fecha Salida:' + this.depatureDate, 20, 80);
     doc.text('Número de pasaje:' + this.ticketNumber , 20, 90);
 
     doc.text('Cédula:' + this.flightInfo[3].toString(), 20, 110);
     doc.text('Tarjeta:' + this.creditCardNumber, 20, 120);
   
-    // Agregar la información del vuelo
+    // Add the flight information to the PDF
     let y = 150;
     doc.setFontSize(14);
     doc.text('Origen', 20, y);
@@ -64,8 +64,8 @@ export class PaymentComponent {
     y += 5;
     doc.line(20, y, 190, y);
   
-    // Guardar el PDF
-    doc.save('factura.pdf');
+    // Save the pdf
+    doc.save('Factura.pdf');
   }
 
   onSubmit() {
@@ -79,7 +79,7 @@ export class PaymentComponent {
       this.credit_card.cedula_cliente = this.data.client.cedula;
       this.apiservice.postDataTarjeta(this.credit_card);
     }
-    // Redirigir al usuario a la página de pago efectuado
+    // Redirect the user to the page of the completed payment
     this.router.navigate(['/thanks']);
   }
 }

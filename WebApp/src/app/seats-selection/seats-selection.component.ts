@@ -1,8 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import jsPDF from 'jspdf';
+import { Router } from '@angular/router';
+import { ChargeThingsService } from '../charge-things.service';
+import { DataService } from '../data.service';
 
 interface Seat {
   number: number;
   occupied: boolean;
+}
+interface SeatMatrix {
+  number: number;
+  occupied: boolean;
+  reserved?: boolean;
 }
 
 @Component({
@@ -10,7 +19,8 @@ interface Seat {
   templateUrl: './seats-selection.component.html',
   styleUrls: ['./seats-selection.component.css']
 })
-export class SeatsSelectionComponent implements OnInit {
+
+export class SeatsSelectionComponent {
 
   seats: Seat[] = [
     { number: 1, occupied: false },
@@ -42,38 +52,62 @@ export class SeatsSelectionComponent implements OnInit {
     { number: 27, occupied: false },
     { number: 28, occupied: false },
     { number: 29, occupied: false },
-    { number: 30, occupied: false }
+    { number: 30, occupied: false },
   ];
 
-  reserved: Seat[] = [];
-  activeSelection?: Seat;
+  activeSelection?: SeatMatrix;
 
-  ngOnInit() {
-    this.seats = this.addReservedProperty(this.seats);
+  seatsMatrix: SeatMatrix[][] = [];
+
+  constructor(private router: Router, private data:DataService, private charge:ChargeThingsService) {
+    this.seatsMatrix = this.convertSeatsToMatrix(this.seats);
   }
 
-  addReservedProperty(seats: Seat[]) {
-    return seats.map(seat => ({ ...seat, reserved: false }));
-  }
-
-  reserveSeat(seat: Seat) {
-    if (seat.occupied) {
-      return;
-    }
-
-    if (this.activeSelection) {
+  //
+  reserveSeat(seat: SeatMatrix) {
+    if (!seat.occupied) {
       if (this.activeSelection === seat) {
-        this.activeSelection = undefined;
-        return;
-      }
-
-      if (this.reserved.includes(this.activeSelection)) {
-        this.reserved.splice(this.reserved.indexOf(this.activeSelection), 1);
+        seat.reserved = !seat.reserved;
+        this.activeSelection = seat.reserved ? seat : undefined;
+      } else if (!this.activeSelection || !this.activeSelection.reserved) {
+        seat.reserved = true;
+        this.activeSelection = seat;
       }
     }
-
-    this.activeSelection = seat;
-
-    this.reserved.push(seat);
+    console.log(this.activeSelection);
   }
+
+  private convertSeatsToMatrix(seats: Seat[]): Seat[][] {
+    const seatsWithReserved = seats.map(seat => ({ ...seat, reserved: false }));
+    const groupsOfSix = [];
+    for (let i = 0; i < seatsWithReserved.length; i += 6) {
+      groupsOfSix.push(seatsWithReserved.slice(i, i + 6));
+    }
+    return groupsOfSix;
+  }
+
+    //Generate PDF, which is automatically downloaded
+    generatePDF() {
+      const doc = new jsPDF();
+  
+      // Add the image to the PDF
+      const img = new Image();
+      img.src = '../../../assets/TECAirLogo.png';
+      doc.addImage(img, 'PNG', 20, 20, 50, 50);
+    
+      // Add the text to the PDF and set the font
+      doc.setFont('Roboto', 'bold');
+      doc.setFontSize(22);
+      doc.text('Pase de abordaje', 105, 50);
+      doc.setFont('Roboto', 'sans-serif');
+      doc.setFontSize(16);
+      doc.text('Fecha:', 20, 80);
+      doc.text('Número de pasaje:', 20, 90);
+  
+      doc.text('Cédula:', 20, 110);
+      doc.text('Tarjeta:', 20, 120);
+    
+      // Save the pdf
+      doc.save('factura.pdf');
+    }
 }
