@@ -4,5 +4,5 @@ export interface Boarding_pass{
     asiento: string;
     hora_salida:Date;
     cedula_cliente:number;
-    id_calendario:number;
+    id_calendario:string;
 }

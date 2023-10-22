@@ -38,18 +38,7 @@ export class ChargeThingsService {
   student:Student[] = [];
   user:User[] = [];
   display:Display_flight[] = [];
-  tempf:Display_flight = {
-    origin:'',
-    destination:'',
-    price:0
-  }
   displaypromo:Display_promo[] = [];
-  tempp:Display_promo = {
-    origin: '',
-    destination: '',
-    price:0,
-    discount:0
-  }
 
   constructor(private apiService:APIService) { }
 
@@ -141,6 +130,13 @@ export class ChargeThingsService {
   getDisplaypromo(){
     this.apiService.getDataCalendarioP().subscribe(data => {
       this.displaypromo = data;
+    }, error => {
+      console.error('Error', error)
+    })
+  }
+  getBill(){
+    this.apiService.getDataFactura().subscribe(data => {
+      this.Bill = data;
     }, error => {
       console.error('Error', error)
     })
