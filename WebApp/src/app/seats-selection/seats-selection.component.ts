@@ -34,24 +34,24 @@ export class SeatsSelectionComponent {
     { num_asiento: 8, disponibilidad: false },
     { num_asiento: 9, disponibilidad: false },
     { num_asiento: 10, disponibilidad: false },
-    { num_asiento: 11, disponibilidad: false },
+    { num_asiento: 11, disponibilidad: true },
     { num_asiento: 12, disponibilidad: false },
-    { num_asiento: 13, disponibilidad: false },
+    { num_asiento: 13, disponibilidad: true },
     { num_asiento: 14, disponibilidad: false },
     { num_asiento: 15, disponibilidad: false },
-    { num_asiento: 16, disponibilidad: false },
+    { num_asiento: 16, disponibilidad: true },
     { num_asiento: 17, disponibilidad: false },
     { num_asiento: 18, disponibilidad: false },
     { num_asiento: 19, disponibilidad: false },
     { num_asiento: 20, disponibilidad: false },
     { num_asiento: 21, disponibilidad: false },
-    { num_asiento: 22, disponibilidad: false },
+    { num_asiento: 22, disponibilidad: true },
     { num_asiento: 23, disponibilidad: false },
     { num_asiento: 24, disponibilidad: false },
-    { num_asiento: 25, disponibilidad: false },
+    { num_asiento: 25, disponibilidad: true },
     { num_asiento: 26, disponibilidad: false },
     { num_asiento: 27, disponibilidad: false },
-    { num_asiento: 28, disponibilidad: false },
+    { num_asiento: 28, disponibilidad: true },
     { num_asiento: 29, disponibilidad: false },
     { num_asiento: 30, disponibilidad: false },
   ];
@@ -110,7 +110,7 @@ export class SeatsSelectionComponent {
     
       // Save the pdf
       doc.save('factura.pdf');
-    }
 
-    onSubmit() {}
+      this.router.navigate(['/admin-selector']);
+    }
 }

@@ -14,6 +14,25 @@
     box-shadow: #000 5px 5px 10px;
 }
 
+button {
+    margin-top: 10px; 
+    font-weight: 700;
+    color: #1b3039;
+    padding: 9px 25px;
+    background: #eceff1;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: #000 5px 5px 10px;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #64CCC5;
+
+}
+
 .seat-row {
     display: flex;
     flex-direction: row;
@@ -55,7 +74,7 @@
     position: absolute;
 }
 
-.seat.occupied {
+.seat.disponibilidad {
     background-color: rgba(255, 0, 0, 0.4);
     cursor: not-allowed;
 }
