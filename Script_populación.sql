@@ -92,109 +92,109 @@ INSERT INTO color (ID_Color)
 VALUES ('Morado');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (1, TRUE, 'HVM816');
+VALUES (1, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (2, TRUE, 'HVM816');
+VALUES (2, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (3, TRUE, 'HVM816');
+VALUES (3, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (4, TRUE, 'HVM816');
+VALUES (4, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (5, TRUE, 'HVM816');
+VALUES (5, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (6, TRUE, 'HVM816');
+VALUES (6, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (7, TRUE, 'HVM816');
+VALUES (7, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (8, TRUE, 'HVM816');
+VALUES (8, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (9, TRUE, 'HVM816');
+VALUES (9, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (10, TRUE, 'HVM816');
+VALUES (10, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (11, TRUE, 'HVM816');
+VALUES (11, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (12, TRUE, 'HVM816');
+VALUES (12, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (13, TRUE, 'HVM816');
+VALUES (13, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (14, TRUE, 'HVM816');
+VALUES (14, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (15, TRUE, 'HVM816');
+VALUES (15, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (16, TRUE, 'HVM816');
+VALUES (16, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (17, TRUE, 'HVM816');
+VALUES (17, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (18, TRUE, 'HVM816');
+VALUES (18, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (19, TRUE, 'HVM816');
+VALUES (19, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (20, TRUE, 'HVM816');
+VALUES (20, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (21, TRUE, 'HVM816');
+VALUES (21, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (22, TRUE, 'HVM816');
+VALUES (22, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (23, TRUE, 'HVM816');
+VALUES (23, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (24, TRUE, 'HVM816');
+VALUES (24, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (25, TRUE, 'HVM816');
+VALUES (25, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (26, TRUE, 'HVM816');
+VALUES (26, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (27, TRUE, 'HVM816');
+VALUES (27, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (28, TRUE, 'HVM816');
+VALUES (28, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (29, TRUE, 'HVM816');
+VALUES (29, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (30, TRUE, 'HVM816');
+VALUES (30, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (31, TRUE, 'HVM816');
+VALUES (31, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (32, TRUE, 'HVM816');
+VALUES (32, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (33, TRUE, 'HVM816');
+VALUES (33, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (34, TRUE, 'HVM816');
+VALUES (34, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (35, TRUE, 'HVM816');
+VALUES (35, FALSE, 'HVM816');
 
 INSERT INTO mapa_asientos(num_asiento, disponibilidad, id_avion)
-VALUES (36, TRUE, 'HVM816');
+VALUES (36, FALSE, 'HVM816');
