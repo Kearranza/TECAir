@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ApiTecAir.Dtos;
 
+//Creacion del dto para la entidad Promociones
 public class PromocionesDto
 {
     public int id_promo { set; get; }

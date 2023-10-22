@@ -12,12 +12,14 @@ public class MapaAsientoController : ControllerBase
     private TECAirDbContext _tecAirDbContext;
     private IMapper _mapper;
 
+    //Constructor del controlador
     public MapaAsientoController(TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
         _mapper = mapper;
     }
 
+    //Metodo para crear asientos
     [HttpPost("/asiento")]
     public IActionResult CreateSeat([FromBody] MapaAsientoDto payload)
     {
@@ -34,6 +36,7 @@ public class MapaAsientoController : ControllerBase
         return Ok(model);
     }
 
+    //Metodo para obtener los datos de todos los asientos
     [HttpGet("/asiento")]
     public IActionResult GetAllSeats()
     {
@@ -41,6 +44,7 @@ public class MapaAsientoController : ControllerBase
         return Ok(seats);
     }
 
+    //Metodo para obtener un asiento por su llave primaria
     [HttpGet("/{id}/asiento")]
     public MapaAsiento GetById(int id)
     {
@@ -48,6 +52,7 @@ public class MapaAsientoController : ControllerBase
         return seat;
     }
 
+    //Metodo para actualizar un asiento
     [HttpPut("/asiento/id")]
     public IActionResult Put(int id, [FromBody] MapaAsientoDto payload)
     {
@@ -60,6 +65,7 @@ public class MapaAsientoController : ControllerBase
         return Ok(new { MESSAGE = "Seat updated" });
     }
     
+    //Metodo para borrar un asiento
     [HttpDelete("/asiento/id")]
     public IActionResult Delete(int id)
     {

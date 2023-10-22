@@ -12,12 +12,14 @@ public class CalendarioVueloController : ControllerBase
     private TECAirDbContext _tecAirDbContext;
     private IMapper _mapper;
 
+    //Constructor del controlador
     public CalendarioVueloController(TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
         _mapper = mapper;
     }
 
+    //Metodo para crear un calendario
     [HttpPost("/calendar")]
     public IActionResult CreateCalendar([FromBody] CalendarioVueloDto payload)
     {
@@ -34,6 +36,7 @@ public class CalendarioVueloController : ControllerBase
         return Ok(model);
     }
 
+    //Metodo para obtener los datos de todos los calendarios
     [HttpGet("/calendar")]
     public IActionResult GetAllCalendars()
     {
@@ -41,6 +44,8 @@ public class CalendarioVueloController : ControllerBase
         return Ok(calendars);
     }
 
+    //Metodo para obtener los datos de un calendario
+    //dado su llave primaria
     [HttpGet("/{id}/calendar")]
     public CalendarioVuelo GetById(string id)
     {
@@ -48,6 +53,8 @@ public class CalendarioVueloController : ControllerBase
         return calendar;
     }
 
+    //Metodo para obtener informacion de los calendarios
+    //solicitud de los desarrolladores web
     [HttpGet("/calendar/info")]
     public IActionResult GetInfo()
     {
@@ -64,6 +71,8 @@ public class CalendarioVueloController : ControllerBase
         return Ok(info);
     }
     
+    //Metodo para obtener la hora de salida de un calendario
+    //solicitud de los desarrolladores web
     [HttpGet("/calendar/info/{id}")]
     public IActionResult GetHoraById(string id)
     {
@@ -78,6 +87,8 @@ public class CalendarioVueloController : ControllerBase
         return Ok(info);
     }
     
+    //Metodo para obtener las promos de todos los calendarios
+    //solicitud de los desarrolladores web
     [HttpGet("/calendar/promos")]
     public IActionResult GetPromos()
     {
@@ -93,6 +104,7 @@ public class CalendarioVueloController : ControllerBase
         return Ok(info);
     }
 
+    //Metodo para actualizar calendarios
     [HttpPut("/calendar/id")]
     public IActionResult Put(string id, [FromBody] CalendarioVueloDto payload)
     {
@@ -105,6 +117,7 @@ public class CalendarioVueloController : ControllerBase
         return Ok(new { MESSAGE = "Calendar updated" });
     }
     
+    //Metodo para borrar calendarios
     [HttpDelete("/calendar/id")]
     public IActionResult Delete(string id)
     {

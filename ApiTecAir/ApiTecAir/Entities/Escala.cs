@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ApiTecAir.Entities;
 
+//Clase que representa la entidad Escala
 public class Escala
 {
     [Key]
@@ -15,5 +16,6 @@ public class Escala
     
     public int id_vuelo { set; get; }
     
+    //Atributo utilizado para indicar que existe una llave foranea
     public Vuelos vuelo { set; get; }
 }

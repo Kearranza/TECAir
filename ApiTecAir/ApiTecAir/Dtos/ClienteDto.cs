@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ApiTecAir.Dtos;
 
+//Creacion del dto para la entidad Cliente
 public class ClienteDto
 {
     public  int cedula { set; get; }
@@ -17,6 +18,7 @@ public class ClienteDto
     
     public  string correo { set; get; }
     
+    //Listas de dto que referencian este dto
     public List<EstudianteDto> estudiantes { set; get; }
     
     public List<UsuarioDto> usuarios { set; get; }

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ApiTecAir.Entities;
 
+//Clase que representa la entidad MapaAsiento
 public class MapaAsiento
 {
     [Key]
@@ -14,6 +15,7 @@ public class MapaAsiento
     
     public string id_avión { set; get; }
     
+    //Atributo utilizado para indicar que existe una llave foranea
     public Avion avion { set; get; }
     
 }

@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ApiTecAir.Dtos;
 
-//Creation of the data structure Bill
+//Creacion del dto para la entidad Factura
 public class FacturaDto
 {
     public int id_factura { set; get; }

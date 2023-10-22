@@ -12,12 +12,14 @@ public class EscalaController : ControllerBase
     private TECAirDbContext _tecAirDbContext;
     private IMapper _mapper;
 
+    //Constructor del controlador
     public EscalaController(TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
         _mapper = mapper;
     }
 
+    //Metodo para crear una escala
     [HttpPost("/escala")]
     public IActionResult CreateScale([FromBody] EscalaDto payload)
     {
@@ -34,6 +36,7 @@ public class EscalaController : ControllerBase
         return Ok(model);
     }
 
+    //Metodo para obtener todas las escalas
     [HttpGet("/escala")]
     public IActionResult GetAllScales()
     {
@@ -41,6 +44,7 @@ public class EscalaController : ControllerBase
         return Ok(scales);
     }
 
+    //Metodo para obtener una escala por id
     [HttpGet("/{id}/escala")]
     public Escala GetById(int id)
     {
@@ -48,6 +52,7 @@ public class EscalaController : ControllerBase
         return scale;
     }
 
+    //Metodo para cambiar una escala
     [HttpPut("/escala/id")]
     public IActionResult Put(int id, [FromBody] EscalaDto payload)
     {
@@ -60,6 +65,7 @@ public class EscalaController : ControllerBase
         return Ok(new { MESSAGE = "Scale updated" });
     }
     
+    //Metodo para borrar una escala
     [HttpDelete("/escala/id")]
     public IActionResult Delete(int id)
     {

@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ApiTecAir.Entities;
 
+//Clase que representa la entidad Tarjeta_de_Credito
 public class TarjetaCredito
 {
     [Key]
@@ -13,7 +14,9 @@ public class TarjetaCredito
     
     public int cedula { set; get; }
 
+    //Atributo utilizado para indicar que existe una llave foranea
     public Cliente cliente { set; get; }
     
+    //Lista de entidades que referencian esta entidad
     public List<Factura> facturas { set; get; }
 }

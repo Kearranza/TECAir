@@ -12,12 +12,14 @@ public class VueloController : ControllerBase
     private TECAirDbContext _tecAirDbContext;
     private IMapper _mapper;
 
+    //Constructor del controlador
     public VueloController(TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
         _mapper = mapper;
     }
 
+    //Metodo para crear un vuelo
     [HttpPost("/vuelos")]
     public IActionResult CreateFlight([FromBody] VuelosDto payload)
     {
@@ -34,6 +36,7 @@ public class VueloController : ControllerBase
         return Ok(model);
     }
 
+    //Metodo para obtener los datos de todos los vuelos
     [HttpGet("/vuelos")]
     public IActionResult GetAllFlights()
     {
@@ -41,6 +44,7 @@ public class VueloController : ControllerBase
         return Ok(flights);
     }
 
+    //Metodo para obtener los datos de un vuelo
     [HttpGet("/{id}/vuelos")]
     public Vuelos GetById(int id)
     {
@@ -48,6 +52,7 @@ public class VueloController : ControllerBase
         return flight;
     }
 
+    //Metodo para actualizar un vuelo
     [HttpPut("/vuelos/id")]
     public IActionResult Put(int id, [FromBody] VuelosDto payload)
     {
@@ -61,6 +66,7 @@ public class VueloController : ControllerBase
         return Ok(new { MESSAGE = "Flight updated" });
     }
     
+    //Metodo para borrar un vuelo
     [HttpDelete("/vuelos/id")]
     public IActionResult Delete(int id)
     {

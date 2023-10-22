@@ -12,12 +12,14 @@ public class FacturaController : ControllerBase
     private TECAirDbContext _tecAirDbContext;
     private IMapper _mapper;
 
+    //Constructor para crear el controlador
     public FacturaController(TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
         _mapper = mapper;
     }
 
+    //Metodo para crear una factura
     [HttpPost("/factura")]
     public IActionResult CreateBill([FromBody] FacturaDto payload)
     {
@@ -34,6 +36,7 @@ public class FacturaController : ControllerBase
         return Ok(model);
     }
 
+    //Metodo para obtener los datos de todas las facturas
     [HttpGet("/factura")]
     public IActionResult GetAllBills()
     {
@@ -41,6 +44,7 @@ public class FacturaController : ControllerBase
         return Ok(bills);
     }
 
+    //Metodo para obtener una factura por su llave primaria
     [HttpGet("/{id}/factura")]
     public Factura GetById(int id)
     {
@@ -48,6 +52,7 @@ public class FacturaController : ControllerBase
         return bill;
     }
 
+    //Metodo para actualizar una factura
     [HttpPut("/factura/id")]
     public IActionResult Put(int id, [FromBody] FacturaDto payload)
     {
@@ -59,7 +64,8 @@ public class FacturaController : ControllerBase
 
         return Ok(new { MESSAGE = "Bill updated" });
     }
-    
+   
+    //Metodo para borrar una factura
     [HttpDelete("/factura/id")]
     public IActionResult Delete(int id)
     {

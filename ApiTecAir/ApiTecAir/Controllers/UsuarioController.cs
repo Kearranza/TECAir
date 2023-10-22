@@ -12,12 +12,14 @@ public class UsuarioController : ControllerBase
     private TECAirDbContext _tecAirDbContext;
     private IMapper _mapper;
 
+    //Constructor del controlador
     public UsuarioController(TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
         _mapper = mapper;
     }
 
+    //Metodo para crear un usuario
     [HttpPost("/user")]
     public IActionResult CreateUser([FromBody] UsuarioDto payload)
     {
@@ -34,6 +36,7 @@ public class UsuarioController : ControllerBase
         return Ok(model);
     }
 
+    //Metodo para obtener los datos de todos los usuarios
     [HttpGet("/user")]
     public IActionResult GetAllUsers()
     {
@@ -41,6 +44,7 @@ public class UsuarioController : ControllerBase
         return Ok(users);
     }
 
+    //Metodo para obtener los datos de un usuario usando su llave primaria 
     [HttpGet("/{id}/user")]
     public Usuario GetById(int id)
     {
@@ -48,6 +52,7 @@ public class UsuarioController : ControllerBase
         return user;
     }
 
+    //Metodo para actualizar un usuario
     [HttpPut("/user/id")]
     public IActionResult Put(int id, [FromBody] UsuarioDto payload)
     {
@@ -60,6 +65,7 @@ public class UsuarioController : ControllerBase
         return Ok(new { MESSAGE = "User updated" });
     }
     
+    //Metodo para borrar un usuario
     [HttpDelete("/user/id")]
     public IActionResult Delete(int id)
     {

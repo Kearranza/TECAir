@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ApiTecAir.Entities;
 
+//Clase que representa la entidad Estudiante
 public class Estudiante
 {
     [Key]
@@ -15,5 +16,6 @@ public class Estudiante
     
     public int cedula { set;get; }
     
+    //Atributo utilizado para indicar que existe una llave foranea
     public Cliente cliente { get; set; }
 }
