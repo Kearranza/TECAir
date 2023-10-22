@@ -115,7 +115,7 @@ export class APIService {
     return this.http.get<Client[]>(url)
   }
 
-  getDataECliente(id:string): Observable<Client> {
+  getDataECliente(id:number): Observable<Client> {
     const url  = `${this.urlApi}/${id}/${'cliente'}`;
     return this.http.get<Client>(url)
   }
@@ -200,7 +200,7 @@ export class APIService {
     return this.http.get<Flight[]>(url)
   }
 
-  getDataEVuelos(id:string): Observable<Flight> {
+  getDataEVuelos(id:number): Observable<Flight> {
     const url  = `${this.urlApi}/${id}/${'vuelos'}`;
     return this.http.get<Flight>(url)
   }

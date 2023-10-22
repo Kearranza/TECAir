@@ -19,7 +19,7 @@
     <div class="flight-container" #flightContainer>
         <ng-container *ngIf="filteredFlights.length > 0; else noFlights">
             <ng-template ngFor let-flight [ngForOf]="filteredFlights">
-            <app-flight-display [routerLink]="['/reservation']" [origin]="flight.origin" [destination]="flight.destination" [price]="flight.price" *ngIf="(selectedOrigin === '' || flight.origin === selectedOrigin) && (selectedDestination === '' || flight.destination === selectedDestination)"></app-flight-display>
+            <app-flight-display (click) = "toReserve(flight.id_calendario, flight.origin, flight.destination, flight.price)"  [origin]="flight.origin" [destination]="flight.destination" [price]="flight.price" *ngIf="(selectedOrigin === '' || flight.origin === selectedOrigin) && (selectedDestination === '' || flight.destination === selectedDestination)"></app-flight-display>
             </ng-template>
         </ng-container>
         <ng-template #noFlights>

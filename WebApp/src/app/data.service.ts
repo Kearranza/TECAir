@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { billpdf } from './Interfaces/billpdf.interface';
 import { Calendar } from './Interfaces/calendar.interface';
 import { Client } from './Interfaces/client.interface';
+import { Boarding_pass } from './Interfaces/boarding_pass.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,8 @@ export class DataService {
   billpdf:billpdf = {
     origen:'',
     destino:'',
-    precio:'',
-    fecha: new Date(),
+    precio:0,
+    fecha: 0,
     cedula:'',
     tarjeta:'',
   }
@@ -42,5 +43,14 @@ export class DataService {
     pases:[],
     tarjetas:[],
     facturas:[],
+  }
+
+  boarding_pass:Boarding_pass = {
+    id_pasaje:0,
+    puerta: '',
+    asiento: '',
+    hora_salida:new Date(),
+    cedula_cliente:0,
+    id_calendario:'',
   }
 }
