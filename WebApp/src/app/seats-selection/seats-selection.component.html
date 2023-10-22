@@ -1,11 +1,13 @@
 <div class="seats-container">
     <div class="seat-row" *ngFor="let row of seatsMatrix">
-    <div class="seat" *ngFor="let seat of row" [ngClass]="{ 'occupied': seat.occupied, 'reserved': seat.reserved, 'active': seat === activeSelection }" (click)="reserveSeat(seat)">
+    <div class="seat" *ngFor="let seat of row" [ngClass]="{ 'disponibilidad': seat.disponibilidad, 'reserved': seat.reserved, 'active': seat === reservedFlight }" (click)="reserveSeat(seat)">
         <div class="seat-image-container">
         <img src="../../assets/seat.png" alt="Seat Image">
-        <div class="seat-number-overlay">{{ seat.number }}</div>
+        <div class="seat-number-overlay">{{ seat.num_asiento }}</div>
         </div>
     </div>
     </div>
+    <button type="submit" (click)="generatePDF()">Confirmar</button>
 </div>
+
 

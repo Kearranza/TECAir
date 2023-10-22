@@ -5,12 +5,12 @@ import { ChargeThingsService } from '../charge-things.service';
 import { DataService } from '../data.service';
 
 interface Seat {
-  number: number;
-  occupied: boolean;
+  num_asiento: number;
+  disponibilidad: boolean;
 }
 interface SeatMatrix {
-  number: number;
-  occupied: boolean;
+  num_asiento: number;
+  disponibilidad: boolean;
   reserved?: boolean;
 }
 
@@ -22,40 +22,42 @@ interface SeatMatrix {
 
 export class SeatsSelectionComponent {
 
+  //Mae necesito esto para el pasaje (puerta de abordaje, hora de salida, asiento y número de vuelo)
+
   seats: Seat[] = [
-    { number: 1, occupied: false },
-    { number: 2, occupied: true },
-    { number: 3, occupied: false },
-    { number: 4, occupied: false },
-    { number: 5, occupied: false },
-    { number: 6, occupied: false },
-    { number: 7, occupied: false },
-    { number: 8, occupied: false },
-    { number: 9, occupied: false },
-    { number: 10, occupied: false },
-    { number: 11, occupied: false },
-    { number: 12, occupied: false },
-    { number: 13, occupied: false },
-    { number: 14, occupied: false },
-    { number: 15, occupied: false },
-    { number: 16, occupied: false },
-    { number: 17, occupied: false },
-    { number: 18, occupied: false },
-    { number: 19, occupied: false },
-    { number: 20, occupied: false },
-    { number: 21, occupied: false },
-    { number: 22, occupied: false },
-    { number: 23, occupied: false },
-    { number: 24, occupied: false },
-    { number: 25, occupied: false },
-    { number: 26, occupied: false },
-    { number: 27, occupied: false },
-    { number: 28, occupied: false },
-    { number: 29, occupied: false },
-    { number: 30, occupied: false },
+    { num_asiento: 1, disponibilidad: false },
+    { num_asiento: 2, disponibilidad: true },
+    { num_asiento: 3, disponibilidad: false },
+    { num_asiento: 4, disponibilidad: false },
+    { num_asiento: 5, disponibilidad: false },
+    { num_asiento: 6, disponibilidad: false },
+    { num_asiento: 7, disponibilidad: false },
+    { num_asiento: 8, disponibilidad: false },
+    { num_asiento: 9, disponibilidad: false },
+    { num_asiento: 10, disponibilidad: false },
+    { num_asiento: 11, disponibilidad: false },
+    { num_asiento: 12, disponibilidad: false },
+    { num_asiento: 13, disponibilidad: false },
+    { num_asiento: 14, disponibilidad: false },
+    { num_asiento: 15, disponibilidad: false },
+    { num_asiento: 16, disponibilidad: false },
+    { num_asiento: 17, disponibilidad: false },
+    { num_asiento: 18, disponibilidad: false },
+    { num_asiento: 19, disponibilidad: false },
+    { num_asiento: 20, disponibilidad: false },
+    { num_asiento: 21, disponibilidad: false },
+    { num_asiento: 22, disponibilidad: false },
+    { num_asiento: 23, disponibilidad: false },
+    { num_asiento: 24, disponibilidad: false },
+    { num_asiento: 25, disponibilidad: false },
+    { num_asiento: 26, disponibilidad: false },
+    { num_asiento: 27, disponibilidad: false },
+    { num_asiento: 28, disponibilidad: false },
+    { num_asiento: 29, disponibilidad: false },
+    { num_asiento: 30, disponibilidad: false },
   ];
 
-  activeSelection?: SeatMatrix;
+  reservedFlight?: SeatMatrix;
 
   seatsMatrix: SeatMatrix[][] = [];
 
@@ -65,16 +67,16 @@ export class SeatsSelectionComponent {
 
   //
   reserveSeat(seat: SeatMatrix) {
-    if (!seat.occupied) {
-      if (this.activeSelection === seat) {
+    if (!seat.disponibilidad) {
+      if (this.reservedFlight === seat) {
         seat.reserved = !seat.reserved;
-        this.activeSelection = seat.reserved ? seat : undefined;
-      } else if (!this.activeSelection || !this.activeSelection.reserved) {
+        this.reservedFlight = seat.reserved ? seat : undefined;
+      } else if (!this.reservedFlight || !this.reservedFlight.reserved) {
         seat.reserved = true;
-        this.activeSelection = seat;
+        this.reservedFlight = seat;
       }
     }
-    console.log(this.activeSelection);
+    console.log(this.reservedFlight);
   }
 
   private convertSeatsToMatrix(seats: Seat[]): Seat[][] {
@@ -110,4 +112,6 @@ export class SeatsSelectionComponent {
       // Save the pdf
       doc.save('factura.pdf');
     }
+
+    onSubmit() {}
 }
