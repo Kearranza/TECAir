@@ -21,7 +21,7 @@ import { Display_flight } from './Interfaces/displayflight.interface';
 import { Display_promo } from './Interfaces/displaypromo.interface';
 import { Salespost } from './Interfaces/salespost.interface';
 import { Billpost } from './Interfaces/billpost.intaface';
-
+import { BaggagePost } from './Interfaces/baggagepost.interface'; 
 
 @Injectable({
   providedIn: 'root'
@@ -330,9 +330,9 @@ export class APIService {
     return this.http.get<Baggage>(url)
   }
 
-  postDataMaleta(data: Baggage): Observable<Baggage> {
+  postDataMaleta(data: BaggagePost): Observable<BaggagePost> {
     const url = `${this.urlApi}/${'maleta'}`;
-    return this.http.post<Baggage>(url, data);
+    return this.http.post<BaggagePost>(url, data);
   }
 
   updateDataMaleta(id: number, data: any): Observable<any> {
