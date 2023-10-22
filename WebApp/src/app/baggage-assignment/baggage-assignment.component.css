@@ -74,8 +74,16 @@ input {
     box-sizing: border-box;
     text-align: center;
 }
+
+div.form-group {
+    display: flex;
+    justify-content: center;
+}
 .color{
     padding: 0px 0px;
+    width: 50%;
+    margin: auto;
+
 }
 input:focus {
     transform: scale(1.1);
