@@ -47,15 +47,37 @@ public class AvionController : ControllerBase
     //Metodo para obtener los datos de un avion especifico dando
     //su llave primaria
     [HttpGet("/{id}/avion")]
-    public Avion GetById(int id)
+    public Avion GetById(string id)
     {
         var airplane = _tecAirDbContext.avion.Find(id);
         return airplane;
     }
 
+    //Metodo para obtener la cantidad de asientos disponibles
+    //dada la llave primario del avion
+    //Solicitada por desarrolladores web
+    [HttpGet("/avion/{id}/disponible")]
+    public IActionResult GetDisponibilidadById(string id)
+    {
+        var disponibles = _tecAirDbContext.avion.Find(id).asientos.Count(t => t.disponibilidad == true);
+
+        return Ok(disponibles);
+    }
+
+    //Metodo para obtener la informacion de los asientos
+    //asignados a un avion dada la llave primaria del avion
+    //Solicitada por desarrolladores web
+    [HttpGet("/avion/{id}/asientos")]
+    public IActionResult GetAsientos(string id)
+    {
+        var asientos = _tecAirDbContext.avion.Find(id).asientos;
+
+        return Ok(asientos);
+    }
+
     //Metodo para actualizar un avion
     [HttpPut("/avion/id")]
-    public IActionResult Put(int id, [FromBody] AvionDto payload)
+    public IActionResult Put(string id, [FromBody] AvionDto payload)
     {
         var model = _mapper.Map<Avion>(payload);
         _tecAirDbContext.avion.Attach(model);
@@ -68,7 +90,7 @@ public class AvionController : ControllerBase
     
     //Metodo para borrar un avion
     [HttpDelete("/avion/id")]
-    public IActionResult Delete(int id)
+    public IActionResult Delete(string id)
     {
         var airplane = GetById(id);
 

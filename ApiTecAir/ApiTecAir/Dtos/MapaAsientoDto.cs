@@ -12,5 +12,5 @@ public class MapaAsientoDto
     
     public bool disponibilidad { set; get; }
     
-    public string id_avión { set; get; }
+    public string id_avion { set; get; }
 }

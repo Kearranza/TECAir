@@ -13,7 +13,7 @@ public class MapaAsiento
     
     public bool disponibilidad { set; get; }
     
-    public string id_avión { set; get; }
+    public string id_avion { set; get; }
     
     //Atributo utilizado para indicar que existe una llave foranea
     public Avion avion { set; get; }

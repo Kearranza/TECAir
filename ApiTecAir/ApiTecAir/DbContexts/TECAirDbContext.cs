@@ -159,18 +159,18 @@ public class TECAirDbContext : DbContext
         modelbuilder.Entity<MapaAsiento>()
             .HasOne(_ => _.avion)
             .WithMany(_ => _.asientos)
-            .HasForeignKey(_ => _.id_avión);
+            .HasForeignKey(_ => _.id_avion);
         
         //Se agregan de manera automatica las entidades obtenidas
         //de las foreign keys que referencian Avion
-        modelbuilder.Entity<Avion>().Navigation(e => e.calendarios);
-        modelbuilder.Entity<Avion>().Navigation(e => e.asientos);
+        modelbuilder.Entity<Avion>().Navigation(e => e.calendarios).AutoInclude();
+        modelbuilder.Entity<Avion>().Navigation(e => e.asientos).AutoInclude();
         
         //Se agregan de manera automatica las entidades obtenidas
         //de las foreign keys que referencian CalendarioVuelo
-        modelbuilder.Entity<CalendarioVuelo>().Navigation(e => e.pases);
-        modelbuilder.Entity<CalendarioVuelo>().Navigation(e => e.promociones);
-        modelbuilder.Entity<CalendarioVuelo>().Navigation(e => e.facturas);
+        modelbuilder.Entity<CalendarioVuelo>().Navigation(e => e.pases).AutoInclude();
+        modelbuilder.Entity<CalendarioVuelo>().Navigation(e => e.promociones).AutoInclude();
+        modelbuilder.Entity<CalendarioVuelo>().Navigation(e => e.facturas).AutoInclude();
         
         //Se agregan de manera automatica las entidades obtenidas
         //de las foreign keys que referencian Cliente
