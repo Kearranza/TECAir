@@ -102,14 +102,19 @@ export class SeatsSelectionComponent {
       doc.text('Pase de abordaje', 105, 50);
       doc.setFont('Roboto', 'sans-serif');
       doc.setFontSize(16);
-      doc.text('Fecha:', 20, 80);
-      doc.text('Número de pasaje:', 20, 90);
-  
-      doc.text('Cédula:', 20, 110);
-      doc.text('Tarjeta:', 20, 120);
+
+      //
+      //
+      // JOSUE si algo de lo que está aquí no lo puede incluir nada más borra la linea. o hacer magia ;D
+      //
+      //
+      doc.text('Hora de salida:' /* + Josue: Aquí tiene que agregar la hora de salida */, 20, 100);
+      doc.text('Puerta de abordaje: '/* + Josue: Aquí tiene que agregar la puerta de abordaje */, 20, 120);
+      doc.text('Número de vuelo:' /* + Josue: Aquí tiene que agregar el nombre|número de vuelo */, 20, 140);
+      doc.text('Asiento número:' /* + Josue: Aquí tiene que agregar el número de asiento */, 20, 80);
     
       // Save the pdf
-      doc.save('factura.pdf');
+      doc.save('PaseAbordaje.pdf');
 
       this.router.navigate(['/admin-selector']);
     }

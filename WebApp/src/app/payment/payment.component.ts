@@ -27,10 +27,6 @@ export class PaymentComponent {
     cvv:0,
     cedula_cliente: 0
   }
-  flightInfo = [ 'MEX', 'SJS', 200,123456];
-  depatureDate = '01/01/2022';
-  ticketNumber = 123456789;
-  creditCardNumber = 123456789;
 
   //Generate PDF, which is automatically downloaded
   generatePDF() {
@@ -44,14 +40,13 @@ export class PaymentComponent {
     // Add the text to the PDF and set the font
     doc.setFont('Roboto', 'bold');
     doc.setFontSize(22);
-    doc.text('Pase de abordaje', 105, 50);
+    doc.text('Factura de Vuelo', 105, 50);
     doc.setFont('Roboto', 'sans-serif');
     doc.setFontSize(16);
-    doc.text('Fecha Salida:' + this.depatureDate, 20, 80);
-    doc.text('Número de pasaje:' + this.ticketNumber , 20, 90);
-
-    doc.text('Cédula:' + this.flightInfo[3].toString(), 20, 110);
-    doc.text('Tarjeta:' + this.creditCardNumber, 20, 120);
+    doc.text('Fecha Salida:' /* + Josue: Aquí tiene que agregar la fecha de salida del vuelo*/, 20, 80);
+    doc.text('Número de Vuelo:' /* + Josue: Aquí tiene que agregar el nombre|número del vuelo*/, 20, 80);
+    doc.text('Cédula:' /* + Josue: Aquí tiene que agregar la cedula del cliente*/, 20, 110);
+    doc.text('Tarjeta:'/* + Josue: Aquí tiene que agregar el numero de tarjeta del cliente*/, 20, 120);
   
     // Add the flight information to the PDF
     let y = 150;
@@ -64,15 +59,15 @@ export class PaymentComponent {
     doc.line(20, y, 190, y);
     y += 5;
 
-    doc.text(this.flightInfo[0].toString(), 20, y);
-    doc.text(this.flightInfo[1].toString(), 50, y);
-    doc.text('₡'+this.flightInfo[2].toString(), 150, y);
+    doc.text(''/*Josue: Aquí tiene que poner el origen del vuelo */, 20, y);
+    doc.text(''/*Josue: Aquí tiene que poner el destino del vuelo */, 50, y);
+    doc.text('₡'/* + Josue: Aquí tiene que agregar el precio del vuelo */, 150, y);
 
     y += 5;
     doc.line(20, y, 190, y);
   
     // Save the pdf
-    doc.save('Factura.pdf');
+    doc.save('FacturaVuelo.pdf');
   }
 
   onSubmit() {
