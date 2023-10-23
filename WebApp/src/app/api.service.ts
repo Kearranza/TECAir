@@ -22,6 +22,7 @@ import { Display_promo } from './Interfaces/displaypromo.interface';
 import { Salespost } from './Interfaces/salespost.interface';
 import { Billpost } from './Interfaces/billpost.intaface';
 import { BaggagePost } from './Interfaces/baggagepost.interface'; 
+import { Boarding_passpost } from './Interfaces/boarding_passpost.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -194,7 +195,7 @@ export class APIService {
     return this.http.post<Calendar>(url, data);
   }
 
-  updateDataCalendario(id: string, data: any): Observable<any> {
+  updateDataCalendario(id: string, data: Calendar): Observable<any> {
     const url = `${this.urlApi}/${'calendar'}/id?id=${id}`;
     return this.http.put(url, data);
   }
@@ -389,9 +390,9 @@ export class APIService {
     return this.http.get<Boarding_pass>(url)
   }
 
-  postDataPaseA(data: Boarding_pass): Observable<Boarding_pass> {
+  postDataPaseA(data: Boarding_passpost): Observable<Boarding_passpost> {
     const url = `${this.urlApi}/${'pase_abordar'}`;
-    return this.http.post<Boarding_pass>(url, data);
+    return this.http.post<Boarding_passpost>(url, data);
   }
 
   updateDataPaseA(id: number, data: any): Observable<any> {

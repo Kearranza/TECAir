@@ -7,6 +7,7 @@ import { APIService } from '../api.service';
 import { Boarding_pass } from '../Interfaces/boarding_pass.interface';
 import { Calendar } from '../Interfaces/calendar.interface';
 import { SeatPost } from '../Interfaces/seatpost.interface';
+import { Boarding_passpost } from '../Interfaces/boarding_passpost.interface';
 
 interface Seat {
   id:number;
@@ -43,17 +44,26 @@ export class SeatsSelectionComponent {
     id_pasaje:0,
     puerta: '',
     asiento: '',
-    hora_salida:new Date(),
+    hora_salida:new Date(Date.now()),
     cedula_cliente:0,
     id_calendario:'',
   }
+  boarding_passp:Boarding_passpost = { //an intance of boarding pass
+    id_pasaje:0,
+    puerta: '',
+    asiento: '',
+    hora_salida:'',
+    cedula_cliente:0,
+    id_calendario:'',
+  }
+  
 
   seatP:SeatPost = {//an intance for saving seat
     id_mapa_asiento: 0,
     num_asiento: 0,
     disponibilidad:false,
     id_avion:'',
-}
+  }
   calendar:Calendar = {//an intance of calendar
     id_calendario: '',
     fecha:new Date(),
@@ -125,15 +135,10 @@ export class SeatsSelectionComponent {
       doc.setFont('Roboto', 'sans-serif');
       doc.setFontSize(16);
 
-      //
-      //
-      // JOSUE si algo de lo que está aquí no lo puede incluir nada más borra la linea. o hacer magia ;D
-      //
-      //
-      doc.text('Hora de salida:' /* + Josue: Aquí tiene que agregar la hora de salida */, 20, 100);
-      doc.text('Puerta de abordaje: '/* + Josue: Aquí tiene que agregar la puerta de abordaje */, 20, 120);
-      doc.text('Número de vuelo:' /* + Josue: Aquí tiene que agregar el nombre|número de vuelo */, 20, 140);
-      doc.text('Asiento número:' /* + Josue: Aquí tiene que agregar el número de asiento */, 20, 80);
+      doc.text('Hora de salida: ' +this.boarding_pass.hora_salida.toString(), 20, 100);
+      doc.text('Puerta de abordaje: '+this.boarding_pass.puerta, 20, 120);
+      doc.text('Número de vuelo: ' +this.calendar.id_vuelo, 20, 140);
+      doc.text('Asiento número: ' +this.reservedFlight?.num_asiento, 20, 80);
     
       // Save the pdf
       doc.save('PaseAbordaje.pdf');
@@ -143,13 +148,25 @@ export class SeatsSelectionComponent {
       this.seatP.disponibilidad = this.reservedFlight?.disponibilidad
       this.seatP.id_avion = this.reservedFlight?.id_avion
 
+      this.boarding_passp.asiento = this.reservedFlight?.num_asiento.toString();
+      this.boarding_passp.cedula_cliente = this.boarding_pass.cedula_cliente;
+      this.boarding_passp.hora_salida = '00:00:00.000';
+      this.boarding_passp.id_calendario = this.boarding_pass.id_calendario;
+      this.boarding_passp.id_pasaje = this.boarding_pass.id_pasaje;
+      this.boarding_passp.puerta = this.boarding_pass.puerta;
+
+      console.log(this.boarding_passp)
+
+      this.PostU();
+      this.UpdateS();
+
       this.router.navigate(['/admin-selector']);
     }
 
 
   PostU(){//calls the service to save user
-      this.apiService.postDataPaseA(this.boarding_pass).subscribe(data => {
-        console.log(this.boarding_pass)
+      this.apiService.postDataPaseA(this.boarding_passp).subscribe(data => {
+        console.log(this.boarding_passp)
         console.log('Funca U')
       })
   }

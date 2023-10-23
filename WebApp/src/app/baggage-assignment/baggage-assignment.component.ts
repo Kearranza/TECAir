@@ -22,7 +22,7 @@ export class BaggageAssignmentComponent {
     cedula_cliente: 0,
     peso:0,
     id_pasaje:0,
-    color:'',
+    color:'negras',
   }
 
   colors: ColorInput[] = [{ id: 1 }];
