@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ApiTecAir.Dtos;
 
+//Creacion del dto para la entidad Mapa_Asiento
 public class MapaAsientoDto
 {
     public int id_mapa_asiento { set; get; }
@@ -11,5 +12,5 @@ public class MapaAsientoDto
     
     public bool disponibilidad { set; get; }
     
-    public string id_avión { set; get; }
+    public string id_avion { set; get; }
 }

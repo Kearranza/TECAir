@@ -12,12 +12,14 @@ public class EstudianteController : ControllerBase
     private TECAirDbContext _tecAirDbContext;
     private IMapper _mapper;
 
+    //Constructor del controlador
     public EstudianteController(TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
         _mapper = mapper;
     }
 
+    //Metodo para crear un estudiante
     [HttpPost("/estudiante")]
     public IActionResult CreateScale([FromBody] EstudianteDto payload)
     {
@@ -34,6 +36,7 @@ public class EstudianteController : ControllerBase
         return Ok(model);
     }
 
+    //Metodo para obtener los datos de todos los estudiantes
     [HttpGet("/estudiante")]
     public IActionResult GetAllStudents()
     {
@@ -41,6 +44,7 @@ public class EstudianteController : ControllerBase
         return Ok(students);
     }
 
+    //Metodo para obtener yn estudiante por su llave primaria
     [HttpGet("/{id}/estudiante")]
     public Estudiante GetById(int id)
     {
@@ -48,6 +52,7 @@ public class EstudianteController : ControllerBase
         return student;
     }
 
+    //Metodo para actualizar un estudiante
     [HttpPut("/estudiante/id")]
     public IActionResult Put(int id, [FromBody] EstudianteDto payload)
     {
@@ -59,7 +64,8 @@ public class EstudianteController : ControllerBase
 
         return Ok(new { MESSAGE = "Student updated" });
     }
-    
+   
+    //Metodo para borrar un estudiante
     [HttpDelete("/estudiante/id")]
     public IActionResult Delete(int id)
     {

@@ -13,12 +13,14 @@ public class ClienteController : ControllerBase
     private TECAirDbContext _tecAirDbContext;
     private IMapper _mapper;
 
+    //Constructor del controlador
     public ClienteController(TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
         _mapper = mapper;
     }
 
+    //Metodo para crear un cliente
     [HttpPost("/cliente")]
     public IActionResult CreateClient([FromBody] ClienteDto payload)
     {
@@ -35,6 +37,7 @@ public class ClienteController : ControllerBase
         return Ok(model);
     }
 
+    //Metodo para obtener los datos de todos los clientes
     [HttpGet("/cliente")]
     public IActionResult GetAllClients()
     {
@@ -42,6 +45,7 @@ public class ClienteController : ControllerBase
         return Ok(clients);
     }
 
+    //Metodo para obtener un cliente
     [HttpGet("/{id}/cliente")]
     public Cliente GetById(int id)
     {
@@ -49,6 +53,8 @@ public class ClienteController : ControllerBase
         return client;
     }
 
+    //Metodo para obtener las maletas de un cliente
+    //solicitado por desarrolladores web
     [HttpGet("/cliente/{id}/maletas")]
     public int GetMaletasCliente(int id)
     {
@@ -57,6 +63,7 @@ public class ClienteController : ControllerBase
         return cantidad;
     }
 
+    //Metodo para actualizar un cliente
     [HttpPut("/cliente/id")]
     public IActionResult Put(int id, [FromBody] ClienteDto payload)
     {
@@ -69,6 +76,7 @@ public class ClienteController : ControllerBase
         return Ok(new { MESSAGE = "Client updated" });
     }
     
+    //Metodo para borrar un cliente
     [HttpDelete("/cliente/id")]
     public IActionResult Delete(int id)
     {

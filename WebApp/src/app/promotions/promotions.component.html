@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+
+<div class="button-container">
+    <button (click)="moveLeft()"><</button>
+    <div class="flight-container" #flightContainer>
+        <app-promotion-display [routerLink]="['/reservation']" *ngFor="let flight of flights" [origin]="flight.origen" [destination]="flight.destino" [price]="flight.precio" [discount]="flight.descuento"></app-promotion-display>
+    </div>
+    <button (click)="moveRight()">></button>
+</div>
+
+<app-footer></app-footer>

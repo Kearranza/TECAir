@@ -13,12 +13,14 @@ public class PromocionesController : ControllerBase
     private TECAirDbContext _tecAirDbContext;
     private IMapper _mapper;
 
+    //Constructor del controlador
     public PromocionesController(TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
         _mapper = mapper;
     }
 
+    //Metodo para crear una promocion
     [HttpPost("/promociones")]
     public IActionResult CreateSale([FromBody] PromocionesDto payload)
     {
@@ -35,6 +37,7 @@ public class PromocionesController : ControllerBase
         return Ok(model);
     }
 
+    //Metodo para obterner los datos de todas las promociones
     [HttpGet("/promociones")]
     public IActionResult GetAllSales()
     {
@@ -42,6 +45,7 @@ public class PromocionesController : ControllerBase
         return Ok(sales);
     }
 
+    //Metodo para obtener los datos de una promocion por su llave primaria
     [HttpGet("/{id}/promociones")]
     public Promociones GetById(int id)
     {
@@ -49,6 +53,7 @@ public class PromocionesController : ControllerBase
             return sale;
     }
 
+    //Metodo para actualizar una promocion
     [HttpPut("/promociones/id")]
     public IActionResult Put(int id, [FromBody] PromocionesDto payload)
     {
@@ -61,6 +66,7 @@ public class PromocionesController : ControllerBase
         return Ok(new { MESSAGE = "Sale updated" });
     }
     
+    //Metodo para borrar una promocion
     [HttpDelete("/promociones/id")]
     public IActionResult Delete(int id)
     {

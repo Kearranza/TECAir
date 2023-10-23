@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ApiTecAir.Dtos;
 
+//Creacion del dto para la entidad Escala
 public class EscalaDto
 {
     public int id_escala { set; get; }

@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<div class="selection-container">
+    <h2 class="logo">Introduzca su tarjeta</h2>
+
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="id">Número de Tarjeta:</label>
+            <input type="number" id="id" name="id" required [(ngModel)] = "credit_card.num_tarjeta">
+        </div>
+        <div class="form-group">
+            <label for="cvv">CVV:</label>
+            <input type="number" id="cvv" name="cvv" required [(ngModel)] = "credit_card.cvv">
+        </div>
+        <div class="form-group">
+            <label for="fechaexp">Fecha de expiracion:</label>
+            <input type="string" id="fechaexp" name="fechaexp" required [(ngModel)] = "credit_card.fecha_exp">
+        </div>
+        <button type="submit" (click)="generatePDF()">Comprar</button>
+    </form>
+</div>

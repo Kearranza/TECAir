@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ApiTecAir.Entities;
 
+//Clase que representa la entidad Aeropuerto
 public class Aeropuerto
 {
     [Key]
@@ -11,6 +12,7 @@ public class Aeropuerto
     
     public string pais { set; get; }
     
+    //Listas de entidades que referencian esta entidad
     public List<Vuelos> vuelosOrigen { set; get; }
     
     public List<Vuelos> vuelosDestino { set; get; }

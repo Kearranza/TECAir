@@ -3,6 +3,7 @@ using ApiTecAir.Entities;
 
 namespace ApiTecAir.Dtos;
 
+//Creacion del dto para la entidad Tarjeta_de_Credito
 public class TarjetaCreditoDto
 {
     public int num_tarjeta { set; get; }
@@ -13,5 +14,6 @@ public class TarjetaCreditoDto
 
     public int cedula { set; get; }
     
+    //Listas de dto que referencian este dto
     public List<FacturaDto> facturas { set; get; }
 }

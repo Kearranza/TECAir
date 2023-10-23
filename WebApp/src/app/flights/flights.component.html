@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+<div class="selection-container">
+    <h1 class="logo">Selecciona tu punto de origen y destino</h1>
+    <label for="origin">Origen:</label>
+    <select id="origin" name="origin" [(ngModel)]="selectedOrigin">
+        <option value="">Cualquiera</option>
+        <option *ngFor="let origin of origins" [value]="origin">{{ origin }}</option>
+    </select>
+    <label for="destination">Destino:</label>
+    <select id="destination" name="destination" [(ngModel)]="selectedDestination">
+        <option value="">Cualquiera</option>
+        <option *ngFor="let destination of destinations" [value]="destination">{{ destination }}</option>
+    </select>
+</div>
+
+<div class="button-container">
+    <button (click)="moveLeft()"><</button>
+    <div class="flight-container" #flightContainer>
+        <ng-container *ngIf="filteredFlights.length > 0; else noFlights">
+            <ng-template ngFor let-flight [ngForOf]="filteredFlights">
+            <app-flight-display (click) = "toReserve(flight.calendarioId, flight.aero_origen, flight.aero_final, flight.precio)"  [origin]="flight.aero_origen" [destination]="flight.aero_final" [price]="flight.precio" *ngIf="(selectedOrigin === '' || flight.aero_origen === selectedOrigin) && (selectedDestination === '' || flight.aero_final === selectedDestination)"></app-flight-display>
+            </ng-template>
+        </ng-container>
+        <ng-template #noFlights>
+        </ng-template>
+    </div>
+    <button (click)="moveRight()">></button>
+</div>
+
+<app-footer></app-footer>

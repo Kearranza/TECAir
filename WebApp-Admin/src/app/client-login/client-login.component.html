@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()">
+    <label class="logo">TECAir</label>
+    <img src="assets/TECAirLogo.png" alt="Logo">
+    <div>
+        <label for="username">Cédula:</label>
+        <input type="number" id="username" name="username" required [(ngModel)] = "usernameInput">
+    </div>
+    <div>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required [(ngModel)] = "passwordInput">
+    </div>
+    <button type="submit">Iniciar sesión</button>
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    <a [routerLink]="['/client-register']">¡Regístrate!</a>
+</form>

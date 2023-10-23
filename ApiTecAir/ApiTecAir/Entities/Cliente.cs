@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ApiTecAir.Entities;
 
+//Clase que representa la entidad Cliente
 public class Cliente
 {
     [Key]
@@ -17,6 +18,7 @@ public class Cliente
     
     public  string correo { set; get; }
     
+    //Listas de entidades que referencian esta entidad
     public List<Estudiante> estudiantes { set; get; }
     
     public List<Usuario> usuarios { set; get; }

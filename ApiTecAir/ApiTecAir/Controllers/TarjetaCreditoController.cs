@@ -12,12 +12,14 @@ public class TarjetaCreditoController : ControllerBase
     private TECAirDbContext _tecAirDbContext;
     private IMapper _mapper;
 
+    //Constructor del controlador
     public TarjetaCreditoController (TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
         _mapper = mapper;
     } 
     
+    //Metodo para crear una tarjeta
     [HttpPost ("/tarjeta")]
     public IActionResult CreateTarjeta([FromBody] TarjetaCreditoDto payload)
     {
@@ -34,6 +36,7 @@ public class TarjetaCreditoController : ControllerBase
         return Ok(model);
     }
     
+    //Metodo para obtener los datos de todas las tarjetas 
     [HttpGet("/tarjeta")]
     public IActionResult GetAllTarjetas()
     {
@@ -41,6 +44,7 @@ public class TarjetaCreditoController : ControllerBase
         return Ok(tarjetas);
     }
 
+    //Metodo para obtener una tarjeta por su llave primaria
     [HttpGet("/{id}/tarjeta")]
     public TarjetaCredito GetById(int id)
     {
@@ -48,6 +52,7 @@ public class TarjetaCreditoController : ControllerBase
         return tarjeta;
     }
 
+    //Metodo para actualizar una tarjeta
     [HttpPut("/tarjeta/id")]
     public IActionResult Put(int id, [FromBody] TarjetaCreditoDto payload)
     {
@@ -60,6 +65,7 @@ public class TarjetaCreditoController : ControllerBase
         return Ok(new { MESSAGE = "Tarjeta updated" });
     }
     
+    //Metodo para borrar una tarjeta
     [HttpDelete("/tarjeta/id")]
     public IActionResult Delete(int id)
     {

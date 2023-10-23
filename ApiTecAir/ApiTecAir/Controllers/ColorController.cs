@@ -13,12 +13,14 @@ public class ColorController : ControllerBase
     private TECAirDbContext _tecAirDbContext;
     private IMapper _mapper;
 
+    //Constructor del controlador
     public ColorController(TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
         _mapper = mapper;
     }
 
+    //Metodo para crear un color
     [HttpPost("/color")]
     public IActionResult CreateColor([FromBody] ColorDto payload)
     {
@@ -35,6 +37,7 @@ public class ColorController : ControllerBase
         return Ok(model);
     }
 
+    //Metodo para obtener todos los colores
     [HttpGet("/color")]
     public IActionResult GetAllColor()
     {
@@ -42,13 +45,15 @@ public class ColorController : ControllerBase
         return Ok(color);
     }
 
+    //Metodo para obtener un color por id
     [HttpGet("/{id}/color")]
     public Color GetById(int id)
     {
         var color = _tecAirDbContext.color.Find(id);
         return color;
     }
-
+    
+    //Metodo para cambiar un color
     [HttpPut("/color/id")]
     public IActionResult Put(int id, [FromBody] ColorDto payload)
     {
@@ -61,6 +66,7 @@ public class ColorController : ControllerBase
         return Ok(new { MESSAGE = "Color updated" });
     }
     
+    //Metodo para borrar un color
     [HttpDelete("/color/id")]
     public IActionResult Delete(int id)
     {

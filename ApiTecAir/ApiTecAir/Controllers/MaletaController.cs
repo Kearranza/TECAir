@@ -12,12 +12,14 @@ public class MaletaController : ControllerBase
     private TECAirDbContext _tecAirDbContext;
     private IMapper _mapper;
 
+    //Constructor para el controlador
     public MaletaController(TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
         _mapper = mapper;
     }
 
+    //Metodo para crear una maleta
     [HttpPost("/maleta")]
     public IActionResult CreateSuitcase([FromBody] MaletaDto payload)
     {
@@ -34,6 +36,7 @@ public class MaletaController : ControllerBase
         return Ok(model);
     }
 
+    //Metodo para obtener los datos de todas las maletas
     [HttpGet("/maleta")]
     public IActionResult GetAllMaletas()
     {
@@ -41,6 +44,7 @@ public class MaletaController : ControllerBase
         return Ok(suitcase);
     }
 
+    //Metodo para obtener una maleta por su llave primaria
     [HttpGet("/{id}/maleta")]
     public Maleta GetById(int id)
     {
@@ -48,6 +52,7 @@ public class MaletaController : ControllerBase
         return suitcase;
     }
 
+    //Metodo para actualizar una maleta
     [HttpPut("/maleta/id")]
     public IActionResult Put(int id, [FromBody] MaletaDto payload)
     {
@@ -60,6 +65,7 @@ public class MaletaController : ControllerBase
         return Ok(new { MESSAGE = "Suitcase updated" });
     }
     
+    //Metodo para borrar una maleta
     [HttpDelete("/maleta/id")]
     public IActionResult Delete(int id)
     {

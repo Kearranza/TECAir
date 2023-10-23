@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ApiTecAir.Entities;
 
-//Creation of the data structure Bill
+//Clase que representa la entidad Factura
 public class Factura
 {
     [Key]
@@ -14,6 +14,7 @@ public class Factura
     
     public string calendario { set; get; }
     
+    //Atributos utilizados para indicar que existen llaves foraneas
     public Cliente ccliente { set; get; }
     
     public TarjetaCredito tarjeta { set; get; }

@@ -17,6 +17,7 @@ C:\ProyectosBD\TECAir\ApiTecAir\ApiTecAir\bin\Release\net7.0\publish\Newtonsoft.
 C:\ProyectosBD\TECAir\ApiTecAir\ApiTecAir\bin\Release\net7.0\publish\Newtonsoft.Json.Bson.dll
 C:\ProyectosBD\TECAir\ApiTecAir\ApiTecAir\bin\Release\net7.0\publish\Npgsql.dll
 C:\ProyectosBD\TECAir\ApiTecAir\ApiTecAir\bin\Release\net7.0\publish\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\ProyectosBD\TECAir\ApiTecAir\ApiTecAir\bin\Release\net7.0\publish\PlantUml.Net.dll
 C:\ProyectosBD\TECAir\ApiTecAir\ApiTecAir\bin\Release\net7.0\publish\Swashbuckle.AspNetCore.Swagger.dll
 C:\ProyectosBD\TECAir\ApiTecAir\ApiTecAir\bin\Release\net7.0\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\ProyectosBD\TECAir\ApiTecAir\ApiTecAir\bin\Release\net7.0\publish\Swashbuckle.AspNetCore.SwaggerUI.dll

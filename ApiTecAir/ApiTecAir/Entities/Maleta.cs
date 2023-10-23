@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ApiTecAir.Entities;
 
+//Clase que representa la entidad Maleta
 public class Maleta
 {
     [Key]
@@ -16,6 +17,7 @@ public class Maleta
     
     public int id_pasaje { set; get; }
     
+    //Atributos utilizados para indicar que existen llaves foraneas
     public Cliente cliente { set; get; }
     
     public Color Mcolor { set; get; }

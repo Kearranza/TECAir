@@ -47,3 +47,4 @@ C:\ProyectosBD\TECAir\ApiTecAir\ApiTecAir\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\ProyectosBD\TECAir\ApiTecAir\ApiTecAir\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
 C:\ProyectosBD\TECAir\ApiTecAir\ApiTecAir\bin\Debug\net7.0\AutoMapper.dll
 C:\ProyectosBD\TECAir\ApiTecAir\ApiTecAir\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\ProyectosBD\TECAir\ApiTecAir\ApiTecAir\bin\Debug\net7.0\PlantUml.Net.dll

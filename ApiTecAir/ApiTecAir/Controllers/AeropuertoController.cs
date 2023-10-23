@@ -11,13 +11,15 @@ public class AeropuertoController : ControllerBase
 {
     private TECAirDbContext _tecAirDbContext;
     private IMapper _mapper;
-
+    
+    //Constructor del controlador
     public AeropuertoController (TECAirDbContext tecAirs, IMapper mapper)
     {
         _tecAirDbContext = tecAirs;
         _mapper = mapper;
     }
     
+    //Metodo de creacion para el aeropuerto
     [HttpPost ("/aeropuerto")]
     public IActionResult CreateAeropuerto([FromBody] AeropuertoDto payload)
     {
@@ -34,6 +36,7 @@ public class AeropuertoController : ControllerBase
         return Ok(model);
     }
     
+    //Metodo de obtencion de todos los aeropuertos
     [HttpGet("/aeropuerto")]
     public IActionResult GetAllAeropuertos()
     {
@@ -41,6 +44,7 @@ public class AeropuertoController : ControllerBase
         return Ok(aeropuertos);
     }
 
+    //Metodo de obtencion de aeropuertos por llave primaria
     [HttpGet("/{id}/aeropuerto")]
     public Aeropuerto GetById(string id)
     {
@@ -48,6 +52,7 @@ public class AeropuertoController : ControllerBase
         return aeropuerto;
     }
 
+    //Metodo de actualizacion de aeropuertos
     [HttpPut("/aeropuerto/id")]
     public IActionResult Put(string id, [FromBody] AeropuertoDto payload)
     {
@@ -60,6 +65,7 @@ public class AeropuertoController : ControllerBase
         return Ok(new { MESSAGE = "Aeropuerto updated" });
     }
     
+    //Metodo para borrar un aeropuerto
     [HttpDelete("/aeropuerto/id")]
     public IActionResult Delete(string id)
     {

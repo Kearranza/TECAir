@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ApiTecAir.Dtos;
 
+//Creacion del dto para la entidad Maleta
 public class MaletaDto
 {
     public int id_maleta { set; get; }

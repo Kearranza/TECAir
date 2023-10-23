@@ -1,0 +1,43 @@
+.flight-offer {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 250px;
+    border: 2px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    background-image: url('../../assets/Window.jpeg');
+    background-size: 100% 100%;
+    margin: 10px;
+    box-shadow: 0px 0px 5px #000;
+}
+
+.flight-offer-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    height: 100%;
+    color: #fff;
+    text-shadow: #000 0px 0px 10px;  
+
+}
+
+.flight-offer-origin {
+    margin: 0;
+}
+
+.flight-offer-destination {
+    margin: 0;
+}
+
+.flight-offer-price {
+    margin: 0;
+    align-self: flex-end;
+}
+
+.flight-offer-label {
+    margin-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
