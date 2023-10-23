@@ -20,7 +20,7 @@
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    margin-bottom: 500px;
+    margin-bottom: 700px;
 }
 
 .button-container button {

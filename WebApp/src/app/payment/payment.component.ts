@@ -76,11 +76,6 @@ export class PaymentComponent {
     console.log(this.billpdf);
   }
 
-  flightInfo = [ 'MEX', 'SJS', 200,123456];
-  depatureDate = '01/01/2022';
-  ticketNumber = 123456789;
-  creditCardNumber = 123456789;
-
   //Generate PDF, which is automatically downloaded
   generatePDF() {
     const doc = new jsPDF();
@@ -112,8 +107,8 @@ export class PaymentComponent {
     doc.line(20, y, 190, y);
     y += 5;
 
-    doc.text(this.billpdf.origen/*Josue: Aquí tiene que poner el origen del vuelo */, 20, y);
-    doc.text(this.billpdf.destino/*Josue: Aquí tiene que poner el destino del vuelo */, 50, y);
+    doc.text(this.billpdf.origen, 20, y);
+    doc.text(this.billpdf.destino, 50, y);
     doc.text('₡' +this.billpdf.precio, 150, y);
 
     y += 5;

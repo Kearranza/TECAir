@@ -63,9 +63,10 @@ export class CheckInComponent {
         this.boarding_pass.hora_salida = this.flight.hora_salida//charges the hora salida on the boarding pass
         this.data.setData('checkin',this.boarding_pass);//charges the boarding pass
       }
+      this.router.navigate(['/seats-selection']);
     }else {
-    
+      alert("No se puede hacer check in");
     }
-    this.router.navigate(['/seats-selection']);
+
   }
 }
