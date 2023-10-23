@@ -83,7 +83,7 @@ export class FlightsComponent{
 
   // Function that is executed when the button is pressed and validates the form
   toReserve(string:string, origin:string , destination:string, price:number){
-    this.data.setData('calendario','Uno')
+    this.data.setData('calendario', string)
     this.billpdf.origen = origin;
     this.billpdf.destino = destination;
     this.billpdf.precio = price;
