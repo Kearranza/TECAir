@@ -14,14 +14,16 @@ export class PromotionsComponent {
 @ViewChild('flightContainer') flightContainer?: ElementRef;
 
   constructor(private charge:ChargeThingsService) { }
+  flights:Display_promo[] = [];
   
-  flights = [...this.charge.displaypromo];
+  
 
   ngOnInit(): void {
     this.charge.getAirport();
     this.charge.getCalendar();
     this.charge.getSales();
     this.charge.getDisplaypromo();
+    this.flights = [...this.charge.displaypromo];
   }
 
   moveLeft() {
