@@ -12,7 +12,7 @@ import { Flight } from './Interfaces/flight.interface';
 import { Plane } from './Interfaces/plane.interface';
 import { Sales } from './Interfaces/sales.interface';
 import { Scales } from './Interfaces/scales.interface';
-import { Seat } from './Interfaces/seat.interface';
+import { SeatPost } from './Interfaces/seatpost.interface';
 import { Student } from './Interfaces/student.interface';
 import { User } from './Interfaces/user.interface';
 import { Color } from './Interfaces/color.interface';
@@ -22,6 +22,7 @@ import { Display_promo } from './Interfaces/displaypromo.interface';
 import { Salespost } from './Interfaces/salespost.interface';
 import { Billpost } from './Interfaces/billpost.intaface';
 import { BaggagePost } from './Interfaces/baggagepost.interface'; 
+import { Boarding_passpost } from './Interfaces/boarding_passpost.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +68,16 @@ export class APIService {
   getDataEAvion(id:string): Observable<Plane> {
     const url  = `${this.urlApi}/${id}/${'avion'}`;
     return this.http.get<Plane>(url)
+  }
+
+  getDataAvionAsientos(id:string): Observable<any> {
+    const url = `${this.urlApi}/${'avion'}/${id}/${'asientos'}`;
+    return this.http.get<any>(url)
+  }
+
+  getDataAvionDisponible(): Observable<any> {
+    const url = `${this.urlApi}/${'avion'}`;
+    return this.http.get<any>(url)
   }
 
   postDataAvion(data: Plane): Observable<Plane> {
@@ -184,7 +195,7 @@ export class APIService {
     return this.http.post<Calendar>(url, data);
   }
 
-  updateDataCalendario(id: string, data: any): Observable<any> {
+  updateDataCalendario(id: string, data: Calendar): Observable<any> {
     const url = `${this.urlApi}/${'calendar'}/id?id=${id}`;
     return this.http.put(url, data);
   }
@@ -269,22 +280,22 @@ export class APIService {
     return this.http.delete(url);
   }
 
-  getDataAsiento(): Observable<Seat[]> {
+  getDataAsiento(): Observable<SeatPost[]> {
     const url = `${this.urlApi}/${'asiento'}`;
-    return this.http.get<Seat[]>(url)
+    return this.http.get<SeatPost[]>(url)
   }
 
-  getDataEAsiento(id:string): Observable<Seat> {
+  getDataEAsiento(id:string): Observable<SeatPost> {
     const url  = `${this.urlApi}/${id}/${'asiento'}`;
-    return this.http.get<Seat>(url)
+    return this.http.get<SeatPost>(url)
   }
 
-  postDataAsiento(data: Seat): Observable<Seat> {
+  postDataAsiento(data: SeatPost): Observable<SeatPost> {
     const url = `${this.urlApi}/${'asiento'}`;
-    return this.http.post<Seat>(url, data);
+    return this.http.post<SeatPost>(url, data);
   }
 
-  updateDataAsiento(id: number, data: any): Observable<any> {
+  updateDataAsiento(data: SeatPost, id?: number): Observable<any> {
     const url = `${this.urlApi}/${'asiento'}/id?id=${id}`;
     return this.http.put(url, data);
   }
@@ -379,9 +390,9 @@ export class APIService {
     return this.http.get<Boarding_pass>(url)
   }
 
-  postDataPaseA(data: Boarding_pass): Observable<Boarding_pass> {
+  postDataPaseA(data: Boarding_passpost): Observable<Boarding_passpost> {
     const url = `${this.urlApi}/${'pase_abordar'}`;
-    return this.http.post<Boarding_pass>(url, data);
+    return this.http.post<Boarding_passpost>(url, data);
   }
 
   updateDataPaseA(id: number, data: any): Observable<any> {

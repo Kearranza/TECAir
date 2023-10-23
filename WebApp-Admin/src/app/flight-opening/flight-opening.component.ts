@@ -28,10 +28,19 @@ export class FlightOpeningComponent {
   // Function that is executed when the button is pressed and validates the form
   onSubmit() {
     this.apiService.getDataECalendario(this.string).subscribe(data => {//gets the value of calendar
+      console.log(data)
       this.calendar = data;
     }, error => {
       console.error('Error:', error);})
     this.calendar.abierto = true ;//changes the abierto state to true 
-    this.apiService.updateDataCalendario(this.string, this.calendar)//update the calendario  
+    console.log(this.calendar);
+    this.UpdateC();//update the calendario  
+  }
+
+  UpdateC(){//calls the service to save user
+    this.apiService.updateDataCalendario(this.string, this.calendar).subscribe(data => {
+      console.log(this.calendar)
+      console.log('Funca C')
+    })
   }
 }

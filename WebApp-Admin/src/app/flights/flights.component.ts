@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Display_flight } from '../Interfaces/displayflight.interface';
 import { billpdf } from '../Interfaces/billpdf.interface';
 
+
 @Component({
   selector: 'app-flights',
   templateUrl: './flights.component.html',
@@ -21,8 +22,8 @@ export class FlightsComponent{
   selectedOrigin = '';
   selectedDestination = '';
   date = new Date();
-  flight:any;
-  filteredFlights:any;
+  flight:Display_flight[] = [];
+  filteredFlights:Display_flight [] = [];
 
   billpdf:billpdf = {//an intance of billpdf
     origen:'',
@@ -41,7 +42,7 @@ export class FlightsComponent{
       this.origins.push(item.id_aereo);
     };
     this.destinations = this.origins;
-    this.flight = this.charge.display;
+    this.flight = [...this.charge.display]
     this.filteredFlights = this.flight;
     console.log(this.flight)
     console.log(this.data.client)
@@ -75,14 +76,14 @@ export class FlightsComponent{
       this.filteredFlights = this.charge.display;
     } else {
       this.filteredFlights = this.charge.display.filter(flight => {
-        return (this.selectedOrigin === '' || flight.origin === this.selectedOrigin) && (this.selectedDestination === '' || flight.destination === this.selectedDestination);
+        return (this.selectedOrigin === '' || flight.aero_origen === this.selectedOrigin) && (this.selectedDestination === '' || flight.aero_final === this.selectedDestination);
       });
     }
   }
 
   // Function that is executed when the button is pressed and validates the form
   toReserve(string:string, origin:string , destination:string, price:number){
-    this.data.setData('calendario','Uno')
+    this.data.setData('calendario', string)
     this.billpdf.origen = origin;
     this.billpdf.destino = destination;
     this.billpdf.precio = price;
