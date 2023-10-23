@@ -11,7 +11,7 @@ import { Flight } from './Interfaces/flight.interface';
 import { Plane } from './Interfaces/plane.interface';
 import { Sales } from './Interfaces/sales.interface';
 import { Scales } from './Interfaces/scales.interface';
-import { Seat } from './Interfaces/seat.interface';
+import { SeatPost } from './Interfaces/seatpost.interface';
 import { Student } from './Interfaces/student.interface';
 import { User } from './Interfaces/user.interface';
 import { Display_flight } from './Interfaces/displayflight.interface';
@@ -35,7 +35,7 @@ export class ChargeThingsService {//Makes a service for getting all the data in 
   plane:Plane[] = [];
   scales:Scales[] = [];
   sales:Sales[] = [];
-  seat:Seat[] = [];
+  seat:SeatPost[] = [];
   student:Student[] = [];
   user:User[] = [];
   display:Display_flight[] = [];
