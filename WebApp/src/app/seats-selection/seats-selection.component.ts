@@ -3,15 +3,27 @@ import jsPDF from 'jspdf';
 import { Router } from '@angular/router';
 import { ChargeThingsService } from '../charge-things.service';
 import { DataService } from '../data.service';
+import { APIService } from '../api.service';
+import { Boarding_pass } from '../Interfaces/boarding_pass.interface';
+import { Calendar } from '../Interfaces/calendar.interface';
+import { SeatPost } from '../Interfaces/seatpost.interface';
 
 interface Seat {
+  id:number;
   num_asiento: number;
   disponibilidad: boolean;
+  id_avion:string;
 }
 interface SeatMatrix {
+  id:number;
   num_asiento: number;
   disponibilidad: boolean;
+  id_avion:string;
   reserved?: boolean;
+}
+interface SeatGet{
+  num_asiento: number;
+  disponibilidad: boolean;
 }
 
 @Component({
@@ -23,45 +35,55 @@ interface SeatMatrix {
 export class SeatsSelectionComponent {
 
   //Mae necesito esto para el pasaje (puerta de abordaje, hora de salida, asiento y número de vuelo)
-  seats: Seat[] = [
-    { num_asiento: 1, disponibilidad: false },
-    { num_asiento: 2, disponibilidad: true },
-    { num_asiento: 3, disponibilidad: false },
-    { num_asiento: 4, disponibilidad: false },
-    { num_asiento: 5, disponibilidad: false },
-    { num_asiento: 6, disponibilidad: false },
-    { num_asiento: 7, disponibilidad: false },
-    { num_asiento: 8, disponibilidad: false },
-    { num_asiento: 9, disponibilidad: false },
-    { num_asiento: 10, disponibilidad: false },
-    { num_asiento: 11, disponibilidad: true },
-    { num_asiento: 12, disponibilidad: false },
-    { num_asiento: 13, disponibilidad: true },
-    { num_asiento: 14, disponibilidad: false },
-    { num_asiento: 15, disponibilidad: false },
-    { num_asiento: 16, disponibilidad: true },
-    { num_asiento: 17, disponibilidad: false },
-    { num_asiento: 18, disponibilidad: false },
-    { num_asiento: 19, disponibilidad: false },
-    { num_asiento: 20, disponibilidad: false },
-    { num_asiento: 21, disponibilidad: false },
-    { num_asiento: 22, disponibilidad: true },
-    { num_asiento: 23, disponibilidad: false },
-    { num_asiento: 24, disponibilidad: false },
-    { num_asiento: 25, disponibilidad: true },
-    { num_asiento: 26, disponibilidad: false },
-    { num_asiento: 27, disponibilidad: false },
-    { num_asiento: 28, disponibilidad: true },
-    { num_asiento: 29, disponibilidad: false },
-    { num_asiento: 30, disponibilidad: false },
-  ];
+  seats: Seat[] = []
   reservedFlight?: SeatMatrix;
   seatsMatrix: SeatMatrix[][] = [];
 
-  constructor(private router: Router, private data:DataService, private charge:ChargeThingsService) {
-    this.seatsMatrix = this.convertSeatsToMatrix(this.seats);
+  boarding_pass:Boarding_pass = { //an intance of boarding pass
+    id_pasaje:0,
+    puerta: '',
+    asiento: '',
+    hora_salida:new Date(),
+    cedula_cliente:0,
+    id_calendario:'',
   }
 
+  seatP:SeatPost = {//an intance for saving seat
+    id_mapa_asiento: 0,
+    num_asiento: 0,
+    disponibilidad:false,
+    id_avion:'',
+}
+  calendar:Calendar = {//an intance of calendar
+    id_calendario: '',
+    fecha:new Date(),
+    precio:0,
+    id_avion: '',
+    id_vuelo: 0,
+    abierto: false,
+    pases: [],
+    promociones: [],
+    facturas: [],
+  }
+
+  constructor(private router: Router, private data:DataService, private charge:ChargeThingsService, private apiService:APIService) {
+  }
+
+  ngOnInit(){
+    this.boarding_pass = this.data.getData('checkin');
+    this.apiService.getDataECalendario(this.boarding_pass.id_calendario).subscribe(data => {
+      this.calendar = data;//Gets the calendario that has the calendario id value from the database
+    }, error => {
+      console.error('Error:', error);})
+    this.apiService.getDataAvionAsientos('HVM816').subscribe(data => {
+      console.log(data);
+      this.seatsMatrix = this.convertSeatsToMatrix(data);
+      this.seats = data;//Gets the calendario that has id avion value from the database
+    }, error => {
+      console.error('Error:', error);})
+    console.log(this.seats);
+    console.log(this.seatsMatrix);
+  }
 
   // This method is called when the user clicks on a seat in the UI and reserves it
   reserveSeat(seat: SeatMatrix) {
@@ -88,7 +110,7 @@ export class SeatsSelectionComponent {
   }
 
     //Generate PDF, which is automatically downloaded
-    generatePDF() {
+  generatePDF() {
       const doc = new jsPDF();
   
       // Add the image to the PDF
@@ -116,6 +138,25 @@ export class SeatsSelectionComponent {
       // Save the pdf
       doc.save('PaseAbordaje.pdf');
 
+      this.seatP.id_mapa_asiento = this.reservedFlight?.id
+      this.seatP.num_asiento = this.reservedFlight?.num_asiento
+      this.seatP.disponibilidad = this.reservedFlight?.disponibilidad
+      this.seatP.id_avion = this.reservedFlight?.id_avion
+
       this.router.navigate(['/admin-selector']);
     }
+
+
+  PostU(){//calls the service to save user
+      this.apiService.postDataPaseA(this.boarding_pass).subscribe(data => {
+        console.log(this.boarding_pass)
+        console.log('Funca U')
+      })
+  }
+  UpdateS(){//calls the service to save user
+    this.apiService.updateDataAsiento(this.seatP, this.seatP.id_mapa_asiento).subscribe(data => {
+      console.log(this.boarding_pass)
+      console.log('Funca S')
+    })
+}
 }

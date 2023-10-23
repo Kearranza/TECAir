@@ -1,4 +1,4 @@
-import { Seat } from "./seat.interface";
+import { SeatPost } from "./seatpost.interface";
 import { Calendar } from "./calendar.interface";
 
 export interface Plane{ //Interface for saving plane
@@ -6,5 +6,5 @@ export interface Plane{ //Interface for saving plane
     row:number;
     pcolum:number;
     calendarios:Calendar[];
-    asientos:Seat[];
+    asientos:SeatPost[];
 }
