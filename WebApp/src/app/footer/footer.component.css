@@ -1,0 +1,17 @@
+.footer {
+    position: relative;
+    background-image: url('../../assets/Sky.png');
+    color: white;
+    padding: 1px;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: #fff 4px solid;
+    margin-top: 40vh;
+}
+
+.footer .container {
+    max-width: 100%;
+    margin: 0 auto;
+}

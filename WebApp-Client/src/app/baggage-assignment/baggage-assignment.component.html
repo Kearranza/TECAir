@@ -1,0 +1,34 @@
+<div class="selection-container">
+    <h2 class="logo">Seleccione la identificación del cliente y su vuelo</h2>
+
+    <form (ngSubmit)="onSubmit()">
+
+        <div *ngFor="let i of [].constructor(repeatCount)">
+            <div class="form-group">
+                <label for="clientID">Cédula cliente:</label>
+                <input type="number" id="clientID" name="clientID" >
+            </div>
+
+            <div class="form-group">
+                <label for="weight">Peso (kg):</label>
+                <input type="number" id="weight" name="weight" >
+            </div>
+
+            <div *ngFor="let color of colors">
+                <div class="form-group">
+                <label for="color{{color.id}}">Color {{color.id}}:</label>
+                <input class="color" type="color" id="color{{color.id}}" name="color{{color.id}}">
+                </div>
+            </div>
+
+            <button *ngIf="colors.length < 3" (click)="addColorInput()">+ Colores</button>
+
+        </div>
+
+        <button (click)="repeatCode(-1)">- Maletas</button>
+
+        <button (click)="repeatCode(1)">+ Maletas</button>
+
+        <button type="submit">Añadir maleta</button>
+    </form>
+</div>
