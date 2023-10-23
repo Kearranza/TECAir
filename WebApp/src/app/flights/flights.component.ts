@@ -5,6 +5,13 @@ import { Router } from '@angular/router';
 import { Display_flight } from '../Interfaces/displayflight.interface';
 import { billpdf } from '../Interfaces/billpdf.interface';
 
+interface Flight {
+  id_calendario: string;
+  origin: string;
+  destination: string;
+  price: number;  
+}
+
 @Component({
   selector: 'app-flights',
   templateUrl: './flights.component.html',
@@ -21,8 +28,8 @@ export class FlightsComponent{
   selectedOrigin = '';
   selectedDestination = '';
   date = new Date();
-  flight:any;
-  filteredFlights:any;
+  flight:Flight [] = [];
+  filteredFlights:Flight [] = [];
 
   billpdf:billpdf = {//an intance of billpdf
     origen:'',
