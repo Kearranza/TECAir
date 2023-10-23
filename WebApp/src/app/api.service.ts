@@ -30,7 +30,7 @@ import { Boarding_passpost } from './Interfaces/boarding_passpost.interface';
 export class APIService {
 
   //Url of the API
-  private urlApi = 'http://localhost:5296'
+  private urlApi = 'http://localhost:3333'
 
   constructor(private http: HttpClient) { }
 
