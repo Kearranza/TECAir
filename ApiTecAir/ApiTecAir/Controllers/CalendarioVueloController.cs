@@ -97,8 +97,10 @@ public class CalendarioVueloController : ControllerBase
             select new
             {
                 calendarioId = c.id_calendario,
+                origen = m.origen,
+                destino = m.destino,
                 precio = c.precio,
-                aero_origen = m.descuento
+                descuento = m.descuento
             }).Take(100);
 
         return Ok(info);
