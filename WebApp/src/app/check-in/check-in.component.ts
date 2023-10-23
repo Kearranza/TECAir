@@ -24,6 +24,7 @@ export class CheckInComponent {
     cedula_cliente:0,
     id_calendario:'',
   }
+
   calendar:Calendar = {//an intance of calendar
     id_calendario: '',
     fecha:new Date(),
@@ -55,15 +56,15 @@ export class CheckInComponent {
       }, error => {
         console.error('Error:', error);})
       if(this.calendar.abierto){//checks if the calendario if opened for check in 
-        this.data.boarding_pass = this.boarding_pass;//charges the boarding pass
         this.apiService.getDataEVuelos(this.calendar.id_vuelo).subscribe(data => {
           this.flight = data;//gets the flight value
         }, error => {
           console.error('Error:', error);})
-        this.data.boarding_pass.hora_salida = this.flight.hora_salida//charges the hora salida on the boarding pass
+        this.boarding_pass.hora_salida = this.flight.hora_salida//charges the hora salida on the boarding pass
+        this.data.setData('checkin',this.boarding_pass);//charges the boarding pass
       }
-
     }else {
+    
     }
     this.router.navigate(['/seats-selection']);
   }
