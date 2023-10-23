@@ -21,35 +21,80 @@
             android:layout_marginBottom="5dp"
             android:src="@drawable/bg_view"
             tools:ignore="ContentDescription" />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Inicio"
+            android:layout_marginTop="10dp"
+            android:text="Origen:"
+            android:textSize="25sp"
+            android:layout_gravity="center"/>
         <Spinner
             android:id="@+id/spiner"
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="10dp"
             android:inputType="text"
             android:paddingLeft="20dp"
             android:paddingRight="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Fin"
+            android:layout_marginTop="10dp"
+            android:text="Destino"
+            android:textSize="25sp"
+            android:layout_gravity="center"/>
+        <Spinner
+        android:id="@+id/spiner2"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" />
+
         <Button
-            android:id="@+id/dates"
+            android:id="@+id/start"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:onClick="onClickBack"
             android:backgroundTint="@color/main_color"
             android:textAllCaps="false"
-            android:text="Fechas" />
+            android:text="Inicio" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/date"
+            android:id="@+id/date1"
             android:layout_marginTop="10dp"
             android:text="XX/XX/XXXX"
-            android:textSize="30dp"
+            android:textSize="30sp"
+            android:layout_gravity="center"/>
+        <Button
+            android:id="@+id/end"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:onClick="onClickBack"
+            android:backgroundTint="@color/main_color"
+            android:textAllCaps="false"
+            android:text="Fin" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/date2"
+            android:layout_marginTop="10dp"
+            android:text="XX/XX/XXXX"
+            android:textSize="30sp"
             android:layout_gravity="center"/>
         <LinearLayout
             android:layout_width="match_parent"

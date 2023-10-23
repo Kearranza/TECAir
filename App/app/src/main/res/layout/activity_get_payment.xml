@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".register.studentRegister">
+    tools:context=".flights.getPayment">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,7 +34,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/text_box_bc"
-                android:hint="Cedula"
+                android:hint="Tarjeta de Credito"
                 android:inputType="number"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp" />
@@ -45,20 +46,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/text_box_bc"
-                android:hint="Carnet"
+                android:hint="CV"
                 android:inputType="number"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp" />
-            <EditText
-                android:id="@+id/Universidad"
-                android:layout_width="match_parent"
-                android:layout_height="59dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/text_box_bc"
-                android:hint="Universidad"
-                android:inputType="text"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp" />
             <LinearLayout
@@ -83,16 +72,17 @@
                     android:id="@+id/Register"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
-                    android:onClick="onClickRegister"
+                    android:onClick="onClickPDF"
                     android:layout_gravity="center"
                     android:layout_marginStart="90dp"
                     android:layout_marginBottom="40dp"
                     android:layout_marginTop="20dp"
                     android:backgroundTint="@color/main_color"
                     android:textAllCaps="false"
-                    android:text="Registrar" />
+                    android:text="Continuar" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

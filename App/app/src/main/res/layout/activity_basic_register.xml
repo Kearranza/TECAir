@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.loginAdmin">
+    tools:context=".flights.basicRegister">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,17 +21,6 @@
             android:src="@drawable/bg_view"
             tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Iniciar Sesion"
-            android:textColor="@color/main_color"
-            android:textStyle="bold"
-            android:textSize="40sp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"/>
-
         <EditText
             android:id="@+id/user"
             android:layout_width="match_parent"
@@ -40,26 +29,72 @@
             android:layout_marginTop="50dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/text_box_bc"
-            android:hint="Nombre de Usuario"
+            android:hint="Nombre"
             android:inputType="text"
             android:paddingLeft="20dp"
             android:paddingRight="20dp" />
 
 
-
         <EditText
-            android:id="@+id/Password"
+            android:id="@+id/Lname1"
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/text_box_bc"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
+            android:hint="Apellido 1"
+            android:inputType="text"
             android:paddingLeft="20dp"
             android:paddingRight="20dp" />
-
+        <EditText
+            android:id="@+id/Lname2"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/text_box_bc"
+            android:hint="Apellido 2"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" />
+        <EditText
+            android:id="@+id/Correo"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/text_box_bc"
+            android:hint="Correo"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" />
+        <EditText
+            android:id="@+id/Phone"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/text_box_bc"
+            android:hint="Telefono"
+            android:inputType="number"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" />
+        <EditText
+            android:id="@+id/cedula"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/text_box_bc"
+            android:hint="Cedula"
+            android:inputType="number"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -86,10 +121,10 @@
                 android:layout_marginStart="90dp"
                 android:layout_marginBottom="40dp"
                 android:layout_marginTop="20dp"
+                android:onClick="onClickContinue"
                 android:backgroundTint="@color/main_color"
-                android:onClick="onClickLogin"
                 android:textAllCaps="false"
-                android:text="Iniciar Sesion" />
+                android:text="Continuar" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

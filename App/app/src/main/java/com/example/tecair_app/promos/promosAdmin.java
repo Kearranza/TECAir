@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.example.tecair_app.MainActivity;
 import com.example.tecair_app.R;
+import com.example.tecair_app.db.dataBaseHelper;
 
 public class promosAdmin extends AppCompatActivity {
 

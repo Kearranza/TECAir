@@ -1,11 +1,12 @@
 package com.example.tecair_app.db;
 
-public class comonClient extends Client {
+public class comonClient {
     Integer cedula;
+    String password;
 
-    public comonClient(String username, String name, String lName1, String lName2, String email, String phone, Integer miles, Integer cedula, Boolean isActive) {
-        super(username, name, lName1, lName2, email, phone, miles, isActive);
+    public comonClient(Integer cedula, String password) {
         this.cedula = cedula;
+        this.password = password;
     }
 
     public Integer getCedula() {
@@ -16,17 +17,14 @@ public class comonClient extends Client {
         this.cedula = cedula;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     @Override
     public String toString() {
         return "comonClient{" +
                 "cedula=" + cedula +
-                ", username='" + username + '\'' +
-                ", name='" + name + '\'' +
-                ", lName1='" + lName1 + '\'' +
-                ", lName2='" + lName2 + '\'' +
-                ", email='" + email + '\'' +
-                ", phone=" + phone +
-                ", miles=" + miles +
                 '}';
     }
 }

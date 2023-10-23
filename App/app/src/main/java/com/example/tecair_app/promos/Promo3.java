@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.tecair_app.R;
+import com.example.tecair_app.flights.basicRegister;
 
 public class Promo3 extends AppCompatActivity {
 
@@ -18,6 +19,11 @@ public class Promo3 extends AppCompatActivity {
 
     public void onClickBack(View view) {
         Intent intent = new Intent(this, promosAdmin.class);
+        startActivity(intent);
+    }
+
+    public void goToBR(View view) {
+        Intent intent = new Intent(this, basicRegister.class);
         startActivity(intent);
     }
 }

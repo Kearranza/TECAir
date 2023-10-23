@@ -1,12 +1,23 @@
 <resources>
     <string name="app_name">TecAir_app</string>
     <string-array name="destinos">
-        <item>Destino 1</item>
-        <item>Destino 2</item>
-        <item>Destino 3</item>
-        <item>Destino 4</item>
-        <item>Destino 5</item>
-        <item>Destino 6</item>
-        <item>Destino 7</item>
+        <item>Costa Rica</item>
+        <item>Panama</item>
+        <item>El Salvador</item>
+        <item>Bermudas</item>
+        <item>Canada</item>
+        <item>Estados Unidos</item>
+        <item>Groenlandia</item>
+        <item>Mexico</item>
+        <item>Belice</item>
+        <item>Honduras</item>
+        <item>Guatemala</item>
+        <item>Nicaragua</item>
+        <item>Argentina</item>
+        <item>Brasil</item>
+        <item>Chile</item>
+        <item>Colombia</item>
+        <item>Venezuela</item>
+        <item>Bolivia</item>
     </string-array>
 </resources>
