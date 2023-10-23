@@ -55,6 +55,7 @@ export class CheckInComponent {
         this.calendar = data;//Gets the calendario that has the calendario id value from the database
       }, error => {
         console.error('Error:', error);})
+      console.log(this.calendar)
       if(this.calendar.abierto){//checks if the calendario if opened for check in 
         this.apiService.getDataEVuelos(this.calendar.id_vuelo).subscribe(data => {
           this.flight = data;//gets the flight value
@@ -62,8 +63,11 @@ export class CheckInComponent {
           console.error('Error:', error);})
         this.boarding_pass.hora_salida = this.flight.hora_salida//charges the hora salida on the boarding pass
         this.data.setData('checkin',this.boarding_pass);//charges the boarding pass
+        console.log(this.data.getData('checkin'))
+        this.router.navigate(['/seats-selection']);
+      }else{
+        alert("El vuelo no esta abierto");
       }
-      this.router.navigate(['/seats-selection']);
     }else {
       alert("No se puede hacer check in");
     }
