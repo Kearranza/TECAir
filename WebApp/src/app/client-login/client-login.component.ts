@@ -16,7 +16,7 @@ export class ClientLoginComponent {
     usernameInput:number = 0;
     passwordInput:string = '';
 
-    constructor(private router: Router, private charge:ChargeThingsService, private apiService:APIService, private data:DataService) {}
+  constructor(private router: Router, private charge:ChargeThingsService, private apiService:APIService, private data:DataService) {}
 
   client: Client = { //an instance of client
       cedula: 0,
@@ -31,7 +31,7 @@ export class ClientLoginComponent {
       pases: [],
       tarjetas: [],
       facturas: [],
-    }
+  }
 
   // Function for login that is executed when the button is pressed and validates the form
   onSubmit() {
@@ -49,12 +49,11 @@ export class ClientLoginComponent {
         } else {
           this.errorMessage = '';
           this.apiService.getDataECliente(users.cedula).subscribe(data => {//gets the client 
-            console.log(this.client)
             this.client = data;
           }, error => {
             console.error('Error:', error);})
           
-          this.data.client = this.client;//charges the client 
+          this.data.setData('client', this.client);//charges the client 
           console.log('aa')
           console.log(this.data.client)
 

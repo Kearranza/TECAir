@@ -4,19 +4,19 @@
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="pasajeID">Numero de Pasaje:</label>
-            <input type="number" id="pasajeID" name="pasajeID" >
+            <input type="number" id="pasajeID" name="pasajeID" [(ngModel)] = "boarding_pass.id_pasaje">
         </div>
         <div class="form-group">
             <label for="Puerta">Puerta para Abordar:</label>
-            <input type="string" id="Puerta" name="Puerta" >
+            <input type="string" id="Puerta" name="Puerta" [(ngModel)] = "boarding_pass.puerta">
         </div>
         <div class="form-group">
             <label for="clientID">Cédula cliente:</label>
-            <input type="number" id="clientID" name="clientID" >
+            <input type="number" id="clientID" name="clientID" [(ngModel)] = "boarding_pass.cedula_cliente">
         </div>
         <div class="form-group">
             <label for="calendarID">Vuelo cliente:</label>
-            <input type="string" id="calendarID" name="calendarID" >
+            <input type="string" id="calendarID" name="calendarID" [(ngModel)] = "boarding_pass.id_calendario">
         </div>
         <button type="submit" >Seleccionar Asiento</button>
     </form>

@@ -29,12 +29,6 @@ export class ReservationComponent{
     facturas:[],
   };
 
-  ngOnInit(){
-    this.client = this.data.client//updates the client with the saved in data
-    console.log('Prueba')
-    console.log(this.data.client)
-  }
-
   billpdf:billpdf = {//an intance of billpdf
     origen:'',
     destino:'',
@@ -44,12 +38,18 @@ export class ReservationComponent{
     tarjeta:'',
   }
 
+  ngOnInit(){
+    this.client = this.data.getData('client')//updates the client with the saved in data
+    this.billpdf = this.data.getData('billpdf')//updates the billpdf with the saved in data
+    console.log('Prueba')
+    console.log(this.client)
+  }
+
   onSubmit() {
-      // Redirigir al usuario a la página de inicio.
-      console.log(this.data.client)
-      this.data.billpdf.cedula = this.billpdf.cedula;//updates the data bill pdf for cedula
-      this.data.client = this.client;//updates the data with the saved in client
-      this.router.navigate(['/payment']);
+    // Redirigir al usuario a la página de inicio.
+    this.data.setData('billpdf', this.billpdf)//updates the data bill pdf for cedula
+    this.data.setData('client', this.client)//updates the data with the saved in client
+    this.router.navigate(['/payment']);
 
     }
   }
