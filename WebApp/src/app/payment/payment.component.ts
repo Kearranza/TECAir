@@ -56,9 +56,6 @@ export class PaymentComponent {
     cedula: 0,
     facturas: []
   }
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 
   calendar:Calendar = {//an intance of calendar
     id_calendario: '',
@@ -75,21 +72,14 @@ export class PaymentComponent {
   ngOnInit(){
     this.client = this.data.getData('client');
     this.billpdf = this.data.getData('billpdf');
-    this.charge.getClient();
-    this.charge.getAirport();
-    console.log(this.charge.airport)
     console.log(this.client);
     console.log(this.billpdf);
-    console.log(this.charge.client);
   }
 
   flightInfo = [ 'MEX', 'SJS', 200,123456];
   depatureDate = '01/01/2022';
   ticketNumber = 123456789;
   creditCardNumber = 123456789;
-=======
->>>>>>> f92b3b1b102ceef490bd35fcfbcda927a3b4f639
->>>>>>> Stashed changes
 
   //Generate PDF, which is automatically downloaded
   generatePDF() {
@@ -106,10 +96,10 @@ export class PaymentComponent {
     doc.text('Factura de Vuelo', 105, 50);
     doc.setFont('Roboto', 'sans-serif');
     doc.setFontSize(16);
-    doc.text('Fecha Salida:' /* + Josue: Aquí tiene que agregar la fecha de salida del vuelo*/, 20, 80);
-    doc.text('Número de Vuelo:' /* + Josue: Aquí tiene que agregar el nombre|número del vuelo*/, 20, 80);
-    doc.text('Cédula:' /* + Josue: Aquí tiene que agregar la cedula del cliente*/, 20, 110);
-    doc.text('Tarjeta:'/* + Josue: Aquí tiene que agregar el numero de tarjeta del cliente*/, 20, 120);
+    doc.text('Fecha Salida:' +this.billpdf.fecha, 20, 80);
+    doc.text('Número de Vuelo:' +this.data.getData('calendario'), 20, 80);
+    doc.text('Cédula:' +this.client.cedula, 20, 110);
+    doc.text('Tarjeta:'+this.credit_card.num_tarjeta, 20, 120);
   
     // Add the flight information to the PDF
     let y = 150;
@@ -122,9 +112,9 @@ export class PaymentComponent {
     doc.line(20, y, 190, y);
     y += 5;
 
-    doc.text(''/*Josue: Aquí tiene que poner el origen del vuelo */, 20, y);
-    doc.text(''/*Josue: Aquí tiene que poner el destino del vuelo */, 50, y);
-    doc.text('₡'/* + Josue: Aquí tiene que agregar el precio del vuelo */, 150, y);
+    doc.text(this.billpdf.origen/*Josue: Aquí tiene que poner el origen del vuelo */, 20, y);
+    doc.text(this.billpdf.destino/*Josue: Aquí tiene que poner el destino del vuelo */, 50, y);
+    doc.text('₡' +this.billpdf.precio, 150, y);
 
     y += 5;
     doc.line(20, y, 190, y);
@@ -145,7 +135,7 @@ export class PaymentComponent {
     console.log(this.billpost)
     this.PostF();//saves the new bill
     // Redirect the user to the page of the completed payment
-    //this.router.navigate(['/thanks']);
+    this.router.navigate(['/thanks']);
   }
 
   PostF(){//calls the service to save client

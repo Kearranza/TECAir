@@ -47,7 +47,6 @@ export class ReservationComponent{
 
   onSubmit() {
     // Redirigir al usuario a la página de inicio.
-    console.log(this.data.client)
     this.data.setData('billpdf', this.billpdf)//updates the data bill pdf for cedula
     this.data.setData('client', this.client)//updates the data with the saved in client
     this.router.navigate(['/payment']);
