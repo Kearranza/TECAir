@@ -13,6 +13,12 @@
         android:theme="@style/Theme.TecAir_app"
         tools:targetApi="31">
         <activity
+            android:name=".flights.getPayment"
+            android:exported="false" />
+        <activity
+            android:name=".flights.basicRegister"
+            android:exported="false" />
+        <activity
             android:name=".flights.viewFlights"
             android:exported="false" />
         <activity

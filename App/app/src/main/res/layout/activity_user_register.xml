@@ -26,97 +26,6 @@
                 android:layout_marginBottom="5dp"
                 android:src="@drawable/bg_view"
                 tools:ignore="ContentDescription" />
-
-            <EditText
-                android:id="@+id/Name"
-                android:layout_width="match_parent"
-                android:layout_height="59dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/text_box_bc"
-                android:hint="Nombre"
-                android:inputType="text"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp" />
-
-            <EditText
-                android:id="@+id/Lname"
-                android:layout_width="match_parent"
-                android:layout_height="59dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/text_box_bc"
-                android:hint="Apellido 1"
-                android:inputType="text"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp" />
-
-            <EditText
-                android:id="@+id/Lname2"
-                android:layout_width="match_parent"
-                android:layout_height="59dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/text_box_bc"
-                android:hint="Apellido 2"
-                android:inputType="text"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp" />
-
-            <EditText
-                android:id="@+id/user"
-                android:layout_width="match_parent"
-                android:layout_height="59dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/text_box_bc"
-                android:hint="Nombre de Usuario"
-                android:inputType="text"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp" />
-
-            <EditText
-                android:id="@+id/Correo"
-                android:layout_width="match_parent"
-                android:layout_height="59dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/text_box_bc"
-                android:hint="Correo"
-                android:inputType="textEmailAddress"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp" />
-
-            <EditText
-                android:id="@+id/Phone"
-                android:layout_width="match_parent"
-                android:layout_height="59dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/text_box_bc"
-                android:hint="Telefono"
-                android:inputType="number"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                tools:ignore="TextFields" />
-
-            <EditText
-                android:id="@+id/Password"
-                android:layout_width="match_parent"
-                android:layout_height="59dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/text_box_bc"
-                android:hint="Contraseña"
-                android:inputType="textPassword"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp" />
             <EditText
                 android:id="@+id/cedula"
                 android:layout_width="match_parent"
@@ -127,6 +36,18 @@
                 android:background="@drawable/text_box_bc"
                 android:hint="Cedula"
                 android:inputType="number"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp" />
+            <EditText
+                android:id="@+id/Password"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/text_box_bc"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp" />
             <LinearLayout
