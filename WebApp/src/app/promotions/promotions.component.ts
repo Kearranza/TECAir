@@ -1,19 +1,21 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ChargeThingsService } from '../charge-things.service';
+import { Display_promo } from '../Interfaces/displaypromo.interface';
 
 @Component({
   selector: 'app-promotions',
   templateUrl: './promotions.component.html',
   styleUrls: ['./promotions.component.css']
 })
+
 export class PromotionsComponent {
   
+  
 @ViewChild('flightContainer') flightContainer?: ElementRef;
-  realDiscount = 100;
 
   constructor(private charge:ChargeThingsService) { }
-
-  flights = this.charge.displaypromo;
+  
+  flights = [...this.charge.displaypromo];
 
   ngOnInit(): void {
     this.charge.getAirport();
