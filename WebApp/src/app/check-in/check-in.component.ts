@@ -52,6 +52,7 @@ export class CheckInComponent {
     if(this.charge.Bill.some(item => item.cliente === this.boarding_pass.cedula_cliente && this.charge.Bill.some(item => item.calendario == this.boarding_pass.id_calendario)))
     {//checks if there any bill that has asociated the cedula and the calendario to check in
       this.apiService.getDataECalendario(this.boarding_pass.id_calendario).subscribe(data => {
+        console.log(data)
         this.calendar = data;//Gets the calendario that has the calendario id value from the database
       }, error => {
         console.error('Error:', error);})

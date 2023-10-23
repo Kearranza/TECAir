@@ -6,12 +6,12 @@
         <div *ngFor="let i of [].constructor(repeatCount)">
             <div class="form-group">
                 <label for="clientID">Cédula cliente:</label>
-                <input type="number" id="clientID" name="clientID" >
+                <input type="number" id="clientID" name="clientID" [(ngModel)] = "baggage.cedula_cliente">
             </div>
 
             <div class="form-group">
                 <label for="weight">Peso (kg):</label>
-                <input type="number" id="weight" name="weight" >
+                <input type="number" id="weight" name="weight" [(ngModel)] = "baggage.peso">
             </div>
 
             <div *ngFor="let color of colors">
